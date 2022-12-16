@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Documents;
+use App\Http\Controllers\Finance;
 
 
 // \Artisan::call('route:clear');
@@ -22,7 +23,9 @@ Route::get('/adminDashboard',[Admin::class,'adminDashboard']);
 Route::get('/registrationForm',[Documents::class,'registrationForm']);
 Route::get('/docsList',[Documents::class,'docsList']);
 
-Route::get('/adminDashboardFinance',[Admin::class,'adminDashboardFinance']);
 Route::post('/addDoc',[Documents::class,'addDoc']);
 Route::get('/deleteDocs',[Documents::class,'deleteDocs']);
 Route::get('/getDocument',[Documents::class,'getDocument']);
+
+Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
+

@@ -27,8 +27,8 @@
 </head>
 <body>
 
-<div class="container-fluid">
-        <ul class="nav nav-tabs" id="nav-tabs">
+<div class="container-fluid px-0 mx-0">
+        <ul class="nav nav-tabs" id="nav-tabs" style="background-color:#3fa7ef;">
                 <li class="nav-item" id="adminDashboardHome">
                     <a class="nav-link" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                 </li>

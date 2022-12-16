@@ -1,12 +1,12 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container">
+<div class="container mt-2">
   <div class="row">
     <form action="{{url('/addDoc')}}" method="post" enctype="mutipart/form-data" >
       @csrf
        <div class="col-lg-6 p-2 d-flex justify-content-start">
-        <a href="tel:070007000" class="active">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
+        <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
        </div>
         <div class="col-lg-6 p-2 d-flex justify-content-end">
           <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 

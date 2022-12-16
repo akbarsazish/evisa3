@@ -3,12 +3,13 @@
 @import url(fontsans.css);
 
 body{
-    background-color: #ebeef8;
+  background-image: linear-gradient(#ffffff,#d6e5f0,#b5daf5);
+  font-size: 13px;
 }
 .anncounceMentBoard {
     box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
     border-radius:6px;
-    padding:10px;
+    padding:11px;
 }
 p.information {
     text-align: justify;
@@ -25,13 +26,15 @@ p.information {
     display: grid;
     grid-template-columns: auto auto;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 6px;
     box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
     border-radius: 6px;
+    min-height: 88px;
   }
   .like-item {
     font-size:10px;
     text-align: center;
+    margin-top: 22px;
   }
 
   .like {
@@ -47,17 +50,28 @@ p.information {
     margin-top: 100px;
   }
 
-
+.emtyaz {
+  width:100px;
+  height: 100px;
+  background-color: #0076df;
+  border-radius: 50%;
+  color:#fff;
+  padding:5px;
+}
   .speaker {
-    width: 33px;
-    height: 33px;
+    width: 44px;
+    height: 44px;
     text-align: center;
     padding: 2px;
     border-radius: 50%;
     background-color: red;
     color: #ffff;
+    margin: 11px;
   }
 
+  .confirmedDocs{
+    margin-bottom: 20px !important;
+  }
   .notConfirmedIcon {
     background-color: red;
     padding:1px 5px;
@@ -69,12 +83,18 @@ p.information {
     border-radius: 6px;
   }
 
-  .dashboardLine {
-    width: 100%;
-    height: 6px;
-    border-bottom: 5px solid gray;
-
-  }
+.registeredForVisa {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    align-self: center !important;
+    background-color: #0076df;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    margin: 0 auto;
+}
 
   .financeCard {
     box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
@@ -152,13 +172,20 @@ p.information {
   }
 
  #nav-tabs{
-    padding:8px;
     font-size: 14px;
   }
+
+.nav-item {
+   padding:6px;
+}
 
 .nav-item a  {
     color: #000;
 }
+.nav-tabs .nav-link{
+  border: none !important;
+}
+
 .nav-item:hover {
     color: #00b3bb;
     font-weight: bold;
@@ -171,15 +198,138 @@ p.information {
 
 
 .activeLinks{
-    background-color: #df4300 !important;
-    border-bottom: 2px solid #00b3bb;
+    background-color: #0076df !important;
     border-radius: 3px !important;
+    color: #fff;
 }
 
+a.activeLink {
+   text-decoration: none;
+   color: #3fa7ef;
+   font-size: 14px;
+}
 .docsTr {
     text-align: center;
 }
 
 .tableTrSelected{
     background-color: #00b3bb;
+}
+
+
+.counter {
+  color: #eb3b5a;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border-radius: 100%;
+  padding: 60px 20px 30px;
+  margin: 0 auto;
+  margin-top:10px;
+  position: relative;
+  z-index: 1;
+}
+
+.counter:before,
+.counter:after {
+  content: "";
+  background: #fff;
+  width: 88%;
+  height: 88%;
+  border-radius: 100%;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%)translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+}
+
+.counter:after {
+  background: linear-gradient(45deg, #B81242 49%, #D74A75 50%);
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  transform: translate(0);
+  top: 0;
+  left: 0;
+  z-index: -2;
+  clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+}
+
+.counter .counter-icon {
+  color: #fff;
+  background: linear-gradient(45deg, #B81242 49%, #D74A75 50%);
+  font-size: 22px;
+  line-height: 55px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.counter .counter-icon i.fa {
+  transform: rotateX(0deg);
+  transition: all 0.3s ease 0s;
+}
+
+.counter:hover .counter-icon i.fa {
+  transform: rotateX(360deg);
+}
+
+.counter h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 3px;
+}
+
+.counter .counter-value {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.counter.orange {
+  color: #F38631;
+}
+
+.counter.orange:after,
+.counter.orange .counter-icon {
+  background: linear-gradient(45deg, #F38631 49%, #F8A059 50%);
+}
+
+.counter.green {
+  color: #88BA1B;
+}
+
+.counter.green:after,
+.counter.green .counter-icon {
+  background: linear-gradient(45deg, #88BA1B 49%, #ACD352 50%);
+}
+
+.counter.blue {
+  color: #5DB3E4;
+}
+
+.counter.blue:after,
+.counter.blue .counter-icon {
+  background: linear-gradient(45deg, #5DB3E4 49%, #7EBEE1 50%);
+}
+
+@media screen and (max-width:990px) {
+  .counter {
+      margin-bottom: 40px;
+  }
+}
+
+.dashboardCard{
+  background-image: linear-gradient(to right, #ffffff,#3fa7ef,#3fa7ef);
+}
+
+.dashboardCard i {
+  color: #000 !important;
 }
