@@ -1,0 +1,185 @@
+@import url(normalize.css);
+@import url(reset.css);
+@import url(fontsans.css);
+
+body{
+    background-color: #ebeef8;
+}
+.anncounceMentBoard {
+    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    border-radius:6px;
+    padding:10px;
+}
+p.information {
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
+
+.contentRow{
+    padding: 20px;
+    background-color: #ffff;
+}
+
+.likeAndDislike{
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    border-radius: 6px;
+  }
+  .like-item {
+    font-size:10px;
+    text-align: center;
+  }
+
+  .like {
+    background-color:#00dfbb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 100px;
+  }
+  .dislike {
+    background-color:#df4300;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 100px;
+  }
+
+
+  .speaker {
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: red;
+    color: #ffff;
+  }
+
+  .notConfirmedIcon {
+    background-color: red;
+    padding:1px 5px;
+    border-radius: 6px;
+  }
+  .confirmedIcon {
+    background-color: green;
+    padding:1px 5px;
+    border-radius: 6px;
+  }
+
+  .dashboardLine {
+    width: 100%;
+    height: 6px;
+    border-bottom: 5px solid gray;
+
+  }
+
+  .financeCard {
+    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+
+  }
+
+  .financeReport, .moneyText,.countMoney{
+    display: block;
+  }
+
+.countMoney {
+    font-size: 22px;
+    font-weight: bold;
+    color: #df4300;
+}
+.countMoney sub {
+    vertical-align: sub;
+    font-size: 10px;
+  }
+
+  .registrationForm {
+    background-color: #fff;
+  }
+
+
+  :root {
+    --colorPrimaryNormal: #00b3bb;
+    --colorPrimaryDark: #00979f;
+    --colorPrimaryGlare: #00cdd7;
+    --colorPrimaryHalf: #80d9dd;
+    --colorPrimaryQuarter: #bfecee;
+    --colorPrimaryEighth: #dff5f7;
+    --colorPrimaryPale: #f3f5f7;
+    --colorPrimarySeparator: #f3f5f7;
+    --colorPrimaryOutline: #dff5f7;
+    --colorButtonNormal: #00b3bb;
+    --colorButtonHover: #00cdd7;
+    --colorLinkNormal: #00979f;
+    --colorLinkHover: #00cdd7;
+  }
+  
+  .upload_dropZone {
+    color: #0f3c4b;
+    background-color: var(--colorPrimaryPale, #c8dadf);
+    outline: 2px dashed var(--colorPrimaryHalf, #c1ddef);
+    outline-offset: -12px;
+    transition:
+      outline-offset 0.2s ease-out,
+      outline-color 0.3s ease-in-out,
+      background-color 0.2s ease-out;
+  }
+  .upload_dropZone.highlight {
+    outline-offset: -4px;
+    outline-color: var(--colorPrimaryNormal, #0576bd);
+    background-color: var(--colorPrimaryEighth, #c8dadf);
+  }
+  .upload_svg {
+    fill: var(--colorPrimaryNormal, #0576bd);
+  }
+  .btn-upload {
+    color: #fff;
+    background-color: var(--colorPrimaryNormal);
+  }
+  .btn-upload:hover,
+  .btn-upload:focus {
+    color: #fff;
+    background-color: var(--colorPrimaryGlare);
+  }
+  .upload_img {
+    width: calc(33.333% - (2rem / 3));
+    object-fit: contain;
+  }
+
+ #nav-tabs{
+    padding:8px;
+    font-size: 14px;
+  }
+
+.nav-item a  {
+    color: #000;
+}
+.nav-item:hover {
+    color: #00b3bb;
+    font-weight: bold;
+    border-radius: 0;
+    border-bottom: 1px solid #00b3bb;
+}
+.nav-item a i {
+    margin: 6px;
+}
+
+
+.activeLinks{
+    background-color: #df4300 !important;
+    border-bottom: 2px solid #00b3bb;
+    border-radius: 3px !important;
+}
+
+.docsTr {
+    text-align: center;
+}
+
+.tableTrSelected{
+    background-color: #00b3bb;
+}
