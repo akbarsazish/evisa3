@@ -85,8 +85,67 @@
           روند رو به رشد مراجعین به سرکنسولگری جمهوری اسلامی ایران و تشکیل صف های طولانی به منظور اخذ روادید از یک سو و ارائه خدمات شایسته در کمترین زمان ممکن به اهالی محترم ولایات هرات، فراه، غور و بادغیس از سوی دیگر باعث گردید تا این نمایندگی با بهره مندی از ظرفیت های ایجاد شده در جهت تقویت کیفیت ارائه خدمات کنسولی و همچنین کاهش مراجعین به سرکنسولگری جمهوری اسلامی ایران و پیشگیری از تمرکز و تجمیع درخواست کنندگان روادید در یک محل و گسترش آنان در سطح شهر با استفاده از سامانه ای که بدین منظور طراحی گردیده است روی آورد. بدین منظور کلیه اشخاص حقیقی و حقوقی مجاز در ارائه خدمات با موضوعات پیش گفته قادرخواهند بود بر اساس قوانین و مقررات تعین و تائید شده از سوی سرکنسولگری جمهوری اسلامی ایران مندرج در سامانه کاهش مراجعین به سرکنسولگری جمهوری اسلامی ایران در هرات ثبت نام نموده و از میان سه مرکز تعیین شده نزدیکترین آن را به دفتر خویش انتخواب نمایند.
           </p>
       </div>
-  </div>
-</div>
+  </div> <hr>
+    <div class="row">
+        <h3> گزارشات عمومی </h3>
+    </div>
+    <div class="row bg-white p-4">
+            <div class="col-md-2 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="fa fa-group"></i>
+                    </div>
+                    <h3>  شعبات   </h3>
+                    <span class="counter-value">23</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter orange">
+                    <div class="counter-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <h3> تایید شده ها </h3>
+                    <span class="counter-value">3423</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter blue">
+                    <div class="counter-icon">
+                        <i class="fa fa-toggle-on"></i>
+                    </div>
+                    <h3> معلق ها </h3>
+                    <span class="counter-value">234</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter blue">
+                    <div class="counter-icon">
+                        <i class="fa fa-toggle-off"></i>
+                    </div>
+                    <h3> رد شده ها </h3>
+                    <span class="counter-value">12</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter green">
+                    <div class="counter-icon">
+                        <i class="fa fa-sign-out"></i>
+                    </div>
+                    <h3> قرضدار </h3>
+                    <span class="counter-value"> 20000 </span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter green">
+                    <div class="counter-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3> جمع کل پول </h3>
+                    <span class="counter-value">800000000</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
    
 @endsection

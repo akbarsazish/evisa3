@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12 ">
-            <table class="table table-bordered border-info select-highlight">
+            <table class="table table-bordered border-info select-highlight evisaDataTable">
               <thead>
                     <tr class="docsTr">
                         <th> ردیف </th>

@@ -20,6 +20,6 @@ Route::get('/loginAdmin',[Admin::class,'login']);
 Route::get('/adminDashboard',[Admin::class,'adminDashboard']);
 
 Route::get('/registrationForm',[Documents::class,'registrationForm']);
-Route::get('/docsList',[Admin::class,'docsList']);
+Route::get('/docsList',[Documents::class,'docsList']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
