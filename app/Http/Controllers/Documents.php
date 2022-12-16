@@ -93,8 +93,4 @@ class Documents extends Controller
         $countries=DB::table("country")->get();
         return Response::json([$document[0],$countries]);
     }
-
-    public function docsList(Request $request){
-        return view("documents.docsList");
-    }
 }
