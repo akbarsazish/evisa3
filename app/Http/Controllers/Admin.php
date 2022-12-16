@@ -21,9 +21,7 @@ class Admin extends Controller{
         return view("admin.dashboard");
     }
 
-    public function registrationForm(Request $request){
-        return view("admin.registrationForm");
-    }
+   
 
     public function docsList(Request $request){
         return view("admin.docsList");
