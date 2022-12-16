@@ -15,24 +15,25 @@
           <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="likeAndDislike">
-                    <div class="like-item pt-2"> 
+                    <div class="like-item"> 
                         <span class="like"> <i class="fa fa-thumbs-up" aria-hidden="true" style="color:#fff" ></i> </span>
                     </div>
                     <div class="like-item">
-                        <span>7</span>
+                        <span class="emtyaz">227</span>
+                        <br>
                         <br>
                         <span class="etebar"> اعتبار مثبت </span>
                     </div>
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
-
               <div class="likeAndDislike">
-                    <div class="like-item pt-2"> 
+                    <div class="like-item"> 
                         <span class="dislike"> <i class="fa fa-thumbs-down" aria-hidden="true" style="color:#fff" ></i> </span>
                     </div>
                     <div class="like-item">
-                        <span>7</span>
+                        <span class="emtyaz">104</span>
+                        <br>
                         <br>
                         <span class="etebar"> اعتبار منفی </span>
                     </div>
@@ -44,21 +45,16 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="likeAndDislike">
                     <div class="like-item text-start">
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> <span class="notConfirmedIcon"> <i class="fa fa-send" aria-hidden="true" style="color:#fff"></i> </span> 
-                        <br>
-                        <span class="etebar"> 44 </span>
-                        <div class="dashboardLine"></div>
+                        <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">   <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
+                        <div class="registeredForVisa mt-3"> 53 </div>
                     </div>
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
-
               <div class="likeAndDislike">
-                 <div class="like-item text-start ">
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> <span class="confirmedIcon"> <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
-                        <br>
-                        <span class="etebar"> 44 </span>
-                        <div class="dashboardLine"></div>
+                   <div class="like-item">
+                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> &nbsp; &nbsp;  <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
+                        <span class="registeredForVisa mt-3">  82 </span>
                     </div>
                   </div>
               </div>
@@ -74,14 +70,14 @@
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 anncounceMentBoard">
           <div class="row">
-            <div class="col-lg-6 p-2 d-flex justify-content-start">
-              <h3 class="title p-2"> تابلوی اعلانات  </h3>
+            <div class="col-lg-6 d-flex justify-content-start">
+              <h3 class="title mt-4"> تابلوی اعلانات  </h3>
             </div>
               <div class="col-lg-6 p-2 d-flex justify-content-end">
-                 <span class="speaker p-2"> <i class="fa fa-speaker fa-lg"></i> </span>
+                 <span class="speaker p-2"> <i class="fa fa-bullhorn fa-lg"  aria-hidden="true"></i> </span>
               </div>
           </div>
-         <p class="information">
+           <p class="information p-3">
           روند رو به رشد مراجعین به سرکنسولگری جمهوری اسلامی ایران و تشکیل صف های طولانی به منظور اخذ روادید از یک سو و ارائه خدمات شایسته در کمترین زمان ممکن به اهالی محترم ولایات هرات، فراه، غور و بادغیس از سوی دیگر باعث گردید تا این نمایندگی با بهره مندی از ظرفیت های ایجاد شده در جهت تقویت کیفیت ارائه خدمات کنسولی و همچنین کاهش مراجعین به سرکنسولگری جمهوری اسلامی ایران و پیشگیری از تمرکز و تجمیع درخواست کنندگان روادید در یک محل و گسترش آنان در سطح شهر با استفاده از سامانه ای که بدین منظور طراحی گردیده است روی آورد. بدین منظور کلیه اشخاص حقیقی و حقوقی مجاز در ارائه خدمات با موضوعات پیش گفته قادرخواهند بود بر اساس قوانین و مقررات تعین و تائید شده از سوی سرکنسولگری جمهوری اسلامی ایران مندرج در سامانه کاهش مراجعین به سرکنسولگری جمهوری اسلامی ایران در هرات ثبت نام نموده و از میان سه مرکز تعیین شده نزدیکترین آن را به دفتر خویش انتخواب نمایند.
           </p>
       </div>
