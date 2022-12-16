@@ -21,9 +21,4 @@ class Admin extends Controller{
         return view("admin.dashboard");
     }
 
-   
-
-    public function docsList(Request $request){
-        return view("admin.docsList");
-    }
 }
