@@ -1,13 +1,11 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container">
-    <div class="row mt-4">
-        <h6 class="title"> لیست اسناد  </h6>
+<div class="container bg-white mt-2 rounded-2">
+    <div class="row mt-1">
+        <h4 class="title"> لیست اسناد  </h4>
     </div>
-     <div class="row mt-2">
-        <div class="col-lg-8 col-md-8 col-sm-12">
-            <div class="row">
+      <div class="row mt-2">
                 <div class="col-lg-3">
                         <div class="mb-3">
                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
@@ -19,16 +17,15 @@
                     </div>
                 </div>
            
-                <div class="col-lg-9">
+                <div class="col-lg-9 text-end">
                      <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editDocsList"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                      <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
                 </div>
-            </div>
         </div>
-    </div>
+
     <div class="row">
         <div class="col-lg-12 ">
-            <table class="table table-bordered border-info select-highlight evisaDataTable">
+            <table class="table table-bordered select-highlight evisaDataTable">
               <thead>
                     <tr class="docsTr">
                         <th> ردیف </th>

@@ -1,10 +1,10 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container">
+<div class="container mt-2">
   <div class="row">
        <div class="col-lg-6 p-2 d-flex justify-content-start">
-        <a href="tel:070007000" class="active">   <i class="fa fa-home fa-lg"></i> </a>
+            <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
        </div>
         <div class="col-lg-6 p-2 d-flex justify-content-end">
           <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 
