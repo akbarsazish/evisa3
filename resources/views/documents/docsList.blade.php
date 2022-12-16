@@ -17,14 +17,16 @@
                     </div>
                 </div>
            
+
                 <div class="col-lg-9 text-end">
-                     <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editDocsList"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                     <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                      <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
                 </div>
         </div>
 
     <div class="row">
         <div class="col-lg-12 ">
+            <input type="hidden" id="selectedDocID">
             <table class="table table-bordered select-highlight evisaDataTable">
               <thead>
                     <tr class="docsTr">
@@ -34,57 +36,39 @@
                         <th>نام پدر </th>
                         <th>  تاریخ تولد </th>
                         <th>  محل تولد </th>
-                        <th>  تذکره  </th>
                         <th> شماره پاسپورت  </th>
                         <th>  انقضا پاسپورت   </th>
                         <th>  شماره تماس </th>
+                        <th>  شماره تماس فامیل</th>
                         <th> کد رهگیری  </th>
                         <th>  آدرس  </th>
                         <th> تاریخ مراجعه  </th>
                         <th> انتخاب </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="docListBody">
+                    @foreach($documents as $doc)
                     <tr class="docsTr"  onclick="selectTableTr(this)">
-                            <th>1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
+                            <th>{{$loop->iteration}}</th>
+                            <td>{{$doc->Name}}</td>
+                            <td>{{$doc->LastName}}</td>
+                            <td>{{$doc->FatherName}}</td>
+                            <td>{{$doc->BirthDate}}</td>
+                            <td>{{$doc->BirthPlace}}</td>
+                            <td>{{$doc->PassNo}}</td>
+                            <td>{{$doc->PassEndDate}}</td>
+                            <td>{{$doc->CellPhone}}</td>
+                            <td>{{$doc->OtherPhone}}</td>
+                            <td>{{$doc->RefCode}}</td>
+                            <td>{{$doc->UserAddress}}</td>
+                            <td>{{$doc->referDate}}</td>
                             <td>
                                 <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="{{$doc->DocSn}}">
                                 </span>
                             </td>
                     </tr>
-                    <tr class="docsTr"  onclick="selectTableTr(this)">
-                            <th>2</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>
-                                <span class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                </span>
-                            </td>
-                    </tr>
+                    @endforeach
                    
                 </tbody>
              </table>
@@ -104,7 +88,7 @@
                         <h5 class="modal-title" id="exampleModalLabel"> افزودن کامنت </h5>
                     </div>
                          <div class="modal-body">
-                         <form action="" >
+                         <form action="{{url('/editDoc')}}" method="Post" enctype="multipart/form-data" >
                           <div class="row mt-3"> 
                             
                             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -173,19 +157,19 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
-                                                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="P01918533">
+                                                <input type="text" class="form-control form-control-sm" id="PassNo" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام </label>
-                                                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="احمد">
+                                                <input type="text" class="form-control form-control-sm" id="Name" placeholder="احمد">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
-                                                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="احمدی">
+                                                <input type="text" class="form-control form-control-sm" id="LastName" placeholder="احمدی">
                                         </div>
                                     </div>
                                 </div>
@@ -194,19 +178,19 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
-                                                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="P01918533">
+                                                <input type="text" class="form-control form-control-sm" id="FatherName" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                                                <input type="date" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="">
+                                                <input type="date" class="form-control form-control-sm" id="BirthDate" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> محل تولد  </label>
-                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="BirthPlace">
                                                     <option selected> افغانستان</option>
                                                     <option value="1">ایران</option>
                                                     <option value="2">پاکستان</option>
@@ -220,22 +204,20 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
-                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                    <option selected> مرد </option>
-                                                    <option value="1"> زن </option>
+                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="sex">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                                                <input type="date" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="P01918533">
+                                                <input type="date" class="form-control form-control-sm" id="PassEndDate"  placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
-                                                <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="+93 706909063">
+                                                <input type="number" class="form-control form-control-sm" id="CellPhone" placeholder="+93 706909063">
                                         </div>
                                     </div>
                                 </div>
@@ -244,20 +226,20 @@
                                         <div class="mb-3">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
-                                                <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="+93 706909063">
+                                                <input type="number" class="form-control form-control-sm" id="OtherPhone" placeholder="+93 706909063">
                                         </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                                                <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="P01918533">
+                                                <input type="number" class="form-control form-control-sm" id="RefCode" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
-                                                <input type="date" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="+93 706909063">
+                                                <input type="date" class="form-control form-control-sm" id="ReferDate" placeholder="+93 706909063">
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +247,7 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                                                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="آدرس">
+                                                <input type="text" class="form-control form-control-sm" id="PersonAddress" placeholder="آدرس">
                                         </div>
                                     </div>
                                 </div>
