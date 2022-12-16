@@ -5,6 +5,7 @@
 body{
   background-image: linear-gradient(#ffffff,#d6e5f0,#b5daf5);
   font-size: 13px;
+ min-height: 100vh;
 }
 .anncounceMentBoard {
     box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
@@ -332,4 +333,11 @@ a.activeLink {
 
 .dashboardCard i {
   color: #000 !important;
+}
+
+@media (max-width: 991px) {
+  .tab-content>.tab-pane {
+    display: block;
+    opacity: 1;
+  }
 }

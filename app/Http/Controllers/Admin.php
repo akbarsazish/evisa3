@@ -21,4 +21,8 @@ class Admin extends Controller{
         return view("admin.dashboard");
     }
 
+    public function siteSetting(Request $request){
+        return view("admin.siteSetting");
+    }
+
 }

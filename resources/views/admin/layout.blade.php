@@ -41,6 +41,9 @@
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
                 </li>
+                <li class="nav-item" id="adminDashboardFinace">
+                    <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
+                </li>
         </ul>
 </div>
     

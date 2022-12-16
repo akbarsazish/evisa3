@@ -23,3 +23,4 @@ Route::get('/registrationForm',[Documents::class,'registrationForm']);
 Route::get('/docsList',[Documents::class,'docsList']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
+Route::get('/siteSetting',[Admin::class,'siteSetting']);
