@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class Finance extends Controller
 {
-    //
+  public function adminDashboardFinance(){
+    return view("finance.reportFinance");
+  }
 }
