@@ -37,3 +37,6 @@ Route::get('/getBranch',[Branch::class,'getBranch']);
 Route::get('/deleteBranch',[Branch::class,'deleteBranch']);
 Route::post('/addBranch',[Branch::class,'addBranch']);
 Route::post('/editBranch',[Branch::class,'editBranch']);
+
+Route::get('/addingAdmin',[Admin::class,'addingAdmin']);
+Route::get('/adminList',[Admin::class,'adminList']);

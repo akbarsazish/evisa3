@@ -50,6 +50,12 @@
                 <li class="nav-item" id="branchList">
                     <a class="nav-link" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شعبات </a>
                 </li>
+                <li class="nav-item" id="addingAdmin">
+                    <a class="nav-link" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
+                </li>
+                <li class="nav-item" id="adminList">
+                    <a class="nav-link" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
+                </li>
         </ul>
 </div>
     
