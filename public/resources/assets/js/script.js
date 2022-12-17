@@ -121,6 +121,7 @@ $("#deleteDocumentBtn").on("click", ()=>{
           $("#RefCode").val(resp.RefCode);
           $("#ReferDate").val(resp.referDate);
           $("#PersonAddress").val(resp.UserAddress);
+          $("#DocId").val(resp.DocSn);
         },
         error:function(error){
 
