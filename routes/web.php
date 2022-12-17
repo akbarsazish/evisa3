@@ -27,5 +27,6 @@ Route::get('/siteSetting',[Admin::class,'siteSetting']);
 Route::post('/addDoc',[Documents::class,'addDoc']);
 Route::get('/deleteDocs',[Documents::class,'deleteDocs']);
 Route::get('/getDocument',[Documents::class,'getDocument']);
+Route::post('/editDoc',[Documents::class,'editDoc']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);

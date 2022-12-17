@@ -75,10 +75,6 @@
         </div>
     </div>
     </div>
-
-
-
-    
   <!--- modal for editing docs list -->
   <div class="modal" id="editDocsList" data-backdrop="static" data-keyboard="false" aria-labelledby="staticBackdropLabel">
             <div class="modal-dialog modal-dialog-scrollable modal-lg ">
@@ -89,6 +85,7 @@
                     </div>
                          <div class="modal-body">
                          <form action="{{url('/editDoc')}}" method="Post" enctype="multipart/form-data" >
+                            @csrf
                           <div class="row mt-3"> 
                             
                             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -98,7 +95,7 @@
                                                 <use href="#icon-imageUpload"></use>
                                             </svg>
                                             <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
-                                            <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+                                            <input id="upload_image_background" name="passImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
                                             <label class="btn btn-upload mb-3" for="upload_image_background">  پاسپورت </label>
                                         <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                                     </fieldset>
@@ -119,7 +116,7 @@
                                                 <use href="#icon-imageUpload"></use>
                                             </svg>
                                             <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
-                                            <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+                                            <input id="upload_image_background" name="personImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
                                             <label class="btn btn-upload btn-sm mb-2" for="upload_image_background">  عکس شخص </label>
                                         <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                                     </fieldset>
@@ -138,7 +135,7 @@
                                                 <use href="#icon-imageUpload"></use>
                                             </svg>
                                             <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
-                                            <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+                                            <input id="upload_image_background" name="tazkiraImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
                                             <label class="btn btn-upload btn-sm mb-2" for="upload_image_background"> تذکره </label>
                                         <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                                     </fieldset>
@@ -156,20 +153,21 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="mb-3">
+                                            <input type="hidden" name="docID" id="DocId">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
-                                                <input type="text" class="form-control form-control-sm" id="PassNo" placeholder="P01918533">
+                                                <input type="text" class="form-control form-control-sm" name="passNo" id="PassNo" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام </label>
-                                                <input type="text" class="form-control form-control-sm" id="Name" placeholder="احمد">
+                                                <input type="text" class="form-control form-control-sm" name="name" id="Name" placeholder="احمد">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
-                                                <input type="text" class="form-control form-control-sm" id="LastName" placeholder="احمدی">
+                                                <input type="text" class="form-control form-control-sm" name="lastName" id="LastName" placeholder="احمدی">
                                         </div>
                                     </div>
                                 </div>
@@ -178,19 +176,19 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
-                                                <input type="text" class="form-control form-control-sm" id="FatherName" placeholder="P01918533">
+                                                <input type="text" class="form-control form-control-sm" name="fatherName" id="FatherName" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                                                <input type="date" class="form-control form-control-sm" id="BirthDate" placeholder="">
+                                                <input type="date" class="form-control form-control-sm" name="birthDate" id="BirthDate" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> محل تولد  </label>
-                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="BirthPlace">
+                                                <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example" id="BirthPlace">
                                                     <option selected> افغانستان</option>
                                                     <option value="1">ایران</option>
                                                     <option value="2">پاکستان</option>
@@ -204,20 +202,20 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
-                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="sex">
+                                                <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" id="sex">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                                                <input type="date" class="form-control form-control-sm" id="PassEndDate"  placeholder="P01918533">
+                                                <input type="date" class="form-control form-control-sm" name="passEndDate" id="PassEndDate"  placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
-                                                <input type="number" class="form-control form-control-sm" id="CellPhone" placeholder="+93 706909063">
+                                                <input type="number" class="form-control form-control-sm" name="cellPhone" id="CellPhone" placeholder="+93 706909063">
                                         </div>
                                     </div>
                                 </div>
@@ -226,20 +224,20 @@
                                         <div class="mb-3">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
-                                                <input type="number" class="form-control form-control-sm" id="OtherPhone" placeholder="+93 706909063">
+                                                <input type="number" class="form-control form-control-sm" name="otherPhone" id="OtherPhone" placeholder="+93 706909063">
                                         </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                                                <input type="number" class="form-control form-control-sm" id="RefCode" placeholder="P01918533">
+                                                <input type="number" class="form-control form-control-sm" name="refCode" id="RefCode" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
-                                                <input type="date" class="form-control form-control-sm" id="ReferDate" placeholder="+93 706909063">
+                                                <input type="date" class="form-control form-control-sm" name="referDate" id="ReferDate" placeholder="+93 706909063">
                                         </div>
                                     </div>
                                 </div>
@@ -247,12 +245,11 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                                                <input type="text" class="form-control form-control-sm" id="PersonAddress" placeholder="آدرس">
+                                                <input type="text" class="form-control form-control-sm" name="personAddress" id="PersonAddress" placeholder="آدرس">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </form>
                         </div>
                         
                         </div>
