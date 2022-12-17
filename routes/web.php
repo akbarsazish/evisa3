@@ -29,3 +29,5 @@ Route::get('/deleteDocs',[Documents::class,'deleteDocs']);
 Route::get('/getDocument',[Documents::class,'getDocument']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
+Route::get('/branchList',[Admin::class,'branchList']);
+Route::get('/addingBranch',[Admin::class,'addingBranch']);

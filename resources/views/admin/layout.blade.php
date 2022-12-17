@@ -33,7 +33,7 @@
                     <a class="nav-link" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                 </li>
                 <li class="nav-item" id="adminDashboardForm">
-                    <a class="nav-link" href="{{url('registrationForm')}}"> <i class="fa fa-list fa-lg" aria-hidden="true"></i> فورم ثبت نام    </a>
+                    <a class="nav-link" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
                 </li>
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
@@ -41,8 +41,14 @@
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
                 </li>
-                <li class="nav-item" id="adminDashboardFinace">
+                <li class="nav-item" id="siteSetting">
                     <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
+                </li>
+                <li class="nav-item" id="addingBranch">
+                    <a class="nav-link" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شعبه </a>
+                </li>
+                <li class="nav-item" id="branchList">
+                    <a class="nav-link" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شعبات </a>
                 </li>
         </ul>
 </div>
@@ -70,16 +76,36 @@
 		$("#adminDashboardHome").addClass("activeLinks");
         $("#adminDashboardForm").removeClass("activeLinks");
         $("#adminDashboardFinace").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+        $("#addingBranch").removeClass("activeLinks");
 	}
     if (currentUrl == '\/registrationForm') {
 		$("#adminDashboardForm").addClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
         $("#adminDashboardFinace").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+        $("#addingBranch").removeClass("activeLinks");
 	}
     if (currentUrl == '\/adminDashboardFinance') {
 		$("#adminDashboardFinace").addClass("activeLinks");
         $("#adminDashboardForm").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
+        $("#addingBranch").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/siteSetting') {
+		$("#siteSetting").addClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#addingBranch").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/addingBranch') {
+		$("#addingBranch").addClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
 	}
      </script>
 </body>
