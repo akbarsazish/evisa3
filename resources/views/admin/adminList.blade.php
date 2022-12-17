@@ -9,8 +9,8 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
-                    <button type="button" class="btn btn-sm btn-warning" id="" data-bs-target="#editingUser" data-bs-toggle="modal"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-danger" id="deletingUser"> حذف <i class="fa fa-trash"></i> </button>
+                <button type="button" class="btn btn-sm btn-warning" id="" data-bs-target="#editingUser" data-bs-toggle="modal"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                <button type="button" class="btn btn-sm btn-danger" id="deletingUser"> حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
 
