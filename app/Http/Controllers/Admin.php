@@ -34,4 +34,12 @@ class Admin extends Controller{
         return view("admin.addingBranch");
     }
 
+    public function addingAdmin(Request $request){
+        return view("admin.addingAdmin");
+    }
+
+    public function adminList(Request $request){
+        return view("admin.adminList");
+    }
+
 }

@@ -31,4 +31,8 @@ Route::post('/editDoc',[Documents::class,'editDoc']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
 Route::get('/branchList',[Admin::class,'branchList']);
+
 Route::get('/addingBranch',[Admin::class,'addingBranch']);
+
+Route::get('/addingAdmin',[Admin::class,'addingAdmin']);
+Route::get('/adminList',[Admin::class,'adminList']);
