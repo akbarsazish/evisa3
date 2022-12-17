@@ -40,3 +40,7 @@ Route::post('/editBranch',[Branch::class,'editBranch']);
 
 Route::get('/addingAdmin',[Admin::class,'addingAdmin']);
 Route::get('/adminList',[Admin::class,'adminList']);
+Route::post('/addAdmin',[Admin::class,'addAdmin']);
+Route::get('/getAdmin',[Admin::class,'getAdmin']);
+Route::post('/editAdmin',[Admin::class,'editAdmin']);
+Route::get('/deleteAdmin',[Admin::class,'deleteAdmin']);

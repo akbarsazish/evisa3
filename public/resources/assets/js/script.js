@@ -12,11 +12,118 @@ function selectTableTr(element) {
     if($("#selectedBranchID")){
         $("#selectedBranchID").val($(input).val());
     }
+    
+    if($("#selectedAdminID")){
+        $("#selectedAdminID").val($(input).val());
+    }
 
     $('.select-highlight tr').removeClass('tableTrSelected');
     $(element).addClass('tableTrSelected');
     
     };
+
+$("#editAdminBtn").on("click",()=>{
+    $.ajax({
+        type: "get",
+        url: baseUrl + "/getAdmin",
+        data: {
+            _token: "{{ csrf_token() }}",
+            adminID: $("#selectedAdminID").val()
+        },
+        dataType: "json",
+        success: function(resp) {
+            $("#AdminID").val(resp[0].AdminSn);
+            $("#name").val(resp[0].Name);
+            $("#username").val(resp[0].UserName);
+            $("#password").val(resp[0].Password);
+            $("#address").val(resp[0].Address);
+            $("#cellPhone").val(resp[0].CellPhone);
+            $("#otherPhone").val(resp[0].OtherPhone);
+            $("#gender").empty();
+            if(resp[0].Gender==1){
+                $("#gender").append(`
+                <option selected value="1">مرد</option>
+                <option value="2">زن </option>`); 
+            }else{
+                $("#gender").append(`
+                <option value="1">مرد</option>
+                <option selected value="2">زن </option>`); 
+            }
+            $("#adminType").empty();
+            if(resp[0].AdminType==1){
+                $("#adminType").append(`
+                <option selected value="1">ادمین </option>
+                <option value="2"> کارمند </option>`);
+            }else{
+                $("#adminType").append(`
+                <option  value="1">ادمین </option>
+                <option selected value="2"> کارمند </option>`);
+            }
+
+        },
+        error:function(error){
+
+        }
+    });
+
+    $("#editingUser").modal("show");
+
+});
+
+$("#deleteAdminBtn").on("click",()=>{
+    swal({
+        title: "خطا!",
+        text: "آیا میخواهید حذف گردد",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            type: "get",
+            url: baseUrl + "/deleteAdmin",
+            data: {
+                _token: "{{ csrf_token() }}",
+                adminID: $("#selectedAdminID").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+              swal("موفقانه حذف گردید", {
+                icon: "success",
+              });
+    
+                //
+                $("#adminListBody").empty();
+                resp.forEach((element,index) => {
+                  $("#adminListBody").append(`
+                  <tr class="docsTr"  onclick="selectTableTr(this)">
+                  <td>`+(index+1)+`</td>
+                  <td>`+element.Name+`</td>
+                  <td>`+element.CellPhone+`</td>
+                  <td>`+element.OtherPhone+`</td>
+                  <td>`+element.AdminType+`</td>
+                  <td>`+element.Address+`</td>
+                  <td>
+                      <span class="form-check">
+                          <input class="form-check-input " type="radio" name="" id="" value="`+element.AdminSn+`">
+                      </span>
+                  </td>
+              </tr>
+                  `);
+
+                });
+            },
+            error: function(msg) {
+              alert("data resp errors");
+            }
+        });
+          
+        } else {
+          swal("منصرف شدید");
+        }
+      });
+});
 
 $("#deleteBranche").on("click",()=>{
     swal({
