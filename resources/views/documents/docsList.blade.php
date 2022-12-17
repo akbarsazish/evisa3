@@ -6,22 +6,20 @@
         <h4 class="title"> لیست اسناد  </h4>
     </div>
       <div class="row mt-2">
-                <div class="col-lg-3">
-                        <div class="mb-3">
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected> فلتر اسناد </option>
-                            <option value="1"> تایید شده </option>
-                            <option value="1">معلق </option>
-                            <option value="1"> رد شده </option>
-                        </select>
-                    </div>
+            <div class="col-lg-3">
+                    <div class="mb-3">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected> فلتر اسناد </option>
+                        <option value="1"> تایید شده </option>
+                        <option value="1">معلق </option>
+                        <option value="1"> رد شده </option>
+                    </select>
                 </div>
-           
-
-                <div class="col-lg-9 text-end">
-                     <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                     <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
-                </div>
+            </div>
+            <div class="col-lg-9 text-end">
+                    <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
+            </div>
         </div>
 
     <div class="row">
@@ -244,8 +242,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                                                <input type="text" class="form-control form-control-sm" name="personAddress" id="PersonAddress" placeholder="آدرس">
+                                                <label for="exampleFormControlInput1" class="form-label">آدرس</label>
+                                                <input type="text" class="form-control form-control-sm" name="userAddress" id="PersonAddress" placeholder="آدرس">
                                         </div>
                                     </div>
                                 </div>

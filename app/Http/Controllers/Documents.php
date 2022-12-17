@@ -96,7 +96,6 @@ class Documents extends Controller
     public function editDoc(Request $request)
     {
        //گرفتن داده ها
-       
        $tazkiraImg=$request->file("tazkiraImage");
        $personImg=$request->file("personImage");
        $passImg=$request->file("passImage");
