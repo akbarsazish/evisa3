@@ -25,4 +25,13 @@ class Admin extends Controller{
         return view("admin.siteSetting");
     }
 
+    public function branchList(Request $request){
+        return view("admin.branchList");
+    }
+
+
+    public function addingBranch(Request $request){
+        return view("admin.addingBranch");
+    }
+
 }
