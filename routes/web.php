@@ -4,6 +4,7 @@ use App\Http\Controllers\Home;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Documents;
 use App\Http\Controllers\Finance;
+use App\Http\Controllers\Branch;
 
 
 // \Artisan::call('route:clear');
@@ -11,7 +12,7 @@ use App\Http\Controllers\Finance;
 // \Artisan::call('optimize');
 
 Route::get('/loginAdmin',[Admin::class,'loginAdmin']);
-Route::post('/checkAdmin',[Admin::class,'checkAdmin']);
+Route::post('/checkBranch',[Branch::class,'checkBranch']);
 
 Route::get('/',[Home::class,'index']);
 
@@ -30,5 +31,9 @@ Route::get('/getDocument',[Documents::class,'getDocument']);
 Route::post('/editDoc',[Documents::class,'editDoc']);
 
 Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
-Route::get('/branchList',[Admin::class,'branchList']);
-Route::get('/addingBranch',[Admin::class,'addingBranch']);
+Route::get('/branchList',[Branch::class,'branchList']);
+Route::get('/addingBranch',[Branch::class,'addingBranch']);
+Route::get('/getBranch',[Branch::class,'getBranch']);
+Route::get('/deleteBranch',[Branch::class,'deleteBranch']);
+Route::post('/addBranch',[Branch::class,'addBranch']);
+Route::post('/editBranch',[Branch::class,'editBranch']);

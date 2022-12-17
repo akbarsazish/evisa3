@@ -4,12 +4,94 @@ var myVar;
 
 function selectTableTr(element) {
     let input = $(element).find('input:radio').prop("checked", true);
-    $("#selectedDocID").val($(input).val());
+
+    if($("#selectedDocID")){
+        $("#selectedDocID").val($(input).val());
+    }
+
+    if($("#selectedBranchID")){
+        $("#selectedBranchID").val($(input).val());
+    }
+
     $('.select-highlight tr').removeClass('tableTrSelected');
     $(element).addClass('tableTrSelected');
     
     };
+
+$("#deleteBranche").on("click",()=>{
+    swal({
+        title: "خطا!",
+        text: "آیا میخواهید حذف گردد",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            type: "get",
+            url: baseUrl + "/deleteBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#selectedBranchID").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+              swal("موفقانه حذف گردید", {
+                icon: "success",
+              });
     
+                //
+                $("#branchListBody").empty();
+                resp.forEach((element,index) => {
+                  $("#branchListBody").append(`
+                  <tr class="docsTr"  onclick="selectTableTr(this)">
+                  <td>`+(index+1)+`</td>
+                  <td>`+element.Name+`</td>
+                  <td>`+element.BranchCode+`</td>
+                  <td>`+element.Address+`</td>
+                  <td>
+                      <span class="form-check">
+                          <input class="form-check-input " type="radio" name="branchId" id="" value="`+element.BranchSn+`">
+                      </span>
+                  </td>
+           </tr>`);
+
+                });
+            },
+            error: function(msg) {
+              alert("data resp errors");
+            }
+        });
+          
+        } else {
+          swal("منصرف شدید");
+        }
+      });
+});
+
+    $("#editBranchBtn").on("click",()=>{
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/getBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#selectedBranchID").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                $("#editBranchList").modal("show");
+                $("#BranchId").val(resp.BranchSn);
+                $("#branchName").val(resp.Name);
+                $("#BranchCode").val(resp.BranchCode);
+                $("#BranchAddress").val(resp.Address);
+            },
+            error:function(error){
+
+            }
+        });
+        
+    });
 
 $("#deleteDocumentBtn").on("click", ()=>{
 

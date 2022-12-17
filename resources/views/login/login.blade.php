@@ -161,7 +161,7 @@ box-shadow: 0px 0px 10px 1px red; border-radius:3px; padding:20px;">
                <span  style="display:flex;justify-content:center; margin-bottom:20px;">
                     <img class="img-responsive text-center" width="88px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
                   <h3 style="text-align:center; margin:10px">ورود به سیستم </h3>
-                    <form action="{{url('/checkUser')}}" method="post">
+                    <form action="{{url('/checkBranch')}}" method="post">
                         @csrf
 
                         <div class="mb-1">

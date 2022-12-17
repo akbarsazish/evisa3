@@ -9,14 +9,14 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
-                    <button type="button" class="btn btn-sm btn-warning" id="" data-bs-target="#editBranchList" data-bs-toggle="modal"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-warning" id="editBranchBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-danger" id="deleteBranche"> حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
 
     <div class="row">
         <div class="col-lg-12 ">
-            <input type="hidden" id="">
+            <input type="text" id="selectedBranchID">
             <table class="table table-bordered select-highlight evisaDataTable">
               <thead>
                     <tr class="docsTr">
@@ -27,18 +27,20 @@
                         <th> انتخاب </th>
                     </tr>
                 </thead>
-                <tbody id="branchListTbody">
+                <tbody id="branchListBody">
+                    @foreach($branches as $branch)
                        <tr class="docsTr"  onclick="selectTableTr(this)">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$branch->Name}}</td>
+                            <td>{{$branch->BranchCode}}</td>
+                            <td>{{$branch->Address}}</td>
                             <td>
                                 <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="" id="" value="">
+                                    <input class="form-check-input " type="radio" name="branchId" id="" value="{{$branch->BranchSn}}">
                                 </span>
                             </td>
                      </tr>
+                     @endforeach
                 </tbody>
              </table>
         </div>
@@ -55,21 +57,27 @@
                         <h5 class="modal-title" id="exampleModalLabel"> ویرایش شعبه </h5>
                     </div>
                          <div class="modal-body">
-                         <form action="{{url('/editDoc')}}" method="Post" enctype="multipart/form-data" >
+                         <form action="{{url('/editBranch')}}" method="Post" enctype="multipart/form-data" >
+                            @csrf
+                            <input type="hidden" name="BranchId" id="BranchId">
                           <div class="row"> 
                             <div class="col-lg-12">
                                 <form action="/action_page.php">
                                     <div class="mb-3 mt-3">
                                         <label for="email"> نام شعبه :</label>
-                                        <input type="text" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                                        <input type="text" name="Name" id="branchName" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
                                     </div>
                                     <div class="mb-3">
                                         <label for="pwd">کد شعبه :</label>
-                                        <input type="text" class="form-control form-control-sm" placeholder="08">
+                                        <input type="text" name="BranchCode" id="BranchCode" class="form-control form-control-sm" placeholder="08">
                                     </div>
                                     <div class="mb-3">
                                         <label for="pwd">  آدرس :</label>
-                                        <input type="text" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                                        <input type="text" name="Address" id="BranchAddress" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pwd"> عکس:</label>
+                                        <input type="file" name="picture" id="BranchPicture" class="form-control form-control-sm">
                                     </div>
                              </div>
                            </div>
