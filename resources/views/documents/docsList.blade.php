@@ -17,6 +17,9 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
+                    <button type="button" class="btn btn-sm btn-info" id="editDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-success" id="editDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-dark" id="editDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
             </div>
