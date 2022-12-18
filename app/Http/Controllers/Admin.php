@@ -114,6 +114,46 @@ class Admin extends Controller{
        $admins=DB::table("admin")->where("deleted",0)->get();
        return Response::json($admins);
     }
+    public function checkAdmin(Request $request)
+    {
+        $this->validate($request,[
+            'username'=>'string|required|max:2000|min:3',
+            'password'=>'required|min:3|max:54',
+        ],
+        [
+            'required' => 'فیلد نباید خالی بماند',
+            'username.max'=>'متن طویل است طویل است',
+            'username.min'=>'متن زیاد کوناه است'
+
+        ]
+    );
+
+
+    $adminExist=DB::table("admin")->where("UserName",$request->post("username"))->where("Password",$request->post("password"))->where("deleted",0)->count();
+    if($adminExist>0){
+        $admin=DB::table("admin")->where("UserName",$request->post("username"))->get();
+        if($admin[0]->AdminType==1){
+            Session::put("userSession",1);
+        }else{
+            Session::put("userSession",2);
+        }
+        Session::put("username",$request->post("username"));
+        Session::put("name",$admin[0]->Name);
+        return redirect("/adminDashboard");
+    }else{
+        $error="نام کاربری و یا رمز ورود اشتباه است";
+        return view("login.login",['loginError'=>$error]);
+    }
+
+    }
+    public function logout(Request $request)
+    {
+       Session::forget("userSession");
+       Session::forget("username");
+       Session::forget("name");
+       return redirect("/");
+    }
+
     public function addNewMangageRuleMony(Request $request)
     {
         $problems=$request->post("problems");

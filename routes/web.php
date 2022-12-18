@@ -12,7 +12,11 @@ use App\Http\Controllers\Branch;
 // \Artisan::call('optimize');
 
 Route::get('/loginAdmin',[Admin::class,'loginAdmin']);
+
 Route::post('/checkBranch',[Branch::class,'checkBranch']);
+
+Route::post('/checkAdmin',[Admin::class,'checkAdmin']);
+Route::get('/logout',[Admin::class,'logout']);
 
 Route::get('/',[Home::class,'index']);
 

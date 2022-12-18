@@ -73,7 +73,7 @@
                <span  style="display:flex;justify-content:center; margin-bottom:20px;">
                     <img class="img-responsive text-center" width="88px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
                   <h3 style="text-align:center; margin:10px">ورود به ادمین پنل </h3>
-                    <form action="{{url('/checkUser')}}" method="post">
+                    <form action="{{url('/checkAdmin')}}" method="post">
                         @csrf
 
                         <div class="mb-1">
@@ -97,27 +97,16 @@
                                             button: "تایید!",
                                         });
                                 </script>
-                            @elseif ($loginError=="با دفتر شرکت در تماس شوید")
-                                <script>
-                                    swal({
-                                        title: "تایید!",
-                                        text: "با دفتر شرکت در تماس شوید",
-                                        icon: "warning",
-                                        button: "تایید!",
-                                    });
-                                </script>
                             @endif
                             @php
                                 unset($loginError);
                             @endphp
                         @endif
-                    
-                    </form>
                     <div class="mb-3 text-center"> 
-                           <a href="{{url('adminDashboard')}}"> <button class="btn btn-secondary btn-lg loginButton" type="button"><i class="fa fa-unlock"></i>  ورود به سیستم </button></a>
+                           <a href="{{url('adminDashboard')}}"> <button class="btn btn-secondary btn-lg loginButton" type="submit"><i class="fa fa-unlock"></i>  ورود به سیستم </button></a>
                         </div>
                     <a class="contactlogin" href="tel://02148286">   <span class="fa fa-phone"></span> <span>&nbsp;ارتباط:</span> 0093857454587 </a>
-                        
+                    </form>
          </div>
         <div class="col-lg-4"></div>
     </div>

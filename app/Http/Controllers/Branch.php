@@ -34,6 +34,9 @@ class Branch extends Controller{
         Session::put("username",$request->post("username"));
         Session::put("name",$branch[0]->Name);
         return redirect("/adminDashboard");
+    }else{
+        $error="نام کاربری و یا رمز ورود اشتباه است";
+        return view("login.login",['loginError'=>$error]);
     }
 
     }

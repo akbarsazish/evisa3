@@ -187,15 +187,6 @@ box-shadow: 0px 0px 10px 1px red; border-radius:3px; padding:20px;">
                                             button: "تایید!",
                                         });
                                 </script>
-                            @elseif ($loginError=="با دفتر شرکت در تماس شوید")
-                                <script>
-                                    swal({
-                                        title: "تایید!",
-                                        text: "با دفتر شرکت در تماس شوید",
-                                        icon: "warning",
-                                        button: "تایید!",
-                                    });
-                                </script>
                             @endif
                             @php
                                 unset($loginError);
