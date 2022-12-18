@@ -111,5 +111,20 @@ class Admin extends Controller{
        $admins=DB::table("admin")->where("deleted",0)->get();
        return Response::json($admins);
     }
+    public function addNewMangageRuleMony(Request $request)
+    {
+        $problems=$request->post("problems");
+        $probmlemMinus=$request->post("probmlemMinus");
+        $corrects=$request->post("corrects");
+        $correctBonus=$request->post("correctBonus");
+        $docNum=$request->post("docNum");
+        $money=$request->post("money");
+        
+        DB::table("bonus")->insert(["Problems"=>$problems, "ProbmlemMinus"=>$probmlemMinus,
+                                    "Corrects"=>$corrects, "CorrectBonus"=>$correctBonus,
+                                    "docNum"=>$docNum, "money"=>$money]);
+
+        return redirect("/siteSetting");
+    }
 
 }

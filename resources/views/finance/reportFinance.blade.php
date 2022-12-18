@@ -6,10 +6,11 @@
             <div class="col-lg-6 p-2 d-flex justify-content-start">
                 <a href="{{url('adminDashboardFinance')}}" class="activeLink">  <i class="fa fa-chart-line fa-lg"></i>  گزارش مالی  </a>
             </div>
-                <div class="col-lg-6 p-2 d-flex justify-content-end">
+            <div class="col-lg-6 p-2 d-flex justify-content-end">
                 <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 
-                </div>
+            </div>
         </div>
+
         <div class="row">
             <div class="col-md-3">
                 <div class="card h-100 dashboardCard">
@@ -27,6 +28,7 @@
                     </a>
                 </div>
             </div>
+            
             <div class="col-md-3">
                 <div class="card  h-100 dashboardCard">
                     <a class=" stretched-link" href="{{url('/karbarAction')}}">

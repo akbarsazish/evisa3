@@ -140,6 +140,24 @@
                     <span class="counter-value">800000000</span>
                 </div>
             </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter red">
+                    <div class="counter-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3> مجموع کاربر </h3>
+                    <span class="counter-value">450</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="counter blue">
+                    <div class="counter-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3> </h3>
+                    <span class="counter-value">450</span>
+                </div>
+            </div>
         </div>
     </div>
 

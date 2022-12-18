@@ -177,7 +177,7 @@ p.information {
   }
 
 .nav-item {
-   padding:6px;
+   padding:5px;
 }
 
 .nav-item a  {
@@ -194,7 +194,7 @@ p.information {
     border-bottom: 1px solid #00b3bb;
 }
 .nav-item a i {
-    margin: 6px;
+    margin: 3px;
 }
 
 
@@ -340,4 +340,9 @@ a.activeLink {
     display: block;
     opacity: 1;
   }
+}
+
+.siteSetting {
+  font-size: 16px;
+  padding: 10px;
 }

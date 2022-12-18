@@ -182,7 +182,9 @@
               </div>
             </div>
          </div>
-         <button type="submit" class="btn btn-primary">submit</button>
+         <div class="col-lg-12 p-3">
+         <button type="submit" class="btn btn-primary" >ذخیره <i class="fa fa-save "></i></button>
+         </div>
          </form>
      </div>
   </div>
