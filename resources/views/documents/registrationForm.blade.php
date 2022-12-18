@@ -6,11 +6,9 @@
     <form action="{{url('/addDoc')}}" method="post" enctype="mutipart/form-data" >
       @csrf
        <div class="col-lg-6 p-2 d-flex justify-content-start">
-        <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
+             <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
        </div>
-        <div class="col-lg-6 p-2 d-flex justify-content-end">
-          <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 
-        </div>
+        
   </div>
   <div class="container registrationForm">
      <div class="row p-3">

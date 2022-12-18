@@ -7,11 +7,87 @@
                 <a href="{{url('adminDashboardFinance')}}" class="activeLink">  <i class="fa fa-chart-line fa-lg"></i>  گزارش مالی  </a>
             </div>
             <div class="col-lg-6 p-2 d-flex justify-content-end">
-                <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 
+                
             </div>
-        </div>
+            </div>
 
-        <div class="row">
+                <div class="row p-4 rounded-3" style="background-image: linear-gradient(to right, #ffffff,#3fa7ef,#3fa7ef)">
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter">
+                            <div class="counter-icon">
+                                <i class="fa fa-group"></i>
+                            </div>
+                            <h3>  شعبات   </h3>
+                            <span class="counter-value">23</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter orange">
+                            <div class="counter-icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <h3> تایید شده ها </h3>
+                            <span class="counter-value">3423</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fa fa-toggle-on"></i>
+                            </div>
+                            <h3> معلق ها </h3>
+                            <span class="counter-value">234</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fa fa-toggle-off"></i>
+                            </div>
+                            <h3> رد شده ها </h3>
+                            <span class="counter-value">12</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter green">
+                            <div class="counter-icon">
+                                <i class="fa fa-sign-out"></i>
+                            </div>
+                            <h3> قرضدار </h3>
+                            <span class="counter-value"> 20000 </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter green">
+                            <div class="counter-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3> جمع کل پول </h3>
+                            <span class="counter-value">800000000</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter red">
+                            <div class="counter-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3> مجموع کاربر </h3>
+                            <span class="counter-value">450</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3> </h3>
+                            <span class="counter-value">450</span>
+                        </div>
+                    </div>
+                </div>
+           
+
+        <!-- <div class="row">
             <div class="col-md-3">
                 <div class="card h-100 dashboardCard">
                     <a class=" stretched-link" href="{{url('/allCustomers')}}">
@@ -83,10 +159,10 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
+         </div>
+         <br>
+         <br>
+          <div class="row">
             <div class="col-md-6">
                 <div class="card h-100 dashboardCard">
                   <a class=" stretched-link" href="{{url('/referedCustomer')}}" target="_blank">
@@ -123,7 +199,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
  </div>
 
 

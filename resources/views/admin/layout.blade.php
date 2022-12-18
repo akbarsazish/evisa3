@@ -73,7 +73,7 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                    <img style="width:35px; height:35px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
+                    <img style="width:50px; height:40px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
                 </li>
         </ul>
 </div>

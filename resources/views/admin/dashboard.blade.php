@@ -7,7 +7,7 @@
             <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
        </div>
         <div class="col-lg-6 p-2 d-flex justify-content-end">
-          <a href="tel:070007000"> <button type="button" class="btn btn-danger btn-sm"> تماس با ادمین    &nbsp; <i class="fa fa-phone"></i> </button> </a> 
+         
         </div>
   </div>
   <div class="row contentRow">
@@ -148,17 +148,7 @@
                     <span class="counter-value">450</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6">
-                <div class="counter blue">
-                    <div class="counter-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h3> </h3>
-                    <span class="counter-value">450</span>
-                </div>
-            </div>
         </div>
     </div>
 
-   
 @endsection
