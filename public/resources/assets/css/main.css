@@ -32,7 +32,7 @@ body{
 }
 .serviceImage{
     width: 100%;
-    height: auto;
+    height:270px;
     border-radius: 5px;
 }
 p.information {
