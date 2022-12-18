@@ -32,30 +32,46 @@
                 <li class="nav-item" id="adminDashboardHome">
                     <a class="nav-link" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                 </li>
+                @if(Session::get("userSession")=="branch")
                 <li class="nav-item" id="adminDashboardForm">
                     <a class="nav-link" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1)
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1 or Session::get("userSession")=="branch")
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1)
                 <li class="nav-item" id="siteSetting">
                     <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1)
                 <li class="nav-item" id="addingBranch">
                     <a class="nav-link" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شعبه </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                 <li class="nav-item" id="branchList">
                     <a class="nav-link" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شعبات </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                 <li class="nav-item" id="addingAdmin">
                     <a class="nav-link" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
                 </li>
+                @endif
+                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                 <li class="nav-item" id="adminList">
                     <a class="nav-link" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <img style="width:50px; height:40px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
                 </li>
