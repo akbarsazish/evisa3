@@ -18,11 +18,14 @@ class Admin extends Controller{
     }
 
     public function adminDashboard(Request $request){
-        return view("admin.dashboard");
+        $elanat=DB::table("elanat")->get();
+        return view("admin.dashboard",['elan'=>$elanat[0]]);
     }
 
     public function siteSetting(Request $request){
-        return view("admin.siteSetting");
+        $lastSiteRules=DB::select("SELECT * FROM bonus where BonusSn=(select max(BonusSn) from bonus)");
+
+        return view("admin.siteSetting",["siteRules"=>$lastSiteRules[0]]);
     }
 
     public function branchList(Request $request){
@@ -114,17 +117,35 @@ class Admin extends Controller{
     public function addNewMangageRuleMony(Request $request)
     {
         $problems=$request->post("problems");
-        $probmlemMinus=$request->post("probmlemMinus");
+        $problemMinus=$request->post("problemMinus");
         $corrects=$request->post("corrects");
         $correctBonus=$request->post("correctBonus");
         $docNum=$request->post("docNum");
         $money=$request->post("money");
-        
-        DB::table("bonus")->insert(["Problems"=>$problems, "ProbmlemMinus"=>$probmlemMinus,
+
+        DB::table("bonus")->insert(["Problems"=>$problems, "ProblemMinus"=>$problemMinus,
                                     "Corrects"=>$corrects, "CorrectBonus"=>$correctBonus,
                                     "docNum"=>$docNum, "money"=>$money]);
 
         return redirect("/siteSetting");
+    }
+    public function addElan(Request $request)
+    {
+        $elanExist=DB::table("elanat")->count();
+        $content=$request->post("content");
+        $title=$request->post("title");
+        $picture=$request->file("img");
+        if($elanExist>0){
+            DB::table("elanat")->update(["Title"=>"$title", "content"=>$content]);
+        }else{
+            DB::table("elanat")->insert(["Title"=>"$title", "content"=>$content]);
+        }
+        $lastElanSn=DB::table("elanat")->max("elanSn");
+        if($picture){
+            $fileName=$lastElanSn.'.jpg';
+            $picture->move("resources/assets/images/elanat/",$fileName);
+        }
+        return redirect("/siteSettings");
     }
 
 }

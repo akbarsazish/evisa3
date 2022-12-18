@@ -24,31 +24,32 @@
                     <div class="accordion-body">
                     <div class="row">
                         <div class="col-lg-12 p-3">
-                         <form action="/action_page.php">
+                         <form action="{{url('/siteSetting')}}" method="post">
+                            @csrf
                             <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
                                             <label for="email"> تعداد سند :</label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="1">
+                                            <input type="number" name="docNum" value={{$siteRules->docNum}} class="form-control form-control-sm" placeholder="1">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
                                             <label for="pwd"> مقدار پول :</label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="500">
+                                            <input type="number" name="money"  value={{$siteRules->money}} class="form-control form-control-sm" placeholder="500">
                                         </div>
                                     </div>
                         
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                          <div class="mb-3">
                                             <label for="pwd"> تعداد درست :</label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="10">
+                                            <input type="number" name="corrects"  value={{$siteRules->Corrects}} class="form-control form-control-sm" placeholder="10">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
                                             <label for="email"> امتیاز :</label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="20">
+                                            <input type="number" name="correctBonus"  value={{$siteRules->CorrectBonus}} class="form-control form-control-sm" placeholder="20">
                                         </div>
                                     </div>
                                 </div>
@@ -56,13 +57,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email"> تعداد غلط </label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="5">
+                                            <input type="number" name="problems"  value={{$siteRules->Problems}} class="form-control form-control-sm" placeholder="5">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="pwd"> امتیاز :</label>
-                                            <input type="number" class="form-control form-control-sm" placeholder="10 - ">
+                                            <input type="number" name="problemMinus"  value={{$siteRules->ProblemMinus}} class="form-control form-control-sm" placeholder="10 - ">
                                         </div>
                                     </div>
                                 </div>
@@ -85,35 +86,35 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
                     <div class="accordion-body">
-                      <form action="/action_page.php">
+                        <form action="{{url('/addElan')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row p-3">
-                                    <div class="col-lg-3 col-md-3 col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="email"> عنوان :</label>
-                                            <input type="text" class="form-control form-control-sm" placeholder="سال نو مبارک ">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="pwd"> عکس  :</label>
-                                            <input type="file" class="form-control form-control-sm">
-                                        </div>
-                                    </div>
-                        
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                         <div class="mb-3">
-                                            <label for="pwd"> متن اعلانات   :</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="email"> عنوان :</label>
+                                        <input type="text" name="title" class="form-control form-control-sm" placeholder="سال نو مبارک ">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12 mt-3">
-                                    <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="pwd"> عکس  :</label>
+                                        <input type="file" name="img" class="form-control form-control-sm">
                                     </div>
                                 </div>
-                                
-                            </form>
+                    
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="mb-3">
+                                        <label for="pwd"> متن اعلانات   :</label>
+                                        <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mt-3">
+                                <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

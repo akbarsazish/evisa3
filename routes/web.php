@@ -43,4 +43,6 @@ Route::get('/adminList',[Admin::class,'adminList']);
 Route::post('/addAdmin',[Admin::class,'addAdmin']);
 Route::get('/getAdmin',[Admin::class,'getAdmin']);
 Route::post('/editAdmin',[Admin::class,'editAdmin']);
+Route::post('/siteSetting',[Admin::class,'addNewMangageRuleMony']);
+Route::post('/addElan',[Admin::class,'addElan']);
 Route::get('/deleteAdmin',[Admin::class,'deleteAdmin']);
