@@ -84,19 +84,19 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
-                            <input type="text" class="form-control form-control-sm" name="passNo" id="exampleFormControlInput1" placeholder="P01918533">
+                            <input type="text" class="form-control form-control-sm" name="passNo" id="" placeholder="P01918533">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام </label>
-                            <input type="text" class="form-control form-control-sm" name="name" id="exampleFormControlInput1" placeholder="احمد">
+                            <input type="text" class="form-control form-control-sm" name="name" id="" placeholder="احمد">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
-                            <input type="text" class="form-control form-control-sm" name="lastName" id="exampleFormControlInput1" placeholder="احمدی">
+                            <input type="text" class="form-control form-control-sm" name="lastName" id="" placeholder="احمدی">
                     </div>
                 </div>
             </div>
@@ -105,13 +105,13 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
-                            <input type="text" class="form-control form-control-sm" name="fatherName" id="exampleFormControlInput1" placeholder="P01918533">
+                            <input type="text" class="form-control form-control-sm" name="fatherName" id="" placeholder="P01918533">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                            <input type="date" class="form-control form-control-sm" name="birthDate" id="exampleFormControlInput1" placeholder="">
+                            <input type="date" class="form-control form-control-sm" name="birthDate" id="" placeholder="">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -139,13 +139,13 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="exampleFormControlInput1" placeholder="P01918533">
+                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" placeholder="P01918533">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
-                            <input type="number" class="form-control form-control-sm" name="cellPhone" id="exampleFormControlInput1" placeholder="+93 706909063">
+                            <input type="number" class="form-control form-control-sm" name="cellPhone" id="" placeholder="+93 706909063">
                     </div>
                 </div>
             </div>
@@ -154,20 +154,20 @@
                      <div class="mb-3">
                          <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
-                            <input type="number" class="form-control form-control-sm" name="otherPhone" id="exampleFormControlInput1" placeholder="+93 706909063">
+                            <input type="number" class="form-control form-control-sm" name="otherPhone" id="" placeholder="+93 706909063">
                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                            <input type="number" class="form-control form-control-sm" name="refCode" id="exampleFormControlInput1" placeholder="P01918533">
+                            <input type="number" class="form-control form-control-sm" name="refCode" id="" placeholder="P01918533">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
-                            <input type="date" class="form-control form-control-sm" name="referDate" id="exampleFormControlInput1" placeholder="+93 706909063">
+                            <input type="date" class="form-control form-control-sm" name="referDate" id="" placeholder="+93 706909063">
                     </div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
               <div class="col-lg-12">
                 <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                        <input type="text" class="form-control form-control-sm" name="userAddress" id="exampleFormControlInput1" placeholder="آدرس">
+                        <input type="text" class="form-control form-control-sm" name="userAddress" id="" placeholder="آدرس">
                 </div>
               </div>
             </div>

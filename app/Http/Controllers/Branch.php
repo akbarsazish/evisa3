@@ -33,6 +33,7 @@ class Branch extends Controller{
         Session::put("userSession","branch");
         Session::put("username",$request->post("username"));
         Session::put("name",$branch[0]->Name);
+        Session::put("userId",$branch[0]->BranchSn);
         return redirect("/adminDashboard");
     }else{
         $error="نام کاربری و یا رمز ورود اشتباه است";

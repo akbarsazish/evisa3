@@ -46,7 +46,11 @@
                   <div class="likeAndDislike">
                     <div class="like-item text-start">
                         <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">   <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
-                        <div class="registeredForVisa mt-3"> 53 </div>
+                        @if(Session::get("userSession")==2 or Session::get("userSession")==1)
+                        <div class="registeredForVisa mt-3"> {{$allNotOkeOfCenter}} </div>
+                        @else
+                        <div class="registeredForVisa mt-3"> {{$allNotOkeOfAgency}}</div>                        
+                        @endif
                     </div>
                   </div>
               </div>
@@ -54,7 +58,11 @@
               <div class="likeAndDislike">
                    <div class="like-item">
                         <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> &nbsp; &nbsp;  <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
-                        <span class="registeredForVisa mt-3">  82 </span>
+                        @if(Session::get("userSession")==2 or Session::get("userSession")==1)
+                        <span class="registeredForVisa mt-3">{{$allOkeOfCenter}}</span>
+                        @else
+                        <span class="registeredForVisa mt-3">{{$allOkeOfAgency}}</span>
+                        @endif
                     </div>
                   </div>
               </div>
@@ -63,7 +71,12 @@
               <div class="col-lg-12 col-md-12 col-sm-12 financeCard">
                   <span class="financeReport"> <i class="fas fa-money-bill fa-xl" style="color:#765bd9"></i> </span>
                   <span class="moneyText"> مبلغ کارمزد قابل پرداخت </span>
-                  <span class="countMoney"> 4353443 <sub>ا</sub>ف </span>
+                  @if(Session::get("userSession")==2 or Session::get("userSession")==1)
+                  <span class="countMoney"> {{$allMoney_to_give}} <sub>ا</sub>ف </span>
+                  @else
+                  <span class="countMoney"> {{$allMoneyOfAgency}} <sub>ا</sub>ف </span>
+                  @endif
+                  
                   <span class="moneyDescription"> مجموع مبلغ ذکر شده قابل پرداخت میباشد. </span>
               </div>
           </div>

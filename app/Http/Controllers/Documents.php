@@ -14,13 +14,19 @@ class Documents extends Controller
         return view("documents.registrationForm",['countries'=>$countries]);
     }
     public function docsList(Request $request){
-        $documents=DB::table("document")->where("UserSn",1)->get();
+        $documents;
+        if(Session::get("userSession")==1 or Session::get("userSession")==2){
+            $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn order by document.TimeStamp desc");
+        }
+        if(Session::get("userSession")=="branch"){
+            $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn where userSn=".Session::get("userId")." order by document.TimeStamp desc");
+        }
         return view("documents.docsList",["documents"=>$documents]);
     }
     public function addDoc(Request $request)
     {
 
-        $userSn=1;
+        $userSn=Session::get("userId");
 
 
         $tazkiraImg=$request->file("tazkiraImage");
@@ -146,5 +152,24 @@ class Documents extends Controller
        $documents=DB::table("document")->where("UserSn",1)->get();
        return redirect("/docsList");
 
+    }
+
+    //برای رد کردن سند
+    public function rejectDocument(Request $request)
+    {
+        $docSn=$request->get("DocSn");
+        DB::table("document")->where("DocSn",$docSn)->update(["isOke"=>2]);
+        $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn order by document.TimeStamp desc");
+        return Response::json($documents);
+    }
+    public function okeDocument(Request $request)
+    {
+        $docSn=$request->get("DocSn");
+        DB::table("document")->where("DocSn",$docSn)->update(["isOke"=>1]);
+      //  $uesr=DB::select("select userSn from document where userSn=".$docSn);
+       // $Money = DB::select("SELECT Money FROM bonus WHERE TimeStamp=(SELECT max(TimeStamp) FROM Bonus");
+       // DB::table("accountHistory")->insert(["UserId"=>$uesr[0]->userSn, "Money"=>$Money[0]->Money, "countDocs"=>1, "isCounted"=>0]);
+        $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn order by document.TimeStamp desc");
+        return Response::json($documents);
     }
 }

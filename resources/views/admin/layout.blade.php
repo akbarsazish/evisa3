@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>استار فود</title>
+    <title>آسان ویزا </title>
 
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('/resources/assets/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap-grid.rtl.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/resources/assets/vendor/swiper/css/swiper.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/resources/assets/slicknav/slicknav.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/mainAdmin.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/mediaq.css')}}">
-    <link rel="stylesheet" href="{{ url('/resources/assets/css/admin.framework7.bundle.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap-utilities.rtl.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/datatables.min.css')}}">
 
@@ -22,7 +19,6 @@
     <link rel="stylesheet" href="{{ url('/resources/assets/js/jquery.min.js')}}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="{{ url('/resources/assets/js/jquery-ui.min.js')}}"></script>
-    <script src="{{url('/resources/assets/vendor/swiper/js/swiper.min.js')}}"></script>
     <link rel="icon" type="image/png" href="{{ url('/resources/assets/images/part.png')}}">
 </head>
 <body>
@@ -42,7 +38,7 @@
                     <a class="nav-link" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
                 </li>
                 @endif
-                @if(Session::get("userSession")==1 or Session::get("userSession")=="branch")
+                @if(Session::get("userSession")==2 or Session::get("userSession")=="branch")
                 <li class="nav-item" id="adminDashboardFinace">
                     <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
                 </li>
@@ -52,7 +48,7 @@
                     <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
                 </li>
                 @endif
-                @if(Session::get("userSession")==1)
+                @if(Session::get("userSession")==2 or Session::get("userSession")==1)
                 <li class="nav-item" id="addingBranch">
                     <a class="nav-link" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شعبه </a>
                 </li>

@@ -15,7 +15,7 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session::get('adminId')){
+        if(Session::get('userSession')==1 or Session::get('userSession')==1 ){
         return $next($request);
         }else{
             return redirect("/loginAdmin");

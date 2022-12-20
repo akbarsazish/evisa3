@@ -19,7 +19,36 @@ class Admin extends Controller{
 
     public function adminDashboard(Request $request){
         $elanat=DB::table("elanat")->get();
-        return view("admin.dashboard",['elan'=>$elanat[0]]);
+        $allMoney_of_Agency=0;//مال نمایندگی
+        $allMoney_to_give=0;//مال مرکزی
+        $allOkeOfCenter=0;//تایید شده مرکزی
+        $allNotOkeOfCenter=0;//تایید نشده مرکزی
+        $allOkeOfAgency=0;//تایید شده نمایندگی
+        $allNotOkeOfAgency=0;//تایید نشده نمایندگی
+        if(Session::get("userSession")=="branch"){
+        $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
+        $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
+        $allOkeOfAgency=DB::select("select count(DocSn) as allOkeOfAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
+        $allOkeOfAgency=$allOkeOfAgency[0]->allOkeOfAgency;
+        $allNotOkeOfAgency=DB::select("select count(DocSn) as allNotOkeOfAgency from document where userSn=".Session::get("userId")." and isOke=0 group by userSn");
+        $allNotOkeOfAgency=$allNotOkeOfAgency[0]->allNotOkeOfAgency;
+        }
+        if(Session::get("userSession")==1 or Session::get("userSession")==2){
+        $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke=1");
+        $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
+        $allOkeOfCenter=DB::select("select count(DocSn) as allOkeOfCenter from document where isOke=1");
+        $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
+        $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0");
+        $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
+        }
+        return view("admin.dashboard",['elan'=>$elanat[0],
+        'allMoneyOfAgency'=>$allMoney_of_Agency,
+        'allMoney_to_give'=>$allMoney_to_give,
+        'allOkeOfCenter'=>$allOkeOfCenter,
+        'allNotOkeOfCenter'=>$allNotOkeOfCenter,
+        'allNotOkeOfAgency'=>$allNotOkeOfAgency,
+        'allOkeOfAgency'=>$allOkeOfAgency
+     ]);
     }
 
     public function siteSetting(Request $request){
@@ -139,10 +168,11 @@ class Admin extends Controller{
         }
         Session::put("username",$request->post("username"));
         Session::put("name",$admin[0]->Name);
+        Session::put("userId",$admin[0]->AdminSn);
         return redirect("/adminDashboard");
     }else{
         $error="نام کاربری و یا رمز ورود اشتباه است";
-        return view("login.login",['loginError'=>$error]);
+        return view("admin.login",['loginError'=>$error]);
     }
 
     }

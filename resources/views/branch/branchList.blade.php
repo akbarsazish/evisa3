@@ -72,6 +72,14 @@
                                         <input type="text" name="BranchCode" id="BranchCode" class="form-control form-control-sm" placeholder="08">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="pwd">نام کاربری:</label>
+                                        <input type="text" name="username" id="username" class="form-control form-control-sm" placeholder="08">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pwd">رمز کاربری:</label>
+                                        <input type="text" name="password" id="password" class="form-control form-control-sm" placeholder="08">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="pwd">  آدرس :</label>
                                         <input type="text" name="Address" id="BranchAddress" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
                                     </div>

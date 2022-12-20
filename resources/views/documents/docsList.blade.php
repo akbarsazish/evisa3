@@ -3,7 +3,7 @@
 
 <div class="container bg-white mt-2 rounded-2">
     <div class="row mt-1">
-        <h4 class="title"> لیست اسناد  </h4>
+        <h4 class="title"> لیست اسناد {{Session::get("userId")}} </h4>
     </div>
       <div class="row mt-2">
             <div class="col-lg-3">
@@ -11,15 +11,17 @@
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                         <option selected> فلتر اسناد </option>
                         <option value="1"> تایید شده </option>
-                        <option value="1">معلق </option>
+                        <option value="1">تایید ناشده </option>
                         <option value="1"> رد شده </option>
                     </select>
                 </div>
-            </div>
+            </div> 
             <div class="col-lg-9 text-end">
-                    <button type="button" class="btn btn-sm btn-info" id="editDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-success" id="editDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-dark" id="editDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
+                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                    <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
+                @endif
                     <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
             </div>
@@ -28,7 +30,9 @@
     <div class="row">
         <div class="col-lg-12 ">
             <input type="hidden" id="selectedDocID">
-            <table class="table table-bordered select-highlight evisaDataTable">
+
+                    @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                    <table class="table table-bordered select-highlight evisaDataTable">
               <thead>
                     <tr class="docsTr">
                         <th> ردیف </th>
@@ -42,26 +46,30 @@
                         <th>  شماره تماس </th>
                         <th>  شماره تماس فامیل</th>
                         <th> کد رهگیری  </th>
-                        <th>  آدرس  </th>
+                        <th> شرکت </th>
                         <th> تاریخ مراجعه  </th>
                         <th> انتخاب </th>
                     </tr>
                 </thead>
                 <tbody id="docListBody">
                     @foreach($documents as $doc)
-                    <tr class="docsTr"  onclick="selectTableTr(this)">
-                            <th>{{$loop->iteration}}</th>
-                            <td>{{$doc->Name}}</td>
+                    <tr class="docsTr" 
+                                        @if($doc->isOke ==2) style="background-color:red!important;" @endif
+                                        @if($doc->isOke ==1) style="background-color:green!important;" @endif
+                    
+                    onclick="selectTableTrDocs(this)">
+                            <th  >{{$loop->iteration}}</th>
+                            <td>{{$doc->dName}}</td>
                             <td>{{$doc->LastName}}</td>
                             <td>{{$doc->FatherName}}</td>
                             <td>{{$doc->BirthDate}}</td>
                             <td>{{$doc->BirthPlace}}</td>
                             <td>{{$doc->PassNo}}</td>
                             <td>{{$doc->PassEndDate}}</td>
-                            <td>{{$doc->CellPhone}}</td>
-                            <td>{{$doc->OtherPhone}}</td>
+                            <td>{{$doc->dCellPhone}}</td>
+                            <td>{{$doc->dOtherPhone}}</td>
                             <td>{{$doc->RefCode}}</td>
-                            <td>{{$doc->UserAddress}}</td>
+                            <td>{{$doc->branchName}}</td>
                             <td>{{$doc->referDate}}</td>
                             <td>
                                 <span class="form-check">
@@ -70,6 +78,55 @@
                             </td>
                     </tr>
                     @endforeach
+                    </tbody>
+             </table>
+                    @else
+                    <table class="table table-bordered select-highlight evisaDataTable">
+              <thead>
+                    <tr class="docsTr">
+                        <th> ردیف </th>
+                        <th>نام </th>
+                        <th>نام خانودگی</th>
+                        <th>نام پدر </th>
+                        <th>  تاریخ تولد </th>
+                        <th>  محل تولد </th>
+                        <th> شماره پاسپورت  </th>
+                        <th>  انقضا پاسپورت   </th>
+                        <th>  شماره تماس </th>
+                        <th>  شماره تماس فامیل</th>
+                        <th> کد رهگیری  </th>
+                        <th> تاریخ مراجعه  </th>
+                        <th> انتخاب </th>
+                    </tr>
+                </thead>
+                <tbody id="docListBody">
+                    @foreach($documents as $doc)
+                    <tr class="docsTr" 
+
+                    @if($doc->isOke ==2) style="background-color:red!important;" @endif
+                    @if($doc->isOke ==1) style="background-color:green!important;" @endif
+                    
+                    onclick="selectTableTr(this)">
+                            <th>{{$loop->iteration}}</th>
+                            <td>{{$doc->dName}}</td>
+                            <td>{{$doc->LastName}}</td>
+                            <td>{{$doc->FatherName}}</td>
+                            <td>{{$doc->BirthDate}}</td>
+                            <td>{{$doc->BirthPlace}}</td>
+                            <td>{{$doc->PassNo}}</td>
+                            <td>{{$doc->PassEndDate}}</td>
+                            <td>{{$doc->dCellPhone}}</td>
+                            <td>{{$doc->dOtherPhone}}</td>
+                            <td>{{$doc->RefCode}}</td>
+                            <td>{{$doc->referDate}}</td>
+                            <td>
+                                <span class="form-check">
+                                    <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="{{$doc->DocSn}}">
+                                </span>
+                            </td>
+                    </tr>
+                    @endforeach
+                    @endif
                    
                 </tbody>
              </table>

@@ -5,7 +5,7 @@
       <div class="row mt-2">
             <div class="col-lg-3">
                 <div class="mb-3">
-                     <h4 class="title"> لیست کاربران </h4>
+                     <h4 class="title">{{Session::get("userSession")}} لیست کاربران </h4>
                 </div>
             </div>
             <div class="col-lg-9 text-end">

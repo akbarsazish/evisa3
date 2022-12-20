@@ -190,6 +190,8 @@ $("#deleteBranche").on("click",()=>{
                 $("#editBranchList").modal("show");
                 $("#BranchId").val(resp.BranchSn);
                 $("#branchName").val(resp.Name);
+                $("#username").val(resp.username);
+                $("#password").val(resp.password);
                 $("#BranchCode").val(resp.BranchCode);
                 $("#BranchAddress").val(resp.Address);
             },
@@ -318,6 +320,78 @@ $("#deleteDocumentBtn").on("click", ()=>{
       });
     });
 
+    $("#printDocumentBtn").on("click",function(){
+
+        alert($(this).val());
+
+    });
+        
+    $("#okeDocumentBtn").on("click",function(){
+
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/okeDocument",
+            data: {
+                _token: "{{ csrf_token() }}",
+                DocSn: $("#okeDocumentBtn").val()
+            },
+            dataType: "json",
+            success: function(respond) {
+                alert(respond.length);
+            },
+            error:function(error){
+                alert("server data response error");
+            }
+        });
+
+    });
+    
+    $("#rejectDocumentBtn").on("click",function(){
+
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/rejectDocument",
+            data: {
+                _token: "{{ csrf_token() }}",
+                DocSn: $("#rejectDocumentBtn").val()
+            },
+            dataType: "json",
+            success: function(respond) {
+                alert(respond.length);
+            },
+            error:function(error){
+                alert("server data response error");
+            }
+        });
+
+    });
+    
+    $("#editDocumentBtn").on("click",function(){
+
+        alert($(this).val());
+
+    });
+    
+    $("#deleteDocumentBtn").on("click",function(){
+
+        alert($(this).val());
+
+    });
+
+    function selectTableTrDocs(element) {
+        let input = $(element).find('input:radio').prop("checked", true);
+        $("#printDocumentBtn").val(input.val());
+        
+        $("#okeDocumentBtn").val(input.val());
+        
+        $("#rejectDocumentBtn").val(input.val());
+        
+        $("#editDocumentBtn").val(input.val());
+        
+        $("#deleteDocumentBtn").val(input.val());
+        
+        
+    }
 
   $(document).ready( function () {
   

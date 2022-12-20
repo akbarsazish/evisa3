@@ -15,13 +15,13 @@ class ChecUser
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        if(Session::get('psn')){
+    {   
+        if(Session::get('userSession')=="branch"){
             return $next($request);
         
         }else{
             return redirect("/login");
         }
-        // return "hello from middleware";
-    }
+
+}
 }
