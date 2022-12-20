@@ -17,21 +17,21 @@
                     <div class="col-lg-6">
                         <div class="mb-3 ">
                             <label for="email"> نمبر جواز :</label>
-                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="">
+                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="25365980">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                      <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> شماره تماس:</label>
-                            <input type="text" name="otherPhone" class="form-control form-control-sm" placeholder="0706909063">
+                            <label for="email"> شماره تماس 1:  </label>
+                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0706909063">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> 2شماره تماس:</label>
-                            <input type="text" name="otherPhone" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                            <label for="email">  شماره تماس 2 :</label>
+                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0796909063">
                          </div>
                     </div>
                 </div>
