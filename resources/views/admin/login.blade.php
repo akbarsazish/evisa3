@@ -26,9 +26,8 @@
             display:block;
         }
         .loginButton{
-            padding:5px 6px;
-            margin-top:17px;
-            font-size:18px;
+            margin-top:11px;
+    
         }
         .about-img {
                 display: flex;
@@ -63,27 +62,35 @@
                     margin:3px;
                 }
             }
+		
+	 .loginDiv {
+        top:50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%, 0);
+        position: absolute;
+	    box-shadow: 0px 0px 10px 1px #0079ed;
+    }  	
+		
     </style>
 </head>
 <body style="background-color:#ebeef9">
  <div class="container"> 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4" style="background: linear-gradient(#ffa, #abc, #9ad); margin-top:33px; border-radius:3px; padding:20px;">
+        <div class="col-lg-4 loginDiv" style="background: linear-gradient(#82b8f3, #adbfd1, #d0ddeb); margin-top:33px; border-radius:3px; padding:20px;">
                <span  style="display:flex;justify-content:center; margin-bottom:20px;">
-                    <img class="img-responsive text-center" width="88px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
-                  <h3 style="text-align:center; margin:10px">ورود به ادمین پنل </h3>
+                    <img class="img-responsive text-center" width="80px" height="80px" src="{{ url('/resources/assets/images/admin.png')}}" alt="logi"></span>
+                  <h5 style="text-align:center; margin:5px">ورود به ادمین پنل </h5>
                     <form action="{{url('/checkAdmin')}}" method="post">
                         @csrf
-
                         <div class="mb-1">
                             <label for="exampleFormControlInput1" class="form-label"> نام کاربری </label>
-                            <input class="form-control" maxlength="11" name="username" pattern="[0-9]{11}+" type="tel" pattern="[0-9]*" placeholder="0912000000" required>
+                            <input class="form-control"  name="username" type="text" placeholder="نام کاربری" required>
                         </div>
 
-                        <div class="mb-1">
+                        <div>
                             <label for="exampleFormControlInput1" class="form-label">کلمه عبور</label>
-                           <input class="form-control pass" id="password" maxlength="4"  name="password" type="password" pattern="\d*" placeholder="کلمه عبور خود را وارد نمایید" required onchange="changeValue()">
+                           <input class="form-control pass" id="password"  name="password" type="password" placeholder="رمز عبور" required>
                         </div>
                         <hr>
                         
@@ -103,32 +110,13 @@
                             @endphp
                         @endif
                     <div class="mb-3 text-center"> 
-                           <a href="{{url('adminDashboard')}}"> <button class="btn btn-secondary btn-lg loginButton" type="submit"><i class="fa fa-unlock"></i>  ورود به سیستم </button></a>
+                           <a href="{{url('adminDashboard')}}"> <button class="btn btn-primary btn-md loginButton" type="submit"><i class="fa fa-unlock"></i>  ورود به سیستم </button></a>
                         </div>
-                    <a class="contactlogin" href="tel://02148286">   <span class="fa fa-phone"></span> <span>&nbsp;ارتباط:</span> 0093857454587 </a>
+                    <a class="contactlogin" href="tel://02148286">   <span class="fa fa-phone"></span> <span>&nbsp;ارتباط:</span> 00989100473242 </a>
                     </form>
          </div>
         <div class="col-lg-4"></div>
     </div>
-       <div class="row"> 
-        </div>
 </div>
-<script>
-if (!navigator.serviceWorker.controller) {
-    navigator.serviceWorker.register("/sw.js").then(function (reg) {
-        console.log("Service worker has been registered for scope: " + reg.scope);
-    });
-}else{
-}
-
-// changing password input field into star
-// let password = document.querySelector("#password");
-// password.addEventListener('keyup', e =>{
-//     let mypass = document.querySelector(".pass");
-//     mypass.value = "*".repeat(e.target.value.length);
-// });
-
-
-</script>
 </body>
 </html>

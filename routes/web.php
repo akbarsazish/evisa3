@@ -52,14 +52,3 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/okeDocument',[Documents::class,'okeDocument']);
   //   });
   // }
-
-
-
-
-
-
-
-
-
-
-

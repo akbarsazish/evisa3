@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>استارفود</title>
+    <title>ویزای الکترونیک</title>
     <link rel="stylesheet" href="{{ url('/resources/assets/css/login.css')}}"/>
     <meta name="viewport" content="width =device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="{{ url('/resources/assets/images/part.png')}}"/>
@@ -23,9 +23,17 @@
             text-decoration:none;
             color:#000;
             font-size:16px;
-            display:block;
+			color:blue;
         }
       
+		.membership{
+			font-size:16px;
+			font-size:bold;
+			text-align:center;
+			display:flex;
+			align-self:cetner!important;
+			justify-content:center;
+		}
         .about-img {
                 display: flex;
                 justify-content: center !important;
@@ -68,7 +76,7 @@
             margin: 20px auto;
             }
 
-        .button {
+        .loginButton {
             min-width: 200px;
             min-height: 40px;
             font-family: 'Nunito', sans-serif;
@@ -87,7 +95,7 @@
             color:#fff;
         }
 
-        button::before {
+        .loginButton::before {
             content: '';
             border-radius: 1000px;
             min-width: calc(200px + 12px);
@@ -103,16 +111,16 @@
             transition: all .3s ease-in-out 0s;
             }
 
-        .button:hover, .button:focus {
+        .loginButton:hover, .loginButton:focus {
             color: #313133;
             transform: translateY(-6px);
             }
 
-        button:hover::before, button:focus::before {
+        .loginButton:hover::before, .loginButton:focus::before {
             opacity: 1;
             }
 
-        button::after {
+        .loginButton::after {
             content: '';
             width: 30px; height: 30px;
             border-radius: 100%;
@@ -125,7 +133,7 @@
             animation: ring 1.5s infinite;
             }
 
-        button:hover::after, button:focus::after {
+       .loginButton:hover::after,.loginButton:focus::after {
             animation: none;
             display: none;
             }
@@ -144,29 +152,29 @@
             }
 
     .loginDiv {
-    top:50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%, 0);
-    position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%, 0);
+        position: absolute;
     }         
 
     </style>
 </head>
 <body style="background-color:#ebeef9">
- <div class="container"> 
+ <div class="container p-5"> 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 loginDiv" style="background: linear-gradient(#fff, #fff, #fff); -webkit-box-shadow: 0px 0px 25px 11px rgba(0,0,0,0.55); 
-box-shadow: 0px 0px 10px 1px red; border-radius:3px; padding:20px;">
+        <div class="col-lg-4 loginDiv p-3" style="background: linear-gradient(#fff, #fff, #fff); -webkit-box-shadow: 0px 0px 25px 11px #0079ed; 
+box-shadow: 0px 0px 10px 1px #0079ed; border-radius:3px; padding:20px;">
                <span  style="display:flex;justify-content:center; margin-bottom:20px;">
                     <img class="img-responsive text-center" width="88px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
-                  <h3 style="text-align:center; margin:10px">ورود به سیستم </h3>
+                  <h5 style="text-align:center; margin:4px">ورود به سیستم </h5>
                     <form action="{{url('/checkBranch')}}" method="post">
                         @csrf
 
                         <div class="mb-1">
                             <label for="exampleFormControlInput1" class="form-label"> نام کاربری </label>
-                            <input class="form-control" maxlength="11" name="username" pattern="[0-9]{11}+" type="tel" pattern="[0-9]*" placeholder="0912000000" required>
+                            <input class="form-control" maxlength="11" name="username"  type="text" placeholder="نام کاربری" required>
                         </div>
 
                         <div class="mb-1">
@@ -174,7 +182,7 @@ box-shadow: 0px 0px 10px 1px red; border-radius:3px; padding:20px;">
                            <input class="form-control pass" id="password" maxlength="4"  name="password" type="password" pattern="\d*" placeholder="کلمه عبور خود را وارد نمایید" required onchange="changeValue()">
                         </div>
                         <div class="mb-3 wrap">
-                            <button class="button" type="submit"><i class="fa fa-unlock"></i> ورود </button>
+                            <button class="loginButton" type="submit"><i class="fa fa-unlock"></i> ورود </button>
                         </div> <hr>
                         
                         @if(isset($loginError))
@@ -194,9 +202,8 @@ box-shadow: 0px 0px 10px 1px red; border-radius:3px; padding:20px;">
                         @endif
                     
                     </form>
-                    
-                    <a class="contactlogin" href="tel://02148286"> <span class="fa fa-phone"> </span> <span>&nbsp;ارتباط:</span> 0093857454587 </a>
-                        
+			
+		      	<span class="membership">  عضویت ندارم؟ &nbsp;  <a class="contactlogin" href="#"> ثبت نام  </a>  </span>
          </div>
         <div class="col-lg-4"></div>
     </div>

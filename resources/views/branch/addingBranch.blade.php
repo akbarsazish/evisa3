@@ -4,28 +4,28 @@
 <div class="container rounded-2" style="background-color:#fff; padding:20px;margin-top:20px;">
     <div class="row">
         <div class="col-lg-12">
-            <h4> افزودن شعبه </h4>
+            <h4> افزودن شرکت  </h4>
             <form action="{{url('/addBranch')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> نام شعبه :</label>
+                            <label for="email"> نام شرکت :</label>
                             <input type="text" name="name" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
                          </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3 ">
-                            <label for="email"> 1شماره تماس:</label>
-                            <input type="text" name="cellPhone" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                            <label for="email"> نمبر جواز :</label>
+                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                      <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> 2شماره تماس:</label>
-                            <input type="text" name="otherPhone" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                            <label for="email"> شماره تماس:</label>
+                            <input type="text" name="otherPhone" class="form-control form-control-sm" placeholder="0706909063">
                         </div>
                     </div>
                     <div class="col-lg-6">

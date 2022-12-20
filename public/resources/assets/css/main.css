@@ -8,7 +8,7 @@ body{
 
 .bannerImage{
     background-image: url('../images/banner.webp');
-    margin-top:22px;
+    margin-top:18px;
     height: 180px;
     padding: 20px;
     border: 5px solid #ffff;
@@ -18,9 +18,9 @@ body{
     border-radius: 8px;
 }
 
+
 .bigTitle {
     font-size: 44px;
-    color:white;
     text-align: center;
     margin-top: 33px;
 
@@ -28,11 +28,11 @@ body{
 .infoDiv{
     padding: 20px;
     background-color: #fff;
-    margin-top: 5px;
+    margin-top: 30px 5px;
 }
 .serviceImage{
     width: 100%;
-    height: auto;
+    height:270px;
     border-radius: 5px;
 }
 p.information {
@@ -41,7 +41,26 @@ p.information {
 }
 .footer{
     background-color: #fff;
-    height: 40px;
+    height: 44px;
     text-align: center;
     font-size: 16px;
+    background-image: linear-gradient(to bottom, #bad7df,  #93b1c5);
+    padding: 5px;
+    
+}
+.copyRight{
+    color:#000;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 992px) {
+    .bannerImage {
+        margin-top:8px;
+  }
+  .bigTitle {
+    font-size: 28px;
+    margin-top:12px;
+	color:#323939 !important;
+}
 }

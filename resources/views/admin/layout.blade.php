@@ -5,13 +5,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>آسان ویزا </title>
-
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('/resources/assets/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap-grid.rtl.min.css') }}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/mainAdmin.css')}}">
-    <link rel="stylesheet" href="{{ url('/resources/assets/css/mediaq.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap-utilities.rtl.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/datatables.min.css')}}">
 
@@ -24,56 +22,78 @@
 <body>
 
 <div class="container-fluid px-0 mx-0">
-        <ul class="nav nav-tabs" id="nav-tabs" style="background-color:#3fa7ef;">
-                <li class="nav-item" id="adminDashboardHome">
-                    <a class="nav-link" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
+            <nav class="navbar navbar-expand-lg  py-0 " style="background-color:#64a1dd">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                        <img style="width:50px; height:40px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
+                        <li class="nav-item" id="adminDashboardHome">
+                            <a class="nav-link px-1" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
+                        </li>
+                        @if(Session::get("userSession")=="branch")
+                        <li class="nav-item" id="adminDashboardForm">
+                            <a class="nav-link px-1" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
+                        </li>
+                    @endif
+                    @if(Session::get("userSession")==1)
+                        <li class="nav-item" id="adminDashboardFinace">
+                            <a class="nav-link px-1" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==2 or Session::get("userSession")=="branch")
+                        <li class="nav-item" id="adminDashboardFinace">
+                            <a class="nav-link px-1" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==1)
+                        <li class="nav-item" id="siteSetting">
+                            <a class="nav-link px-1" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==2 or Session::get("userSession")==1)
+                        <li class="nav-item" id="addingBranch">
+                            <a class="nav-link px-1" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شرکت </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                        <li class="nav-item" id="branchList">
+                            <a class="nav-link px-1" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شرکت ها </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                        <li class="nav-item" id="addingAdmin">
+                            <a class="nav-link px-1" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
+                        </li>
+                        @endif
+                        @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                        <li class="nav-item" id="adminList">
+                            <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
+                        </li>
+                        @endif
+                  </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="Search">
+                    </form> &nbsp;
+
+                    <li class="nav-item dropdown text-black">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp;  علی احمدی   
+                        </a>   
+                        
+                    <ul class="dropdown-menu dropdown-menu-light">
+                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> تنظیمات <i class="fa fa-cog" style="float:left"></i> </a></li>
+                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
+                    </ul>
                 </li>
-                @if(Session::get("userSession")=="branch")
-                <li class="nav-item" id="adminDashboardForm">
-                    <a class="nav-link" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==1)
-                <li class="nav-item" id="adminDashboardFinace">
-                    <a class="nav-link" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==2 or Session::get("userSession")=="branch")
-                <li class="nav-item" id="adminDashboardFinace">
-                    <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==1)
-                <li class="nav-item" id="siteSetting">
-                    <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==2 or Session::get("userSession")==1)
-                <li class="nav-item" id="addingBranch">
-                    <a class="nav-link" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شعبه </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
-                <li class="nav-item" id="branchList">
-                    <a class="nav-link" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شعبات </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
-                <li class="nav-item" id="addingAdmin">
-                    <a class="nav-link" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
-                </li>
-                @endif
-                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
-                <li class="nav-item" id="adminList">
-                    <a class="nav-link" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
-                </li>
-                @endif
-                <li class="nav-item">
-                    <img style="width:50px; height:40px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
-                </li>
-        </ul>
-</div>
-    
+                </div>
+            </div>
+         </nav>
+    </div>
     @yield('content')
 <script src="{{url('/resources/assets/slicknav/jquery.slicknav.min.js')}}"></script>
 <script src="{{url('/resources/assets/vendor/jquery.countdown.min.js')}}"></script>

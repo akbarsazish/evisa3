@@ -22,19 +22,22 @@
 <body>
     <div class="container">
 		<div class="row">
-			<h1>  استارفود </h1>
+			<h1>  آسان ویزا </h1>
 			<div class="contactList">
-				<a class="fw-bold" href="tel://02148286">  <span class="fw-bold">ارتباط :</span>  48286-021 </a> 
-			</div>
-			<div class="contactList">
-			   <a class="fw-bold" href="tel://02149973000"> <span class="fw-bold">پشتیبان :</span>     49973000-021 </a>
+				<a class="fw-bold" href="tel://02148286">  <span class="fw-bold">ارتباط :</span>  0093 73282926 </a> 
 			</div>
     	</div>
 		<div class="row">
 			<a href="/">
-                <button class="btn enterTosite"> <h2>ورود به استارفود</h2></button>
+                <button class="btn enterTosite"> <h2>ورود آسان ویزا </h2></button>
             </a>
 		</div>
 	</div>
 </body>
 </html>
+
+
+
+
+
+
