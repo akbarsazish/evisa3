@@ -5,8 +5,6 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Documents;
 use App\Http\Controllers\Finance;
 use App\Http\Controllers\Branch;
-
-
 // \Artisan::call('route:clear');
 // \Artisan::call('config:cache');
 // \Artisan::call('optimize');
@@ -50,3 +48,4 @@ Route::post('/editAdmin',[Admin::class,'editAdmin']);
 Route::post('/siteSetting',[Admin::class,'addNewMangageRuleMony']);
 Route::post('/addElan',[Admin::class,'addElan']);
 Route::get('/deleteAdmin',[Admin::class,'deleteAdmin']);
+
