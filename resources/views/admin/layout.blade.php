@@ -36,46 +36,46 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
                         <li class="nav-item" id="adminDashboardHome">
-                            <a class="nav-link" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
+                            <a class="nav-link px-1" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                         </li>
                         @if(Session::get("userSession")=="branch")
                         <li class="nav-item" id="adminDashboardForm">
-                            <a class="nav-link" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
+                            <a class="nav-link px-1" href="{{url('registrationForm')}}"> <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>  فورم ثبت نام    </a>
                         </li>
                     @endif
                     @if(Session::get("userSession")==1)
                         <li class="nav-item" id="adminDashboardFinace">
-                            <a class="nav-link" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
+                            <a class="nav-link px-1" href="{{url('adminDashboardFinance')}}" > <i class="fa fa-chart-line fa-lg"> </i>گزارش مالی   </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1 or Session::get("userSession")=="branch")
                         <li class="nav-item" id="adminDashboardFinace">
-                            <a class="nav-link" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
+                            <a class="nav-link px-1" href="{{url('docsList')}}" > <i class="fa fa-list fa-lg"> </i>  لیست اسناد  </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1)
                         <li class="nav-item" id="siteSetting">
-                            <a class="nav-link" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
+                            <a class="nav-link px-1" href="{{url('siteSetting')}}" > <i class="fa fa-cog fa-lg"> </i> تنظیمات </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1)
                         <li class="nav-item" id="addingBranch">
-                            <a class="nav-link" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شعبه </a>
+                            <a class="nav-link px-1" href="{{url('addingBranch')}}" > <i class="fa fa-plus fa-lg"> </i> افزودن شرکت </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                         <li class="nav-item" id="branchList">
-                            <a class="nav-link" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شعبات </a>
+                            <a class="nav-link px-1" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شرکت ها </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                         <li class="nav-item" id="addingAdmin">
-                            <a class="nav-link" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
+                            <a class="nav-link px-1" href="{{url('addingAdmin')}}" > <i class="fa fa-users fa-lg" aria-hidden="true"></i> افزودن کاربر  </a>
                         </li>
                         @endif
                         @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                         <li class="nav-item" id="adminList">
-                            <a class="nav-link" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
+                            <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
                         </li>
                         @endif
                   </ul>
@@ -85,7 +85,7 @@
 
                     <li class="nav-item dropdown text-black">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             <img class="img-responsive rounded-circle" width="33px" height="33px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp;  علی احمدی   
+                             <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp;  علی احمدی   
                         </a>   
                         
                     <ul class="dropdown-menu dropdown-menu-light">
