@@ -27,19 +27,47 @@ class Admin extends Controller{
         $allNotOkeOfAgency=0;//تایید نشده نمایندگی
         if(Session::get("userSession")=="branch"){
         $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
-        $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
+        if(count($allMoney_of_Agency)>0){
+            $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
+        }else{
+            $allMoney_of_Agency=0;
+        }
+        
         $allOkeOfAgency=DB::select("select count(DocSn) as allOkeOfAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
-        $allOkeOfAgency=$allOkeOfAgency[0]->allOkeOfAgency;
+        if(count($allOkeOfAgency)>0){
+            $allOkeOfAgency=$allOkeOfAgency[0]->allOkeOfAgency;
+        }else{
+            $allOkeOfAgency=0;
+        }
+        
         $allNotOkeOfAgency=DB::select("select count(DocSn) as allNotOkeOfAgency from document where userSn=".Session::get("userId")." and isOke=0 group by userSn");
+        if(count($allNotOkeOfAgency)>0){
         $allNotOkeOfAgency=$allNotOkeOfAgency[0]->allNotOkeOfAgency;
+        }else{
+            $allNotOkeOfAgency=0;
+        }
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
         $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke=1");
-        $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
+        if(count($allMoney_to_give)>0){
+            $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
+        }else{
+            $allMoney_to_give=0;
+        }
+        
         $allOkeOfCenter=DB::select("select count(DocSn) as allOkeOfCenter from document where isOke=1");
+        if(count( $allOkeOfCenter)>0){
         $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
+        }else{
+            $allOkeOfCenter=0;
+        }
         $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0");
-        $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
+        if(count($allNotOkeOfCenter)>0){
+            $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
+        }else{
+            $allNotOkeOfCenter=0;
+        }
+        
         }
         return view("admin.dashboard",['elan'=>$elanat[0],
         'allMoneyOfAgency'=>$allMoney_of_Agency,
