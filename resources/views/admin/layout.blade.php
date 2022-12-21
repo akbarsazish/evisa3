@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ url('/resources/assets/css/mainAdmin.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap-utilities.rtl.min.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/datatables.min.css')}}">
-
     <link rel="stylesheet" href="{{ url('/resources/assets/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/js/jquery.min.js')}}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -22,13 +21,13 @@
 <body>
 
 <div class="container-fluid px-0 mx-0">
-            <nav class="navbar navbar-expand-lg  py-0 " style="background-color:#64a1dd">
+            <nav class="navbar navbar-expand-lg  py-0 " style="background-color:#3d80c1">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                        <img style="width:50px; height:40px" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
+                <a class="navbar-brand" href="{{url('/adminDashboard')}}">
+                        <img style="width:122px; height:auto" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
