@@ -103,8 +103,8 @@
                     <div class="counter-icon">
                         <i class="fa fa-group"></i>
                     </div>
-                    <h3>  شعبات   </h3>
-                    <span class="counter-value">23</span>
+                    <h3>  تعداد شرکتها   </h3>
+                    <span class="counter-value">{{$allBranches}}</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6">
@@ -113,16 +113,7 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <h3> تایید شده ها </h3>
-                    <span class="counter-value">3423</span>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <div class="counter blue">
-                    <div class="counter-icon">
-                        <i class="fa fa-toggle-on"></i>
-                    </div>
-                    <h3> معلق ها </h3>
-                    <span class="counter-value">234</span>
+                    <span class="counter-value">{{$allOkeOfCenter}}</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6">
@@ -131,7 +122,7 @@
                         <i class="fa fa-toggle-off"></i>
                     </div>
                     <h3> رد شده ها </h3>
-                    <span class="counter-value">12</span>
+                    <span class="counter-value">{{$allRejectedOfCenter}}</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6">
@@ -140,7 +131,7 @@
                         <i class="fa fa-sign-out"></i>
                     </div>
                     <h3> قرضدار </h3>
-                    <span class="counter-value"> 20000 </span>
+                    <span class="counter-value"> {{$allMoney_to_give}} </span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6">
@@ -148,8 +139,8 @@
                     <div class="counter-icon">
                         <i class="fas fa-history"></i>
                     </div>
-                    <h3> جمع کل پول </h3>
-                    <span class="counter-value">800000000</span>
+                    <h3> تایید نشده ها</h3>
+                    <span class="counter-value">{{$allNotOkeOfCenter}}</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6">
@@ -157,8 +148,8 @@
                     <div class="counter-icon">
                         <i class="fas fa-history"></i>
                     </div>
-                    <h3> مجموع کاربر </h3>
-                    <span class="counter-value">450</span>
+                    <h3> مجموع پول </h3>
+                    <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
                 </div>
             </div>
         </div>

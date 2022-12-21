@@ -87,7 +87,7 @@
                         
                     <ul class="dropdown-menu dropdown-menu-light">
                         <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> تنظیمات <i class="fa fa-cog" style="float:left"></i> </a></li>
-                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
+                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="{{url('/logout')}}"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
                     </ul>
                 </li>
                 </div>

@@ -25,6 +25,9 @@ class Admin extends Controller{
         $allNotOkeOfCenter=0;//تایید نشده مرکزی
         $allOkeOfAgency=0;//تایید شده نمایندگی
         $allNotOkeOfAgency=0;//تایید نشده نمایندگی
+        $allRejectedOfCenter=0;//رد شده ها
+        $allBranches=0;//تعدتد شعبات
+
         if(Session::get("userSession")=="branch"){
         $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
         if(count($allMoney_of_Agency)>0){
@@ -48,25 +51,38 @@ class Admin extends Controller{
         }
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
-        $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke=1");
-        if(count($allMoney_to_give)>0){
-            $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
-        }else{
-            $allMoney_to_give=0;
-        }
-        
-        $allOkeOfCenter=DB::select("select count(DocSn) as allOkeOfCenter from document where isOke=1");
-        if(count( $allOkeOfCenter)>0){
-        $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
-        }else{
-            $allOkeOfCenter=0;
-        }
-        $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0");
-        if(count($allNotOkeOfCenter)>0){
-            $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
-        }else{
-            $allNotOkeOfCenter=0;
-        }
+            $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke=1");
+            if(count($allMoney_to_give)>0){
+                $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
+            }else{
+                $allMoney_to_give=0;
+            }
+            
+            $allOkeOfCenter=DB::select("select count(DocSn) as allOkeOfCenter from document where isOke=1");
+            if(count( $allOkeOfCenter)>0){
+            $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
+            }else{
+                $allOkeOfCenter=0;
+            }
+            $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0");
+            if(count($allNotOkeOfCenter)>0){
+                $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
+            }else{
+                $allNotOkeOfCenter=0;
+            }
+            
+            $allBranches=DB::select("select count(BranchSn) as countBranch from branches where deleted=0");
+            if(count($allBranches)>0){
+                $allBranches=$allBranches[0]->countBranch;
+            }else{
+                $allBranches=0;
+            }
+            $allRejectedOfCenter=DB::select("select count(DocSn) as allRejectedOfCenter from document where isOke=2");
+            if(count($allRejectedOfCenter)>0){
+                $allRejectedOfCenter=$allRejectedOfCenter[0]->allRejectedOfCenter;
+            }else{
+                $allRejectedOfCenter=0;
+            }
         
         }
         return view("admin.dashboard",['elan'=>$elanat[0],
@@ -75,7 +91,9 @@ class Admin extends Controller{
         'allOkeOfCenter'=>$allOkeOfCenter,
         'allNotOkeOfCenter'=>$allNotOkeOfCenter,
         'allNotOkeOfAgency'=>$allNotOkeOfAgency,
-        'allOkeOfAgency'=>$allOkeOfAgency
+        'allOkeOfAgency'=>$allOkeOfAgency,
+        'allBranches'=>$allBranches,
+        'allRejectedOfCenter'=>$allRejectedOfCenter
      ]);
     }
 
