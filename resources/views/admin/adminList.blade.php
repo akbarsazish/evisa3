@@ -41,7 +41,7 @@
                             <td>{{$admin->Address}}</td>
                             <td>
                                 <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="" id="" value="{{$admin->AdminSn}}">
+                                    <input class="form-check-input " type="radio" name="adminId" id="" value="{{$admin->AdminSn}}">
                                 </span>
                             </td>
                         </tr>

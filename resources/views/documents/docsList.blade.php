@@ -3,7 +3,7 @@
 
 <div class="container bg-white mt-2 rounded-2">
     <div class="row mt-1">
-        <h4 class="title"> لیست اسناد {{Session::get("userId")}} </h4>
+        <h4 class="title">  لیست اسناد @if(isset($flag)) ({{$branChName}} ) @endif</h4>
     </div>
       <div class="row mt-2">
             <div class="col-lg-3">
@@ -17,9 +17,15 @@
                 </div>
             </div> 
             <div class="col-lg-9 text-end">
+                <form action="{{url('/docsDetails')}}" method="get">
+                    <input type="text" id="docDetailsInp" name="docID">
+                <button type="submit" class="btn btn-sm btn-success" id="docDetailsBtn">جزءیات سند<i class="fa fa-check"></i> </button> &nbsp;
+                </form>
+
                 @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                     <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+
                     <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
                 @endif
                     <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
@@ -101,12 +107,7 @@
                 </thead>
                 <tbody id="docListBody">
                     @foreach($documents as $doc)
-                    <tr class="docsTr" 
-
-                    @if($doc->isOke ==2) style="background-color:red!important;" @endif
-                    @if($doc->isOke ==1) style="background-color:green!important;" @endif
-                    
-                    onclick="selectTableTr(this)">
+                    <tr class="docsTr" onclick="selectTableTr(this)">
                             <th>{{$loop->iteration}}</th>
                             <td>{{$doc->dName}}</td>
                             <td>{{$doc->LastName}}</td>

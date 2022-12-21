@@ -9,7 +9,11 @@ use App\Notifications\AlertNotification;
 
 class Branch extends Controller{
     public function branchList(Request $request){
-        $branches=DB::table("branches")->where("deleted",0)->get();
+        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =branches.BranchSn");
+        // $countAllDocs=DB::table("Docs")->where()->where()->count();
+        // $countAllNotOkeDocs=DB::table()->where()->where()->count();
+        // $countAllOkeDocs=DB::table()->where()->where()->count();
+        // $countAllNewDocs=DB::table()->where()->where()->count();
         return view("branch.branchList",['branches'=>$branches]);
     }
 
@@ -115,4 +119,19 @@ class Branch extends Controller{
         $branches=DB::table("branches")->where("deleted",0)->get();
         return Response::json($branches);
     }
+    public function showBranchDetails(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        $countAllDocs=DB::table("document")->where("userSn",$branchID)->count();
+        $allMoneyToGive=DB::table("document")->where("userSn",$branchID)->count()*300;
+        $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->count();
+        $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->count();
+        $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->count();
+        $branch=DB::table("branches")->where("BranchSn",$branchID)->get()[0];
+        return view("branch.branchInfo",["branch"=>$branch,"countAllDocs"=>$countAllDocs,
+        "allMoneyToGive"=>$allMoneyToGive,
+        "countAllNotOkeDocs"=>$countAllNotOkeDocs,"countAllOkeDocs"=>$countAllOkeDocs,"countAllNewDocs"=>$countAllNewDocs]);
+        
+    }
+
 }

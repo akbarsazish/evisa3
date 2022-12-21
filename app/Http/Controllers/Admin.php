@@ -29,7 +29,7 @@ class Admin extends Controller{
         $allBranches=0;//تعدتد شعبات
 
         if(Session::get("userSession")=="branch"){
-        $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
+        $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke!=0 group by userSn");
         if(count($allMoney_of_Agency)>0){
             $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
         }else{
@@ -51,7 +51,7 @@ class Admin extends Controller{
         }
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
-            $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke=1");
+            $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke!=0");
             if(count($allMoney_to_give)>0){
                 $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
             }else{

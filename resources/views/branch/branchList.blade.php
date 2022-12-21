@@ -1,57 +1,65 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container bg-white mt-3 rounded-2 p-4">
-      <div class="row mt-2">
+    <div class="container bg-white mt-3 rounded-2 p-4">
+        <div class="row mt-2">
             <div class="col-lg-3">
                 <div class="mb-3">
                      <h4 class="title"> لیست شرکت ها  </h4>
                 </div>
             </div>
             <div class="col-lg-9 text-end">
-                    <button type="button" class="btn btn-sm btn-warning" id="editBranchBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-danger" id="deleteBranche"> حذف <i class="fa fa-trash"></i> </button>
+                <form action="{{url('/listBranchDocs')}}" method="get" style="display:inline">
+                    <input type="hidden" id="selectedBranchID" name="branchID">
+                    <button type="submit" disabled class="btn btn-sm btn-info" id="showBranchForms"> نمایش فورمها <i class="fa fa-info"></i> </button> &nbsp;
+                </form>
+                <form action="{{url('/showBranchDetails')}}" method="get" style="display:inline">
+                    <input type="hidden" id="selectedBranchIDDetail" name="branchID">
+                    <button type="submit" disabled class="btn btn-sm btn-info" id="showDetails"> نمایش جزءیات شرکت <i class="fa fa-info"></i> </button> &nbsp;
+                </form>
+
+                    <button type="button" disabled class="btn btn-sm btn-warning" id="editBranchBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                    <button type="button" disabled class="btn btn-sm btn-danger" id="deleteBranche"> حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
-
-    <div class="row">
-        <div class="col-lg-12 ">
-            <input type="text" id="selectedBranchID">
-            <table class="table table-bordered select-highlight evisaDataTable">
-              <thead>
-                    <tr class="docsTr">
-                        <th> ردیف </th>
-                        <th> نام شرکت  </th>
-                        <th> نمبر جواز  </th>
-                        <th>  شماره تماس  </th>
-                        <th>  اسم رئیس یا معاون شرکت  </th>
-                        <th> کد شعبه  </th>
-                        <th> آدرس </th>
-                        <th> انتخاب </th>
-                    </tr>
-                </thead>
-                <tbody id="branchListBody">
-                    @foreach($branches as $branch)
-                       <tr class="docsTr"  onclick="selectTableTr(this)">
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$branch->Name}}</td>
-                            <td>{{$branch->JawazNumber}}</td>
-                            <td>{{$branch->CellPhone}}</td>
-                            <td>{{$branch->BossName}}</td>
-                            <td>{{$branch->BranchCode}}</td>
-                            <td>{{$branch->Address}}</td>
-                            <td>
-                                <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="branchId" id="" value="{{$branch->BranchSn}}">
-                                </span>
-                            </td>
-                     </tr>
-                     @endforeach
-                </tbody>
-             </table>
+        
+        <div class="row">
+            <div class="col-lg-12 ">
+                <table class="table table-bordered select-highlight evisaDataTable">
+                <thead>
+                        <tr class="docsTr">
+                            <th> ردیف </th>
+                            <th> نام شرکت  </th>
+                            <th> نمبر جواز  </th>
+                            <th>  شماره تماس  </th>
+                            <th>  اسم رئیس یا معاون شرکت  </th>
+                            <th> کد شعبه  </th>
+                            <th> تعداد فورم </th>
+                            <th> انتخاب </th>
+                        </tr>
+                    </thead>
+                    <tbody id="branchListBody">
+                        @foreach($branches as $branch)
+                        <tr class="docsTr"  onclick="selectTableTrBranch(this)">
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$branch->Name}}</td>
+                                <td>{{$branch->JawazNumber}}</td>
+                                <td>{{$branch->CellPhone}}</td>
+                                <td>{{$branch->BossName}}</td>
+                                <td>{{$branch->BranchCode}}</ bnmtd>
+                                <td>{{$branch->countDoc}}</td>
+                                <td>
+                                    <span class="form-check">
+                                        <input class="form-check-input " type="radio" name="branchId" id="" value="{{$branch->BranchSn}}">
+                                    </span>
+                                </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
- </div>
 
     
   <!--- modal for editing docs list -->

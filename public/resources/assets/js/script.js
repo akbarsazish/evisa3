@@ -22,6 +22,26 @@ function selectTableTr(element) {
     
     };
 
+    function selectTableTrBranch(element) {
+        let input = $(element).find('input:radio').prop("checked", true);
+        $("#showDetails").val(input.val());
+        $("#showBranchForms").val(input.val());
+        $("#editBranchBtn").val(input.val());
+        $("#deleteBranche").val(input.val());
+
+        $("#showBranchForms").prop("disabled",false);
+        $("#showDetails").prop("disabled",false);
+        $("#editBranchBtn").prop("disabled",false);
+        $("#deleteBranche").prop("disabled",false);
+        if($("#selectedBranchID")){
+            $("#selectedBranchID").val($(input).val());
+        }
+        if($("#selectedBranchIDDetail")){
+            $("#selectedBranchIDDetail").val($(input).val());
+        }
+          
+    }
+
 $("#editAdminBtn").on("click",()=>{
     $.ajax({
         type: "get",
@@ -183,7 +203,7 @@ $("#deleteBranche").on("click",()=>{
             url: baseUrl + "/getBranch",
             data: {
                 _token: "{{ csrf_token() }}",
-                BranchID: $("#selectedBranchID").val()
+                BranchID: $("#editBranchBtn").val()
             },
             dataType: "json",
             success: function(resp) {
@@ -201,6 +221,7 @@ $("#deleteBranche").on("click",()=>{
         });
         
     });
+
 
 $("#deleteDocumentBtn").on("click", ()=>{
 
@@ -422,9 +443,11 @@ $("#deleteDocumentBtn").on("click", ()=>{
         $("#editDocumentBtn").val(input.val());
         
         $("#deleteDocumentBtn").val(input.val());
-        
+        $("#docDetailsBtn").val(input.val());
+        $("#docDetailsInp").val(input.val());
         
     }
+
 
   $(document).ready( function () {
   
