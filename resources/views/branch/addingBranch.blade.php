@@ -17,7 +17,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3 ">
                             <label for="email"> نمبر جواز :</label>
-                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="25365980">
+                            <input type="number" name="JawazNumber" class="form-control form-control-sm" placeholder="25365980">
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                      <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="email"> شماره تماس 1:  </label>
-                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0706909063">
+                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0706909063">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -54,13 +54,13 @@
                 <div class="row">
                    <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd"> اسم رئیس یا معاون شرکت ثبت نام شونده </label>
-                            <input type="text" name="picture" class="form-control form-control-sm">
+                            <label for="pwd"> اسم و تخلص رئیس یا معاون شرکت ثبت نام شونده </label>
+                            <input type="text" name="BossName" class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd"> عکس:</label>
+                            <label for="pwd"> عکس فرد یا لوگوی شرکت:</label>
                             <input type="file" name="picture" class="form-control form-control-sm">
                         </div>
                     </div>
@@ -69,13 +69,13 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="pwd">  سکن جواز  :</label>
-                            <input type="file" name="Address" class="form-control form-control-sm">
+                            <input type="file" name="jawazPicture" class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="pwd"> سکن پاسپورت یا تذکره شخص ثبت نام کننده:</label>
-                            <input type="file" name="picture" class="form-control form-control-sm">
+                            <input type="file" name="tazkiraPicture" class="form-control form-control-sm">
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                   <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="pwd">  کد شرکت :</label>
-                            <input type="number" name="Address" class="form-control form-control-sm" placeholder="001">
+                            <input type="number" name="code" class="form-control form-control-sm" placeholder="001">
                         </div>
                     </div>
                 </div>

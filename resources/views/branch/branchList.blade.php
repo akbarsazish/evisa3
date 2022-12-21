@@ -35,9 +35,9 @@
                        <tr class="docsTr"  onclick="selectTableTr(this)">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$branch->Name}}</td>
-                            <td> </td>
-                            <td> </td>
-                            <td></td>
+                            <td>{{$branch->JawazNumber}}</td>
+                            <td>{{$branch->CellPhone}}</td>
+                            <td>{{$branch->BossName}}</td>
                             <td>{{$branch->BranchCode}}</td>
                             <td>{{$branch->Address}}</td>
                             <td>

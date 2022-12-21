@@ -53,14 +53,16 @@ class Branch extends Controller{
         $username=$request->post("username");
         $password=$request->post("password");
         $code=$request->post("code");
+        $bossName=$request->post("BossName");
+        $jawazNumber=$request->post("JawazNumber");
         $picture=$request->file("picture");
+        $pictureT=$request->file("tazkiraPicture");
+        $pictureJ=$request->file("jawazPicture");
         $address=$request->post("Address");
-        $username=$request->post("username");
-        $password=$request->post("password");
         $cellPhone=$request->post("cellPhone");
         $otherPhone=$request->post("otherPhone");
         DB::table("branches")->insert(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","username"=>"$username","password"=>"$password"
-        ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone"]);
+        ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone","BossName"=>"".$bossName."","JawazNumber"=>"".$jawazNumber.""]);
 
         $lastBranchSn=DB::table("branches")->max("BranchSn");
 
@@ -68,7 +70,14 @@ class Branch extends Controller{
             $fileName=$lastBranchSn.'.jpg';
             $picture->move("resources/assets/images/branches/",$fileName);
         }
-
+        if($pictureT){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureT->move("resources/assets/images/branches/tazkira/",$fileName);
+        }
+        if($pictureJ){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureJ->move("resources/assets/images/branches/jawaz/",$fileName);
+        }
         return redirect('/branchList');
     }
     public function getBranch(Request $request)
