@@ -172,4 +172,22 @@ class Documents extends Controller
         $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn order by document.TimeStamp desc");
         return Response::json($documents);
     }
+
+    public function listBranchDocs(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        $branChName=DB::table("branches")->where("BranchSn",$branchID)->get()[0]->Name;
+        $documents;
+        $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn where userSn=".$branchID." order by document.TimeStamp desc");
+        return view("documents.docsList",['documents'=>$documents,'flag'=>1,'branChName'=>$branChName]);
+        
+    }
+    public function docsDetails(Request $request)
+    {
+        $docId=$request->get("docID");
+        $document=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn where DocSn=".$docId." order by document.TimeStamp desc")[0];
+
+        return view("documents.docsInfo",['doc'=>$document]);
+
+    }
 }

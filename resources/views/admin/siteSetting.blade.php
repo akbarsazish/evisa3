@@ -1,18 +1,18 @@
 @extends('admin.layout')
 @section('content')
 <div class="container mt-3">
-        <ul class="nav nav-tabs d-none d-lg-flex" id="myTab" role="tablist">
-               <li class="nav-item" role="presentation">
-                    <button class="nav-link siteSetting active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane1" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">  تنظیمات سایت  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link siteSetting" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> تنظیم اعلانات</button>
-                </li>
-                
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link siteSetting" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"> تنظیمات مالی</button>
-                </li>
-        </ul>
+    <ul class="nav nav-tabs d-none d-lg-flex" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link siteSetting active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane1" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">  تنظیمات سایت  </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link siteSetting" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> تنظیم اعلانات</button>
+        </li>
+        
+        <li class="nav-item" role="presentation">
+            <button class="nav-link siteSetting" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"> تنظیمات مالی</button>
+        </li>
+    </ul>
     <div class="tab-content accordion" id="myTabContent">
            <div class="tab-pane show active fade accordion-item" id="profile-tab-pane1" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                 <h2 class="accordion-header d-lg-none" id="headingOne">
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
-                                            <label for="pwd"> امتیاز :</label>
+                                            <label for="pwd">  کسر امتیاز:</label>
                                             <input type="number" name="problemMinus"  value={{$siteRules->ProblemMinus}} class="form-control form-control-sm" placeholder="10 - ">
                                         </div>
                                     </div>
