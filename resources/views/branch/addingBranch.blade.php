@@ -40,22 +40,22 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="email"> نام کاربری</label>
-                            <input type="text" name="username" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                            <input type="text" name="username" class="form-control form-control-sm" placeholder="aliAhmadi">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="pwd"> رمز کاربری :</label>
-                            <input type="text" name="password" class="form-control form-control-sm" placeholder="08">
+                            <input type="password" name="password" class="form-control form-control-sm" placeholder="08">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6">
+                   <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd">  آدرس :</label>
-                            <input type="text" name="Address" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                            <label for="pwd"> اسم رئیس یا معاون شرکت ثبت نام شونده </label>
+                            <input type="text" name="picture" class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -65,7 +65,35 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="pwd">  سکن جواز  :</label>
+                            <input type="file" name="Address" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="pwd"> سکن پاسپورت یا تذکره شخص ثبت نام کننده:</label>
+                            <input type="file" name="picture" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="pwd">  آدرس :</label>
+                            <input type="text" name="Address" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                        </div>
+                    </div>
+               
+                  <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="pwd">  کد شرکت :</label>
+                            <input type="number" name="Address" class="form-control form-control-sm" placeholder="001">
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
             </form>
         </div>

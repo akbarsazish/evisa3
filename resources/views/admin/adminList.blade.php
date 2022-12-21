@@ -53,7 +53,7 @@
  </div>
 
     
-  <!--- modal for editing docs list -->
+  <!--- modal for editing user list -->
   <div class="modal" id="editingUser" data-backdrop="static" data-keyboard="false" aria-labelledby="staticBackdropLabel">
             <div class="modal-dialog modal-dialog-scrollable modal-lg ">
                 <div class="modal-content">

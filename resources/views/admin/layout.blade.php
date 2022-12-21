@@ -82,12 +82,12 @@
 
                     <li class="nav-item dropdown text-black">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp;  علی احمدی   
+                             <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
                         </a>   
                         
                     <ul class="dropdown-menu dropdown-menu-light">
-                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> تنظیمات <i class="fa fa-cog" style="float:left"></i> </a></li>
-                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
+                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="#editingUser" data-bs-toggle="modal" data-bs-target="#editingUser"> پروفایل <i class="fa fa-cog" style="float:left"></i> </a></li>
+                        <li><a class="dropdown-item logoutSetting text-dark text-start" href="{{url('/logout')}}"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
                     </ul>
                 </li>
                 </div>
@@ -118,35 +118,79 @@
         $("#adminDashboardForm").removeClass("activeLinks");
         $("#adminDashboardFinace").removeClass("activeLinks");
         $("#siteSetting").removeClass("activeLinks");
+        $("#branchList").removeClass("activeLinks");
         $("#addingBranch").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/registrationForm') {
 		$("#adminDashboardForm").addClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
         $("#adminDashboardFinace").removeClass("activeLinks");
         $("#siteSetting").removeClass("activeLinks");
+        $("#branchList").removeClass("activeLinks");
         $("#addingBranch").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/adminDashboardFinance') {
 		$("#adminDashboardFinace").addClass("activeLinks");
         $("#adminDashboardForm").removeClass("activeLinks");
         $("#siteSetting").removeClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
+        $("#branchList").removeClass("activeLinks");
         $("#addingBranch").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/siteSetting') {
 		$("#siteSetting").addClass("activeLinks");
 		$("#adminDashboardFinace").removeClass("activeLinks");
         $("#adminDashboardForm").removeClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
+        $("#branchList").removeClass("activeLinks");
         $("#addingBranch").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/addingBranch') {
 		$("#addingBranch").addClass("activeLinks");
 		$("#adminDashboardFinace").removeClass("activeLinks");
         $("#adminDashboardForm").removeClass("activeLinks");
         $("#adminDashboardHome").removeClass("activeLinks");
+        $("#branchList").removeClass("activeLinks");
         $("#siteSetting").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/branchList') {
+		$("#branchList").addClass("activeLinks");
+		$("#addingBranch").removeClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/addingAdmin') {
+		$("#addingAdmin").addClass("activeLinks");
+		$("#branchList").removeClass("activeLinks");
+		$("#addingBranch").removeClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/adminList') {
+		$("#adminList").addClass("activeLinks");
+		$("#branchList").removeClass("activeLinks");
+		$("#addingBranch").removeClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
 	}
      </script>
 </body>

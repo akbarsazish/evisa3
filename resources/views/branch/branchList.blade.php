@@ -5,7 +5,7 @@
       <div class="row mt-2">
             <div class="col-lg-3">
                 <div class="mb-3">
-                     <h4 class="title"> لیست شعبات  </h4>
+                     <h4 class="title"> لیست شرکت ها  </h4>
                 </div>
             </div>
             <div class="col-lg-9 text-end">
@@ -21,7 +21,10 @@
               <thead>
                     <tr class="docsTr">
                         <th> ردیف </th>
-                        <th> نام شعبه  </th>
+                        <th> نام شرکت  </th>
+                        <th> نمبر جواز  </th>
+                        <th>  شماره تماس  </th>
+                        <th>  اسم رئیس یا معاون شرکت  </th>
                         <th> کد شعبه  </th>
                         <th> آدرس </th>
                         <th> انتخاب </th>
@@ -32,6 +35,9 @@
                        <tr class="docsTr"  onclick="selectTableTr(this)">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$branch->Name}}</td>
+                            <td> </td>
+                            <td> </td>
+                            <td></td>
                             <td>{{$branch->BranchCode}}</td>
                             <td>{{$branch->Address}}</td>
                             <td>
