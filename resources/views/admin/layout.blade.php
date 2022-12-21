@@ -94,22 +94,19 @@
          </nav>
     </div>
     @yield('content')
-<script src="{{url('/resources/assets/slicknav/jquery.slicknav.min.js')}}"></script>
 <script src="{{url('/resources/assets/vendor/jquery.countdown.min.js')}}"></script>
 <script defer src="{{url('/resources/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('/resources/assets/js/sweetalert.min.js')}}"></script>
 
 
 <script src="{{url('/resources/assets/vendor/persianumber.min.js')}}"></script>
-<script src="{{url('/resources/assets/vendor/elevatezoom.js')}}"></script>
 <script src="{{url('/resources/assets/js/script.js') }}"></script>
 <script src="{{url('/resources/assets/js/bootstrap.min.js') }}"></script>
 <script src="{{url('/resources/assets/js/datatables.min.js') }}"></script>
 <script src="{{url('/resources/assets/js/datatable.fixedheader.min.js') }}"></script>
 <script src="{{url('/resources/assets/js/datatable-responsive.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
-     <script>
+<script>
 	var currentUrl = window.location.pathname;
     
 	if (currentUrl == '\/adminDashboard') {

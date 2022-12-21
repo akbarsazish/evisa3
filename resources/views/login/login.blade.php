@@ -203,7 +203,7 @@ box-shadow: 0px 0px 10px 1px #0079ed; border-radius:3px; padding:20px;">
                     
                     </form>
 			
-		      	<span class="membership">  عضویت ندارم؟ &nbsp;  <a class="contactlogin" href="#"> ثبت نام  </a>  </span>
+		      	<span class="membership">  عضویت ندارم؟ &nbsp;  <a class="contactlogin" href="{{url('addingBranch')}}"> ثبت نام  </a>  </span>
          </div>
         <div class="col-lg-4"></div>
     </div>

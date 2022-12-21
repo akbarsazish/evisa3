@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
-<style>
-    </style>
+
     <meta charset="UTF-8">
-    <meta name="author" content="Ali Akbar Sazish">
+    <meta name="author" content="Ali Akbar Sazish and Javad Akhlaqi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <title> ویزا الکترونیک </title>
     <link rel="icon" type="image/png" href="{{ url('resources/assets/images/part.png')}}">
     <link rel="stylesheet" href="{{ url('/resources/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('/resources/assets/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{ url('/resources/assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{ url('/resources/assets/css/mainAdmin.css')}}">
     <link rel="stylesheet" href="{{url('/resources/assets/js/persianDatepicker-master/css/persianDatepicker-default.css')}}" />
     <link rel="stylesheet" href="{{ url('/resources/assets/js/jquery-ui.css')}}"/>
     <script src="{{ url('resources/assets/js/jquery.min.js')}}"></script>
@@ -19,7 +17,7 @@
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
         
 </head>
-<body>
+<body style="font-family: "Times New Roman", Times, serif;">
 
     @yield('content')
 

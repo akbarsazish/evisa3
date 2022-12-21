@@ -16,7 +16,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="likeAndDislike">
                     <div class="like-item"> 
-                        <span class="like"> <i class="fa fa-thumbs-up" aria-hidden="true" style="color:#fff" ></i> </span>
+                        <span class="like"> <i class="fa fa-thumbs-up" aria-hidden="true" style="color:#fff" > </i> </span>
                     </div>
                     <div class="like-item">
                         <span class="emtyaz">227</span>
@@ -95,10 +95,10 @@
       </div>
   </div> <hr>
     <div class="row">
-        <h3> گزارشات عمومی </h3>
+        <h3> گزارشات  </h3>
     </div>
     <div class="row bg-white p-4">
-            <div class="col-md-2 col-sm-6">
+            <!-- <div class="col-md-2 col-sm-6">
                 <div class="counter">
                     <div class="counter-icon">
                         <i class="fa fa-group"></i>
@@ -152,7 +152,34 @@
                     <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+  
 
+            <div class="row">
+                <div class="branchReport">
+                        <div class="branchReport-item"> 
+                            تایید شده ها  <span class="countNo"> 120 </span>
+                        </div>
+                        <div class="branchReport-item"> 
+                           رد شده ها  <span class="countNo"> 20 </span>
+                        </div>
+                        <div class="branchReport-item"> 
+                          تایید نشده ها <span class="countNo"> 40 </span>
+                        </div>
+                        <div class="branchReport-item"> 
+                           تعداد کل فورم ها <span class="countNo"> 180 </span>
+                        </div>
+                        <div class="branchReport-item"> 
+                             <i class="fa fa-thumbs-up" aria-hidden="true" style="color:blue"></i>  اعتبار مثبت  <span class="countNo"> 94 </span>  
+                        </div>
+                        <div class="branchReport-item"> 
+                            <i class="fa fa-thumbs-down" aria-hidden="true" style="color:red"></i>   اعتبار منفی   <span class="countNo"> 6 </span>
+                        </div>
+                        <div class="branchReport-item"> 
+                            مبلغ کارمزد  <span class="countNo"> 1200000  <sub>ا</sub>ف  </span>
+                        </div>
+                </div>
+            </div>
+    </div>
+    <div class="row my-5"></div>
 @endsection

@@ -11,8 +11,9 @@ class Documents extends Controller
     public function registrationForm(Request $request){
         $countries=DB::table("country")->get();
 
-        return view("documents.registrationForm",['countries'=>$countries]);
+        return view("home.registrationForm",['countries'=>$countries]);
     }
+
     public function docsList(Request $request){
         $documents;
         if(Session::get("userSession")==1 or Session::get("userSession")==2){

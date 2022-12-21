@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('layout.layout')
 @section('content')
 
 <div class="container rounded-2" style="background-color:#fff; padding:20px;margin-top:20px;">
@@ -10,27 +10,27 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> نام شرکت :</label>
-                            <input type="text" name="name" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                            <label for="email" class="required"> نام شرکت :</label>
+                            <input type="text" name="name" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق" required>
                          </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3 ">
-                            <label for="email"> نمبر جواز :</label>
-                            <input type="number" name="JawazNumber" class="form-control form-control-sm" placeholder="25365980">
+                            <label for="email" class="required"> نمبر جواز :</label>
+                            <input type="number" name="JawazNumber" class="form-control form-control-sm" placeholder="25365980" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                      <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> شماره تماس 1:  </label>
-                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0706909063">
+                            <label for="email" class="required"> شماره تماس 1:  </label>
+                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0706909063" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email">  شماره تماس 2 :</label>
+                            <label for="email" >  شماره تماس 2 :</label>
                             <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0796909063">
                          </div>
                     </div>
@@ -39,14 +39,14 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="email"> نام کاربری</label>
-                            <input type="text" name="username" class="form-control form-control-sm" placeholder="aliAhmadi">
+                            <label for="email" class="required"> نام کاربری</label>
+                            <input type="text" name="username" class="form-control form-control-sm" placeholder="aliAhmadi" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd"> رمز کاربری :</label>
-                            <input type="password" name="password" class="form-control form-control-sm" placeholder="08">
+                            <label for="pwd" class="required"> رمز کاربری :</label>
+                            <input type="password" name="password" class="form-control form-control-sm" placeholder="08aQ#!q" required>
                         </div>
                     </div>
                 </div>
@@ -55,26 +55,26 @@
                    <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="pwd"> اسم و تخلص رئیس یا معاون شرکت ثبت نام شونده </label>
-                            <input type="text" name="BossName" class="form-control form-control-sm">
+                            <input type="text" name="BossName" class="form-control form-control-sm" placeholder="علی زمانی">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd"> عکس فرد یا لوگوی شرکت:</label>
-                            <input type="file" name="picture" class="form-control form-control-sm">
+                            <label for="pwd" class="required"> عکس فرد یا لوگوی شرکت:</label>
+                            <input type="file" name="picture" class="form-control form-control-sm" >
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd">  سکن جواز  :</label>
+                            <label for="pwd" class="required">  سکن جواز  :</label>
                             <input type="file" name="jawazPicture" class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd"> سکن پاسپورت یا تذکره شخص ثبت نام کننده:</label>
+                            <label for="pwd" class="required"> سکن پاسپورت یا تذکره شخص ثبت نام کننده:</label>
                             <input type="file" name="tazkiraPicture" class="form-control form-control-sm">
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                 <div class="row">
                   <div class="col-lg-6">
                         <div class="mb-3">
-                            <label for="pwd">  آدرس :</label>
-                            <input type="text" name="Address" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                            <label for="pwd" class="required">  آدرس :</label>
+                            <input type="text" name="Address" class="form-control form-control-sm" placeholder="کابل دشت برچی">
                         </div>
                     </div>
                
