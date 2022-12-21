@@ -17,7 +17,7 @@
                 </div>
             </div> 
             <div class="col-lg-9 text-end">
-                <form action="{{url('/docsDetails')}}" method="get">
+                <form action="{{url('/docsDetails')}}" method="get" style="display:inline;">
                     <input type="text" id="docDetailsInp" name="docID">
                 <button type="submit" class="btn btn-sm btn-success" id="docDetailsBtn">جزءیات سند<i class="fa fa-check"></i> </button> &nbsp;
                 </form>
