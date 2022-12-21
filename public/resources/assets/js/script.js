@@ -327,7 +327,15 @@ $("#deleteDocumentBtn").on("click", ()=>{
     });
         
     $("#okeDocumentBtn").on("click",function(){
-
+        swal({
+            title: "اخطار!",
+            text: "آیا میخواهید تایید گردد",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
         $.ajax({
             type: "get",
             url: baseUrl + "/okeDocument",
@@ -337,17 +345,33 @@ $("#deleteDocumentBtn").on("click", ()=>{
             },
             dataType: "json",
             success: function(respond) {
-                alert(respond.length);
+                swal({
+                    title: "تایید!",
+                    text: "موفقانه تایید شد",
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                  });
+                  window.location.reload();
             },
             error:function(error){
                 alert("server data response error");
             }
         });
+    }});
 
     });
     
     $("#rejectDocumentBtn").on("click",function(){
-
+        swal({
+            title: "اخطار!",
+            text: "آیا میخواهید رد گردد",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
         $.ajax({
             type: "get",
             url: baseUrl + "/rejectDocument",
@@ -357,12 +381,21 @@ $("#deleteDocumentBtn").on("click", ()=>{
             },
             dataType: "json",
             success: function(respond) {
-                alert(respond.length);
+                swal({
+                    title: "تایید!",
+                    text: "موفقانه رد شد",
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                  });
+                  window.location.reload();
             },
             error:function(error){
                 alert("server data response error");
             }
         });
+    }
+});
 
     });
     
