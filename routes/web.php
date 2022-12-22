@@ -53,5 +53,8 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/listBranchDocs',[Documents::class,'listBranchDocs']);
         Route::get('/showBranchDetails',[Branch::class,'showBranchDetails']);
         Route::get('/docsDetails',[Documents::class,'docsDetails']);
+        Route::get('/dislikeBranch',[Branch::class,'dislikeBranch']);
+        Route::get('/likeBranch',[Branch::class,'likeBranch']);
+        Route::get('/getLikeOpps',[Branch::class,'getLikeOpps']);
   //   });
   // }

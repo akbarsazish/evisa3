@@ -30,7 +30,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
                                             <label for="email"> تعداد سند :</label>
-                                            <input type="number" name="docNum" value={{$siteRules->docNum}} class="form-control form-control-sm" placeholder="1">
+                                            <input type="number" disabled name="docNum" value={{$siteRules->docNum}} class="form-control form-control-sm" placeholder="1">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -43,7 +43,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                          <div class="mb-3">
                                             <label for="pwd"> تعداد درست :</label>
-                                            <input type="number" name="corrects"  value={{$siteRules->Corrects}} class="form-control form-control-sm" placeholder="10">
+                                            <input type="number" name="corrects"   disabled value={{$siteRules->Corrects}} class="form-control form-control-sm" placeholder="10">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -57,7 +57,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email"> تعداد غلط </label>
-                                            <input type="number" name="problems"  value={{$siteRules->Problems}} class="form-control form-control-sm" placeholder="5">
+                                            <input type="number" name="problems"   disabled value={{$siteRules->Problems}} class="form-control form-control-sm" placeholder="5">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -93,12 +93,6 @@
                                     <div class="mb-3">
                                         <label for="email"> عنوان :</label>
                                         <input type="text" name="title" class="form-control form-control-sm" placeholder="سال نو مبارک ">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="pwd"> عکس  :</label>
-                                        <input type="file" name="img" class="form-control form-control-sm">
                                     </div>
                                 </div>
                     

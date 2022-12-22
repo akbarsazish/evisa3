@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.layout')
 @section('content')
 
 <div class="container rounded-2" style="background-color:#fff; padding:20px;margin-top:20px;">

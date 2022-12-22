@@ -22,17 +22,81 @@ function selectTableTr(element) {
     
     };
 
+    $("#dislikeBranchBtn").on("click",function(){
+        swal({
+            title: "خطا!",
+            text: "آیا میخواهید امتیاز کم گردد",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/dislikeBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                branchID: $("#dislikeBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                window.location.reload();
+            },
+            error:()=>{
+
+            }
+        });
+        }});
+            });
+            
+        
+
+    $("#likeBranchBtn").on("click",function(){
+        swal({
+            title: "خطا!",
+            text: "آیا میخواهید امتیاز اضافه گردد",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/likeBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                branchID:  $("#likeBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                window.location.reload();
+            },
+            error:()=>{
+
+            }
+        });
+    }});
+    });
+
+
+
     function selectTableTrBranch(element) {
         let input = $(element).find('input:radio').prop("checked", true);
         $("#showDetails").val(input.val());
         $("#showBranchForms").val(input.val());
         $("#editBranchBtn").val(input.val());
         $("#deleteBranche").val(input.val());
+        $("#likeBranchBtn").val(input.val());
+        $("#dislikeBranchBtn").val(input.val());
 
         $("#showBranchForms").prop("disabled",false);
         $("#showDetails").prop("disabled",false);
         $("#editBranchBtn").prop("disabled",false);
         $("#deleteBranche").prop("disabled",false);
+        $("#likeBranchBtn").prop("disabled",false);
+        $("#dislikeBranchBtn").prop("disabled",false);
         if($("#selectedBranchID")){
             $("#selectedBranchID").val($(input).val());
         }

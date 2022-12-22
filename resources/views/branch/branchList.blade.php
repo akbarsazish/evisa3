@@ -9,6 +9,8 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
+            <button type="button" disabled class="btn btn-sm btn-warning" id="likeBranchBtn" > افزایش امتیاز <i class="fa fa-thumbs-up"></i> </button> &nbsp;
+            <button type="button" disabled class="btn btn-sm btn-warning" id="dislikeBranchBtn" > کاهش امتیاز <i class="fa fa-thumbs-down"></i> </button> &nbsp;
                 <form action="{{url('/listBranchDocs')}}" method="get" style="display:inline">
                     <input type="hidden" id="selectedBranchID" name="branchID">
                     <button type="submit" disabled class="btn btn-sm btn-info" id="showBranchForms"> نمایش فورمها <i class="fa fa-info"></i> </button> &nbsp;
@@ -34,6 +36,8 @@
                             <th>  شماره تماس  </th>
                             <th>  اسم رئیس یا معاون شرکت  </th>
                             <th> کد شعبه  </th>
+                            <th> امتیاز مثبت </th>
+                            <th> امتیاز منفی </th>
                             <th> تعداد فورم </th>
                             <th> انتخاب </th>
                         </tr>
@@ -46,7 +50,9 @@
                                 <td>{{$branch->JawazNumber}}</td>
                                 <td>{{$branch->CellPhone}}</td>
                                 <td>{{$branch->BossName}}</td>
-                                <td>{{$branch->BranchCode}}</ bnmtd>
+                                <td>{{$branch->BranchCode}}</td>
+                                <td>{{$branch->doLike}}</td>
+                                <td>{{$branch->disLike}}</td>
                                 <td>{{$branch->countDoc}}</td>
                                 <td>
                                     <span class="form-check">
