@@ -27,6 +27,7 @@ class Admin extends Controller{
         $allNotOkeOfAgency=0;//تایید نشده نمایندگی
         $allRejectedOfCenter=0;//رد شده ها
         $allBranches=0;//تعدتد شعبات
+        $allFormsOfAgency=0;//تعدتد فورمهای نمایندگی
         $likeOfAgency=0;//امتیازات مثبت
         $disLikeOfAgency=0;//امتیازات منفی
 
@@ -106,6 +107,7 @@ class Admin extends Controller{
         'allOkeOfAgency'=>$allOkeOfAgency,
         'allBranches'=>$allBranches,
         'allRejectedOfCenter'=>$allRejectedOfCenter,
+        'allFormsOfAgency'=>$allFormsOfAgency,
         'likeOfAgency'=>$likeOfAgency,
         'disLikeOfAgency'=>$disLikeOfAgency
      ]);
