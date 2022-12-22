@@ -10,7 +10,7 @@
          
         </div>
   </div>
-  <div class="row contentRow">
+  <div class="row contentRow rounded-3">
     @if(Session::get("userSession")=="branch")
         <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="row">
@@ -112,18 +112,18 @@
            <p class="information p-3">
           {{$elan->content}}</p>
         </div>
-@endif
-    @if(Session::get("userSession")=="branch")
-        <div class="row">
-            <h3> ({{Session::get("name")}}) گزارشات عمومی </h3>
+    @endif
+     @if(Session::get("userSession")=="branch")
+        <div class="row mt-3">
+            <h3>  گزارشات عمومی ({{Session::get("name")}})</h3>
         </div>
-    @else
+     @else
         <div class="row">
             <h3> گزارشات عمومی کل شرکت ها</h3>
         </div>
-    @endif
-    @if(Session::get("userSession")!="branch")
-        <div class="row bg-white p-4">
+     @endif
+     @if(Session::get("userSession")!="branch")
+        <div class="row bg-white p-4 rounded-3">
                 <div class="col-md-2 col-sm-6">
                     <div class="counter">
                         <div class="counter-icon">
@@ -134,16 +134,16 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6">
-                    <div class="counter orange">
+                    <div class="counter blue">
                         <div class="counter-icon">
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-check"></i>
                         </div>
                         <h3> تایید شده ها </h3>
                         <span class="counter-value">{{$allOkeOfCenter}}</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6">
-                    <div class="counter blue">
+                    <div class="counter orange">
                         <div class="counter-icon">
                             <i class="fa fa-toggle-off"></i>
                         </div>
@@ -154,9 +154,9 @@
                 <div class="col-md-2 col-sm-6">
                     <div class="counter green">
                         <div class="counter-icon">
-                            <i class="fa fa-sign-out"></i>
+                            <i class="fa fa-dollar"></i>
                         </div>
-                        <h3> قرضدار </h3>
+                        <h3> پرداخت گردد </h3>
                         <span class="counter-value"> {{$allMoney_to_give}} </span>
                     </div>
                 </div>
@@ -172,13 +172,41 @@
                 <div class="col-md-2 col-sm-6">
                     <div class="counter red">
                         <div class="counter-icon">
-                            <i class="fas fa-history"></i>
+                            <i class="fas fa-usd"></i>
                         </div>
                         <h3> مجموع پول </h3>
                         <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
                     </div>
                 </div>
             </div>
-    @endif
+        @else
+
+            <div class="row my-2">
+                <div class="branchReport">
+                    <div class="branchReport-item">
+                        تایید شده ها    <span class="countNo"> {{$allOkeOfAgency}} </span>
+                    </div>
+                    <div class="branchReport-item">
+                        تایید نشده ها   <span class="countNo"> {{$allNotOkeOfAgency}} </span>
+                    </div>
+                    <div class="branchReport-item">
+                        تعداد کل فورم ها   <span class="countNo"> {{$allFormsOfAgency}} </span>
+                    </div>
+                    <div class="branchReport-item">
+                        اعتبار مثبت    <span class="countNo"> 30 </span>
+                    </div>
+                    <div class="branchReport-item">
+                        اعتبار منفی   <span class="countNo"> 2 </span>
+                    </div>
+                    <div class="branchReport-item">
+                        مبلغ کارمزد    <span class="countNo"> {{$allMoneyOfAgency}} </span>
+                    </div>
+                </div>
+            </div>
+            @endif
     </div>
+
+
+   
+
 @endsection

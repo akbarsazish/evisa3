@@ -27,6 +27,7 @@ class Admin extends Controller{
         $allNotOkeOfAgency=0;//تایید نشده نمایندگی
         $allRejectedOfCenter=0;//رد شده ها
         $allBranches=0;//تعدتد شعبات
+        $allFormsOfAgency=0;//تعدتد فورمهای نمایندگی
 
         if(Session::get("userSession")=="branch"){
         $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke!=0 group by userSn");
@@ -49,7 +50,13 @@ class Admin extends Controller{
         }else{
             $allNotOkeOfAgency=0;
         }
-        }
+        $allFormsOfAgency=DB::select("select count(DocSn) as allForms from document where userSn=".Session::get("userId")." group by userSn");
+        if(count($allFormsOfAgency)>0){
+            $allFormsOfAgency=$allFormsOfAgency[0]->allForms;
+        }else{
+            $allFormsOfAgency=0;
+        }    
+    }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
             $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke!=0");
             if(count($allMoney_to_give)>0){
@@ -93,7 +100,8 @@ class Admin extends Controller{
         'allNotOkeOfAgency'=>$allNotOkeOfAgency,
         'allOkeOfAgency'=>$allOkeOfAgency,
         'allBranches'=>$allBranches,
-        'allRejectedOfCenter'=>$allRejectedOfCenter
+        'allRejectedOfCenter'=>$allRejectedOfCenter,
+        'allFormsOfAgency'=>$allFormsOfAgency
      ]);
     }
 
