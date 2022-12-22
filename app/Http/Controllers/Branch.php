@@ -53,6 +53,10 @@ class Branch extends Controller{
     }
     public function addBranch(Request $request)
     {
+        $username=DB::table("branches")->where("username",$request->post("username"))->get();
+        if(count($username)>0){
+            return view("branch.addingBranch",['error'=>"نام کاربری با این نام قبلا وجود دارد"]);
+        }
         $name=$request->post("name");
         $username=$request->post("username");
         $password=$request->post("password");
@@ -72,7 +76,7 @@ class Branch extends Controller{
 
         if($picture){
             $fileName=$lastBranchSn.'.jpg';
-            $picture->move("resources/assets/images/branches/",$fileName);
+            $picture->move("resources/assets/images/branches/users/",$fileName);
         }
         if($pictureT){
             $fileName=$lastBranchSn.'.jpg';
@@ -156,6 +160,62 @@ class Branch extends Controller{
         $disLikeOperator=$likesOperators[0]->CorrectBonus;
         return [$likeOperator,$disLikeOperator];
         # code...
+    }
+    public function addingBranchOut(Request $request)
+    {
+        return view("branch.addingBranchOut");
+    }
+    public function addBranchOut(Request $request)
+    {
+        $username=DB::table("branches")->where("username",$request->post("username"))->get();
+        if(count($username)>0){
+            return view("branch.addingBranchOut",['error'=>"نام کاربری با این نام قبلا وجود دارد"]);
+        }
+        $name=$request->post("name");
+        $username=$request->post("username");
+        $password=$request->post("password");
+        $code=$request->post("code");
+        $bossName=$request->post("BossName");
+        $jawazNumber=$request->post("JawazNumber");
+        $picture=$request->file("picture");
+        $pictureT=$request->file("tazkiraPicture");
+        $pictureJ=$request->file("jawazPicture");
+        $address=$request->post("Address");
+        $cellPhone=$request->post("cellPhone");
+        $otherPhone=$request->post("otherPhone");
+        DB::table("branches")->insert(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","username"=>"$username","password"=>"$password"
+        ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone","BossName"=>"".$bossName."","JawazNumber"=>"".$jawazNumber.""]);
+
+        $lastBranchSn=DB::table("branches")->max("BranchSn");
+
+        if($picture){
+            $fileName=$lastBranchSn.'.jpg';
+            $picture->move("resources/assets/images/branches/",$fileName);
+        }
+        if($pictureT){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureT->move("resources/assets/images/branches/tazkira/",$fileName);
+        }
+        if($pictureJ){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureJ->move("resources/assets/images/branches/jawaz/",$fileName);
+        }
+        $branch =DB::table("branches")->where("BranchSn",$lastBranchSn)->get()[0];
+        return redirect("/viewSuccess");
+    }
+    public function viewSuccess(Request $request)
+    {
+        # code...
+        return view("branch.outBranchSuccess");
+    }
+    public function checkBranchUserName(Request $request)
+    {
+        $countExist=DB::table("branches")->where("username",$request->get("username"))->count();
+        if($countExist>0){
+            return Response::json(1);
+        }else{
+            return Response::json(0);
+        }
     }
     
 

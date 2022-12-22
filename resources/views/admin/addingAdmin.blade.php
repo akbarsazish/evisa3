@@ -6,6 +6,9 @@
         <div class="col-lg-12">
             <div class="row">
                 <h4> افزودن ادمین </h4>
+                @if(isset($error))
+            <div class="row"><h3 style="color:red">{{$error}}</h3></div>
+            @endif
             </div>
            
               <form action="{{url('/addAdmin')}}" method="post" enctype="multipart/form-data">
@@ -20,7 +23,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd"> نام کابری :</label>
-                            <input type="text" name="username" class="form-control form-control-sm" placeholder="aliAhmadi">
+                            <input type="text" name="username" onkeyup="checkAdminExistBefor(this)" class="form-control form-control-sm" placeholder="aliAhmadi">
+                            <span style="color:red;display:none" id="adminExistError">این نام کاربری قبلا گرفته شده است</span>
                         </div>
                     </div>
                </div>
@@ -34,7 +38,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd">  آدرس :</label>
-                            <input type="text" name="address" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                            <input type="text" name="address"  class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                            
                         </div>
                     </div>
                 </div>

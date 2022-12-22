@@ -138,6 +138,10 @@ class Admin extends Controller{
     }
     public function addAdmin(Request $request)
     {
+        $adminExist=DB::table("admin")->where("UserName",$request->post("username"))->count();
+        if($adminExist>0){
+            return view("admin.addingAdmin",['error'=>"کاربری با این نام کاربری قبلا ثبت شده است."]);
+        }
         $name=$request->post("name");
         $username=$request->post("username");
         $password=$request->post("password");
@@ -270,6 +274,15 @@ class Admin extends Controller{
             DB::table("elanat")->insert(["Title"=>"$title", "content"=>$content]);
         }
         return redirect("/siteSettings");
+    }
+    public function checkAdminUserName(Request $request)
+    {
+        $existOrNot=DB::table("admin")->where("UserName",$request->get("username"))->count();
+        if($existOrNot>0){
+            return Response::json(1);
+        }else{
+            return Response::json(0);
+        }
     }
 
 }

@@ -8,7 +8,7 @@
             @if(isset($error))
             <div class="row"><h3 style="color:red">{{$error}}</h3></div>
             @endif
-            <form action="{{url('/addBranch')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/addBranchOut')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-4">
@@ -80,25 +80,24 @@
                         <div class="mb-3">
                             <label for="pwd" class="required">  سکن جواز  :</label>
                             <input type="file" name="jawazPicture" class="form-control form-control-sm" onchange="document.getElementById('jawazPic').src = window.URL.createObjectURL(this.files[0])" required>
-                            <img id="jawazPic" alt="سکن جواز" width="222" height="100" />
+                            <img id="jawazPic" alt="سکن جواز" width="222" height="100" required/>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label for="pwd" class="required"> سکن پاسپورت یا تذکره شخص ثبت نام کننده:</label>
                             <input type="file" name="tazkiraPicture" class="form-control form-control-sm" onchange="document.getElementById('personDoc').src = window.URL.createObjectURL(this.files[0])" required>
-                            <img id="personDoc" alt="پاسپورت یا تذکره" width="222" height="100" />
+                            <img id="personDoc" alt="پاسپورت یا تذکره" width="222" height="100" required/>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label for="pwd" class="required"> عکس فرد یا لوگوی شرکت:</label>
                             <input type="file" name="picture" class="form-control form-control-sm" onchange="document.getElementById('personOrlogoPic').src = window.URL.createObjectURL(this.files[0])" required>
-                            <img id="personOrlogoPic" alt="عکس فرد یا لوگو" width="222" height="100" />
+                            <img id="personOrlogoPic" alt="عکس فرد یا لوگو" width="222" height="100" required/>
                         </div>
                     </div>
                 </div>
-                
                 <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
             </form>
         </div>
