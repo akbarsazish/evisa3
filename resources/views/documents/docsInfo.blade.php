@@ -30,8 +30,6 @@
     <div class="row">
         <div class="col-lg-12 ">
             <input type="hidden" id="selectedDocID">
-
-                @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                 <table class="table table-bordered select-highlight evisaDataTable">
                     <thead>
                         <tr class="docsTr">
@@ -77,7 +75,6 @@
                         </tr>
                     </tbody>
                 </table>
-                @endif
 </div>
 </div>
 

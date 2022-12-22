@@ -107,7 +107,7 @@
                 </thead>
                 <tbody id="docListBody">
                     @foreach($documents as $doc)
-                    <tr class="docsTr" onclick="selectTableTr(this)">
+                    <tr class="docsTr" onclick="selectTableTrDocs(this)">
                             <th>{{$loop->iteration}}</th>
                             <td>{{$doc->dName}}</td>
                             <td>{{$doc->LastName}}</td>

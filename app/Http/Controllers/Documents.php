@@ -83,7 +83,8 @@ class Documents extends Controller
         $documents=DB::table("document")->where("UserSn",1)->get();
         return redirect("/docsList");
     }
-    public function deleteDocs(Request $request){
+    public function deleteDocs(Request $request)
+{
         $userSn=1;
 
         $docId=$request->get("docID");
