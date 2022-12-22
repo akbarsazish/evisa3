@@ -28,6 +28,11 @@ class Admin extends Controller{
         $allRejectedOfCenter=0;//رد شده ها
         $allBranches=0;//تعدتد شعبات
         $allFormsOfAgency=0;//تعدتد فورمهای نمایندگی
+        $likeOfAgency=0;//امتیازات مثبت
+        $disLikeOfAgency=0;//امتیازات منفی
+
+
+
 
         if(Session::get("userSession")=="branch"){
         $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke!=0 group by userSn");
@@ -50,13 +55,14 @@ class Admin extends Controller{
         }else{
             $allNotOkeOfAgency=0;
         }
-        $allFormsOfAgency=DB::select("select count(DocSn) as allForms from document where userSn=".Session::get("userId")." group by userSn");
-        if(count($allFormsOfAgency)>0){
-            $allFormsOfAgency=$allFormsOfAgency[0]->allForms;
-        }else{
-            $allFormsOfAgency=0;
-        }    
-    }
+
+        $likesOfAgency=DB::table("branches")->where("BranchSn",Session::get("userId"))->get();
+        if(count($likesOfAgency)>0){
+            $likeOfAgency=$likesOfAgency[0]->doLike;
+            $disLikeOfAgency=$likesOfAgency[0]->disLike;
+        }
+
+        }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
             $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke!=0");
             if(count($allMoney_to_give)>0){
@@ -101,7 +107,9 @@ class Admin extends Controller{
         'allOkeOfAgency'=>$allOkeOfAgency,
         'allBranches'=>$allBranches,
         'allRejectedOfCenter'=>$allRejectedOfCenter,
-        'allFormsOfAgency'=>$allFormsOfAgency
+        'allFormsOfAgency'=>$allFormsOfAgency,
+        'likeOfAgency'=>$likeOfAgency,
+        'disLikeOfAgency'=>$disLikeOfAgency
      ]);
     }
 
@@ -240,15 +248,13 @@ class Admin extends Controller{
 
     public function addNewMangageRuleMony(Request $request)
     {
-        $problems=$request->post("problems");
         $problemMinus=$request->post("problemMinus");
-        $corrects=$request->post("corrects");
         $correctBonus=$request->post("correctBonus");
-        $docNum=$request->post("docNum");
+        $docNum=1;
         $money=$request->post("money");
 
-        DB::table("bonus")->insert(["Problems"=>$problems, "ProblemMinus"=>$problemMinus,
-                                    "Corrects"=>$corrects, "CorrectBonus"=>$correctBonus,
+        DB::table("bonus")->update([ "ProblemMinus"=>$problemMinus,
+                                     "CorrectBonus"=>$correctBonus,
                                     "docNum"=>$docNum, "money"=>$money]);
 
         return redirect("/siteSetting");
@@ -258,16 +264,10 @@ class Admin extends Controller{
         $elanExist=DB::table("elanat")->count();
         $content=$request->post("content");
         $title=$request->post("title");
-        $picture=$request->file("img");
         if($elanExist>0){
             DB::table("elanat")->update(["Title"=>"$title", "content"=>$content]);
         }else{
             DB::table("elanat")->insert(["Title"=>"$title", "content"=>$content]);
-        }
-        $lastElanSn=DB::table("elanat")->max("elanSn");
-        if($picture){
-            $fileName=$lastElanSn.'.jpg';
-            $picture->move("resources/assets/images/elanat/",$fileName);
         }
         return redirect("/siteSettings");
     }

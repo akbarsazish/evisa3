@@ -133,5 +133,30 @@ class Branch extends Controller{
         "countAllNotOkeDocs"=>$countAllNotOkeDocs,"countAllOkeDocs"=>$countAllOkeDocs,"countAllNewDocs"=>$countAllNewDocs]);
         
     }
+    public function likeBranch(Request $request)
+    {
+
+        $branchID=$request->get("branchID");
+        DB::table("branches")->where("BranchSn",$branchID)->increment('doLike', self::getLikeOperators()[0]);
+        return Response::json(1);
+        # code...
+    }
+
+    public function dislikeBranch(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        DB::table("branches")->where("BranchSn",$branchID)->increment('disLike', self::getLikeOperators()[1]);
+        return Response::json(1);
+        # code...
+    }
+    public function getLikeOperators(Type $var = null)
+    {
+        $likesOperators=DB::table("bonus")->get();// ضریب امتیازات مثبت و منفی 
+        $likeOperator=$likesOperators[0]->ProblemMinus;
+        $disLikeOperator=$likesOperators[0]->CorrectBonus;
+        return [$likeOperator,$disLikeOperator];
+        # code...
+    }
+    
 
 }

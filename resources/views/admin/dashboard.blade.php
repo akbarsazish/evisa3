@@ -20,7 +20,7 @@
                             <span class="like"> <i class="fa fa-thumbs-up" aria-hidden="true" style="color:#fff" ></i> </span>
                         </div>
                         <div class="like-item">
-                            <span class="emtyaz">227</span>
+                            <span class="emtyaz">{{$likeOfAgency}}</span>
                             <br>
                             <br>
                             <span class="etebar"> اعتبار مثبت </span>
@@ -33,7 +33,7 @@
                         <span class="dislike"> <i class="fa fa-thumbs-down" aria-hidden="true" style="color:#fff" ></i> </span>
                     </div>
                     <div class="like-item">
-                        <span class="emtyaz">104</span>
+                        <span class="emtyaz">{{$likeOfAgency}}</span>
                         <br>
                         <br>
                         <span class="etebar"> اعتبار منفی </span>
