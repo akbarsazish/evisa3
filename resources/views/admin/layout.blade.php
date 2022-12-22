@@ -81,9 +81,15 @@
                         </form> &nbsp;
 
                         <li class="nav-item dropdown text-black">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/loginLog.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
-                            </a>   
+                            @if(Session::get("userSession")==1 or Session::get("userSession")==2)
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/admins/'.Session::get('userId').'.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
+                                </a>   
+                            @else
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/branches/'.Session::get('userId').'.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
+                                </a> 
+                            @endif
                             
                         <ul class="dropdown-menu dropdown-menu-light">
                             <li><a class="dropdown-item logoutSetting text-dark text-start" href="#editingUser" data-bs-toggle="modal" data-bs-target="#editingUser"> پروفایل <i class="fa fa-cog" style="float:left"></i> </a></li>

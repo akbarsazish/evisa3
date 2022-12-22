@@ -9,7 +9,7 @@ use App\Notifications\AlertNotification;
 
 class Branch extends Controller{
     public function branchList(Request $request){
-        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =branches.BranchSn");
+        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =branches.BranchSn where branches.deleted=0");
         // $countAllDocs=DB::table("Docs")->where()->where()->count();
         // $countAllNotOkeDocs=DB::table()->where()->where()->count();
         // $countAllOkeDocs=DB::table()->where()->where()->count();

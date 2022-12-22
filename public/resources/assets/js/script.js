@@ -210,6 +210,7 @@ $("#deleteAdminBtn").on("click",()=>{
 });
 
 $("#deleteBranche").on("click",()=>{
+    
     swal({
         title: "خطا!",
         text: "آیا میخواهید حذف گردد",
@@ -231,24 +232,25 @@ $("#deleteBranche").on("click",()=>{
               swal("موفقانه حذف گردید", {
                 icon: "success",
               });
+              window.location.reload();
     
-                //
-                $("#branchListBody").empty();
-                resp.forEach((element,index) => {
-                  $("#branchListBody").append(`
-                  <tr class="docsTr"  onclick="selectTableTr(this)">
-                  <td>`+(index+1)+`</td>
-                  <td>`+element.Name+`</td>
-                  <td>`+element.BranchCode+`</td>
-                  <td>`+element.Address+`</td>
-                  <td>
-                      <span class="form-check">
-                          <input class="form-check-input " type="radio" name="branchId" id="" value="`+element.BranchSn+`">
-                      </span>
-                  </td>
-           </tr>`);
+        //         //
+        //         $("#branchListBody").empty();
+        //         resp.forEach((element,index) => {
+        //           $("#branchListBody").append(`
+        //           <tr class="docsTr"  onclick="selectTableTr(this)">
+        //           <td>`+(index+1)+`</td>
+        //           <td>`+element.Name+`</td>
+        //           <td>`+element.BranchCode+`</td>
+        //           <td>`+element.Address+`</td>
+        //           <td>
+        //               <span class="form-check">
+        //                   <input class="form-check-input " type="radio" name="branchId" id="" value="`+element.BranchSn+`">
+        //               </span>
+        //           </td>
+        //    </tr>`);
 
-                });
+        //         });
             },
             error: function(msg) {
               alert("data resp errors");
