@@ -14,6 +14,7 @@ class Branch extends Controller{
         // $countAllNotOkeDocs=DB::table()->where()->where()->count();
         // $countAllOkeDocs=DB::table()->where()->where()->count();
         // $countAllNewDocs=DB::table()->where()->where()->count();
+       
         return view("branch.branchList",['branches'=>$branches]);
     }
 
@@ -31,7 +32,7 @@ class Branch extends Controller{
         ]
     );
 
-    $branchExist=DB::table("branches")->where("username",$request->post("username"))->where("password",$request->post("password"))->count();
+    $branchExist=DB::table("branches")->where("username",$request->post("username"))->where("deleted",0)->where("password",$request->post("password"))->count();
     if($branchExist>0){
         $branch=DB::table("branches")->where("username",$request->post("username"))->get();
         Session::put("userSession","branch");
@@ -127,7 +128,7 @@ class Branch extends Controller{
     {
         $branchID=$request->get("branchID");
         $countAllDocs=DB::table("document")->where("userSn",$branchID)->count();
-        $allMoneyToGive=DB::table("document")->where("userSn",$branchID)->count()*300;
+        $allMoneyToGive=DB::table("document")->where("userSn",$branchID)->count()* self::getLikeOperators()[2];
         $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->count();
         $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->count();
         $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->count();
@@ -158,7 +159,9 @@ class Branch extends Controller{
         $likesOperators=DB::table("bonus")->get();// ضریب امتیازات مثبت و منفی 
         $likeOperator=$likesOperators[0]->ProblemMinus;
         $disLikeOperator=$likesOperators[0]->CorrectBonus;
-        return [$likeOperator,$disLikeOperator];
+        $moneyEach=$likesOperators[0]->money;
+        $moneyOfCenterEach=$likesOperators[0]->totalOfCenter;
+        return [$likeOperator,$disLikeOperator,$moneyEach,$moneyOfCenterEach];
         # code...
     }
     public function addingBranchOut(Request $request)
@@ -217,6 +220,40 @@ class Branch extends Controller{
             return Response::json(0);
         }
     }
-    
 
+    public function requestToBranch(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        $requestExist=DB::table("tasviyahrequest")->where("BranchSn",$branchID)->count();
+        if($requestExist>0){
+            DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["BranchSn"=>$branchID, "IsRequest"=>1]);
+        }else{
+            DB::table("tasviyahrequest")->insert(["adminSn"=>Session::get("userId"), "BranchSn"=>$branchID, "IsRequest"=>1]); 
+        }
+        return Response::json(1);
+    }
+
+    public function acceptRequest(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["IsRequest"=>2]);
+        return Response::json(2);
+    }
+    
+    public function getAllBranchInfo(Request $request)
+    {
+        $branchID=$request->get("BranchID");
+        $state=0;
+        $requestState=DB::select("SELECT IsRequest  FROM tasviyahrequest WHERE BranchSn=".$branchID);
+        if(count($requestState)>0){
+            $state=$requestState[0]->IsRequest;
+        }
+        return Response::json($state);
+    }
+    public function cancelRequest(Request $request)
+    {
+        $branchID=$request->get("BranchID");
+        DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["IsRequest"=>0]);
+        return Response::json(0);
+    }
 }

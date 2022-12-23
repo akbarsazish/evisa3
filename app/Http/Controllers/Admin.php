@@ -6,6 +6,7 @@ use Response;
 use Session;
 use Notification;
 use App\Notifications\AlertNotification;
+use App\Http\Controllers\Branch;
 
 class Admin extends Controller{
     public function index(Request $request)
@@ -26,20 +27,31 @@ class Admin extends Controller{
         $allOkeOfAgency=0;//تایید شده نمایندگی
         $allNotOkeOfAgency=0;//تایید نشده نمایندگی
         $allRejectedOfCenter=0;//رد شده ها
+        $allRejectedOfAgency=0;//رد شده های شرکت
         $allBranches=0;//تعدتد شعبات
         $allFormsOfAgency=0;//تعدتد فورمهای نمایندگی
         $likeOfAgency=0;//امتیازات مثبت
         $disLikeOfAgency=0;//امتیازات منفی
-
+        $likeOperator=(new Branch)->getLikeOperators()[0];//ضریب لایک
+        $likeOperator=(new Branch)->getLikeOperators()[1];//ضریب نفرت
+        $moneyEach=(new Branch)->getLikeOperators()[2];//ضریب هر سند از نگاه پول
+        $moneyOfCenterEach=(new Branch)->getLikeOperators()[3];//ضریب هر سند از نگاه پول
+        $allMoneyOfCenter=0;//مبلغ کل پول بدست آمده توسط مرکز
 
 
 
         if(Session::get("userSession")=="branch"){
-        $allMoney_of_Agency=DB::select("select count(DocSn)*300 as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke!=0 group by userSn");
+        $allMoney_of_Agency=DB::select("select count(DocSn)*".$moneyEach." as allMoneyAgency from document where userSn=".Session::get("userId")." and isOke!=0 group by userSn");
         if(count($allMoney_of_Agency)>0){
             $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
         }else{
             $allMoney_of_Agency=0;
+        }
+        $allRejectedOfAgency=DB::select("select count(DocSn) as allRecjectOfAgency from document where userSn=".Session::get("userId")." and isOke=2 group by userSn");
+        if(count($allRejectedOfAgency)>0){
+            $allRejectedOfAgency=$allRejectedOfAgency[0]->allRecjectOfAgency;
+        }else{
+            $allRejectedOfAgency=0;
         }
         
         $allOkeOfAgency=DB::select("select count(DocSn) as allOkeOfAgency from document where userSn=".Session::get("userId")." and isOke=1 group by userSn");
@@ -61,10 +73,11 @@ class Admin extends Controller{
             $likeOfAgency=$likesOfAgency[0]->doLike;
             $disLikeOfAgency=$likesOfAgency[0]->disLike;
         }
+        $allFormsOfAgency=DB::table("document")->where("userSn",Session::get("userId"))->count();
 
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
-            $allMoney_to_give=DB::select("select count(DocSn)*300 as allMoneyToGive from document where isOke!=0");
+            $allMoney_to_give=DB::select("select count(DocSn)*".$moneyEach." as allMoneyToGive from document where isOke!=0");
             if(count($allMoney_to_give)>0){
                 $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
             }else{
@@ -77,6 +90,7 @@ class Admin extends Controller{
             }else{
                 $allOkeOfCenter=0;
             }
+
             $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0");
             if(count($allNotOkeOfCenter)>0){
                 $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
@@ -96,6 +110,15 @@ class Admin extends Controller{
             }else{
                 $allRejectedOfCenter=0;
             }
+
+            
+
+            $allMoneyOfCenter=DB::select("select count(DocSn)*".$moneyOfCenterEach." as allMoneyOfCenter from document where isOke=1");
+            if(count( $allMoneyOfCenter)>0){
+            $allMoneyOfCenter=$allMoneyOfCenter[0]->allMoneyOfCenter;
+            }else{
+                $allMoneyOfCenter=0;
+            }
         
         }
         return view("admin.dashboard",['elan'=>$elanat[0],
@@ -109,7 +132,9 @@ class Admin extends Controller{
         'allRejectedOfCenter'=>$allRejectedOfCenter,
         'allFormsOfAgency'=>$allFormsOfAgency,
         'likeOfAgency'=>$likeOfAgency,
-        'disLikeOfAgency'=>$disLikeOfAgency
+        'disLikeOfAgency'=>$disLikeOfAgency,
+        'allRejectedOfAgency'=>$allRejectedOfAgency,
+        'allMoneyOfCenter'=>$allMoneyOfCenter
      ]);
     }
 
@@ -262,12 +287,13 @@ class Admin extends Controller{
     {
         $problemMinus=$request->post("problemMinus");
         $correctBonus=$request->post("correctBonus");
+        $totalOfCenter=$request->post("totalOfCenter");
         $docNum=1;
         $money=$request->post("money");
 
         DB::table("bonus")->update([ "ProblemMinus"=>$problemMinus,
                                      "CorrectBonus"=>$correctBonus,
-                                    "docNum"=>$docNum, "money"=>$money]);
+                                    "docNum"=>$docNum, "money"=>$money,'totalOfCenter'=>$totalOfCenter]);
 
         return redirect("/siteSetting");
     }

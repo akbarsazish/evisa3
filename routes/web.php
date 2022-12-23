@@ -64,5 +64,9 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/viewSuccess',[Branch::class,'viewSuccess']);
         Route::get('/checkBranchUserName',[Branch::class,'checkBranchUserName']);
         Route::get('/checkAdminUserName',[Admin::class,'checkAdminUserName']);
+        Route::get('/requestToBranch',[Branch::class,'requestToBranch']);
+        Route::get('/acceptRequest',[Branch::class,'acceptRequest']);
+        Route::get('/getAllBranchInfo',[Branch::class,'getAllBranchInfo']);
+        Route::get('/cancelRequest',[Branch::class,'cancelRequest']);
   //   });
   // }

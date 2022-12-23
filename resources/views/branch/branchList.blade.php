@@ -9,6 +9,9 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
+
+            <button type="button" disabled class="btn btn-sm btn-warning" id="requestBranchBtn" style="display:none"> درخواست تسویه<i class="fa fa-bell"></i> </button> &nbsp;
+            <button type="button" disabled class="btn btn-sm btn-warning" id="cancelRequestBtn" style="display:none">کنسل درخواست تسویه<i class="fa fa-bell"></i> </button> &nbsp;
             <button type="button" disabled class="btn btn-sm btn-warning" id="likeBranchBtn" > افزایش امتیاز <i class="fa fa-thumbs-up"></i> </button> &nbsp;
             <button type="button" disabled class="btn btn-sm btn-warning" id="dislikeBranchBtn" > کاهش امتیاز <i class="fa fa-thumbs-down"></i> </button> &nbsp;
                 <form action="{{url('/listBranchDocs')}}" method="get" style="display:inline">

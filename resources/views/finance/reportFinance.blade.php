@@ -32,36 +32,29 @@
         </div> <hr>
         <div class="row">
         <table class="table table-bordered select-highlight evisaDataTable">
-              <thead class="bg-info">
+                <thead class="bg-info">
                     <tr class="docsTr">
                         <th> ردیف </th>
-                        <th> تاریخ  </th>
-                        <th> شماره سند </th>
-                        <th> شرح حساب  </th>
+                        <th>اسم شرکت </th>
+                        <th> تعداد فورمها</th>
+                        <th>تعداد فورمهای تایید نشده </th>
                         <th> بدهکار </th>
-                        <th>  طلبکار  </th>
-                        <th>تراز  </th>
-                        <th>  ملاحظات  </th>
+                        <th>تسویه شده</th>
                     </tr>
                 </thead>
-                <tbody id="docListBody">
-                  
-                    <tr class="docsTr">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="" id="" value="">
-                                </span>
-                            </td>
-                    </tr>
+                <tbody id="financeListBody">
+                    @foreach($reports as $report)
+                        <tr class="docsTr">
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$report->Name}}</td>
+                            <td>{{$report->countDocument}}</td>
+                            <td>{{$report->countNotOkeDocument}}</td>
+                            <td>{{$report->debets}}</td>
+                            <td>درست نشده است</td>
+                        </tr>
+                    @endforeach
                 </tbody>
-             </table>
+            </table>
         </div>
 
 
