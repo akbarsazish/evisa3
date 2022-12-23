@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ url('/resources/assets/js/jquery.min.js')}}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="{{ url('/resources/assets/js/jquery-ui.min.js')}}"></script>
-    <link rel="icon" type="image/png" href="{{ url('/resources/assets/images/part.png')}}">
+    <link rel="icon" type="image/png" href="{{ url('/resources/assets/images/logo.png')}}">
 </head>
 <body>
 

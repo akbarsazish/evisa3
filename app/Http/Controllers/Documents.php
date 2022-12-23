@@ -34,7 +34,6 @@ class Documents extends Controller
         $personImg=$request->file("personImage");
         $passImg=$request->file("passImage");
 
-
          $name=$request->post("name");
          $lastName=$request->post("lastName");
          $fatherName=$request->post("fatherName");
@@ -67,17 +66,17 @@ class Documents extends Controller
         }
         if($tazkiraImg){
             $fileName=$lastDocSn.'.jpg';
-            $picture->move("resources/assets/images/tazkira/",$fileName);
+            $tazkiraImg->move("resources/assets/images/document/tazkira/",$fileName);
         }
         //عکس فرد
         if($personImg){
             $fileName=$lastDocSn.'.jpg';
-            $picture->move("resources/assets/images/person/",$fileName);
+            $personImg->move("resources/assets/images/document/person/",$fileName);
         }
         //عکس پاسپورت
         if($passImg){
             $fileName=$lastDocSn.'.jpg';
-            $picture->move("resources/assets/images/passport/",$fileName);
+            $passImg->move("resources/assets/images/document/passport/",$fileName);
         }
 
         $documents=DB::table("document")->where("UserSn",1)->get();

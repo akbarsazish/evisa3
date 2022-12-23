@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container rounded-2" style="background-color:#fff; padding:20px;margin-top:20px; box-shadow: 0px 0px 10px 1px #0079ed;">
+<div class="container rounded-2 shadow rounded-3" style="background-color:#fff; padding:20px;margin-top:20px;">
     <div class="row p-3">
         <div class="col-lg-12">
             <h4> افزودن شرکت  </h4>

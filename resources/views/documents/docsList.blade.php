@@ -60,10 +60,9 @@
                 <tbody id="docListBody">
                     @foreach($documents as $doc)
                     <tr class="docsTr" 
-                                        @if($doc->isOke ==2) style="background-color:red!important;" @endif
-                                        @if($doc->isOke ==1) style="background-color:green!important;" @endif
-                    
-                    onclick="selectTableTrDocs(this)">
+                            @if($doc->isOke ==2) style="background-color:red!important;" @endif
+                            @if($doc->isOke ==1) style="background-color:green!important;" @endif
+                       onclick="selectTableTrDocs(this)">
                             <th  >{{$loop->iteration}}</th>
                             <td>{{$doc->dName}}</td>
                             <td>{{$doc->LastName}}</td>

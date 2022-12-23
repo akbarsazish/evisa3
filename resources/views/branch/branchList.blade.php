@@ -8,8 +8,7 @@
                      <h4 class="title"> لیست شرکت ها  </h4>
                 </div>
             </div>
-            <div class="col-lg-9 text-end">
-
+            <div class="col-lg-9 text-end px-0">
             <button type="button" disabled class="btn btn-sm btn-warning" id="requestBranchBtn" style="display:none"> درخواست تسویه<i class="fa fa-bell"></i> </button> &nbsp;
             <button type="button" disabled class="btn btn-sm btn-warning" id="cancelRequestBtn" style="display:none">کنسل درخواست تسویه<i class="fa fa-bell"></i> </button> &nbsp;
             <button type="button" disabled class="btn btn-sm btn-warning" id="likeBranchBtn" > افزایش امتیاز <i class="fa fa-thumbs-up"></i> </button> &nbsp;
@@ -114,13 +113,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">نام کاربری:</label>
-                                            <input type="text" name="username" id="username" class="form-control form-control-sm" placeholder="08">
+                                            <input type="text" name="username" id="username" class="form-control form-control-sm" placeholder="aliAhmadi" disabled>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">رمز کاربری:</label>
-                                            <input type="text" name="password" id="password" class="form-control form-control-sm" placeholder="08">
+                                            <input type="text" name="password" id="password" class="form-control form-control-sm" placeholder="08A@" required>
                                         </div>
                                     </div>
                              </div>

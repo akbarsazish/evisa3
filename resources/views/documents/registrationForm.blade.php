@@ -4,17 +4,16 @@
 <div class="container mt-2">
   <div class="row">
     <form action="{{url('/addDoc')}}" method="post" enctype="mutipart/form-data" >
-      @csrf
+        @csrf
        <div class="col-lg-6 p-2 d-flex justify-content-start">
              <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
        </div>
-        
   </div>
-  <div class="container registrationForm">
+  <div class="container registrationForm shadow rounded-3">
      <div class="row p-3">
          <div class="form-check form-switch fs-5">
-                <input class="form-check-input float-start" type="checkbox" name="isAutomat" id="" checked>
-                <label class="form-check-label ms-5" for=""> حالت هوشمند </label>
+              <input class="form-check-input float-start" type="checkbox" name="isAutomat" id="intelligentState">
+              <label class="form-check-label ms-5" for=""> حالت هوشمند </label>
         </div>
      </div>
      <div class="row mt-3"> 
@@ -46,8 +45,8 @@
                             <use href="#icon-imageUpload"></use>
                         </svg>
                         <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
-                         <input id="upload_image_background" name="personImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                        <label class="btn btn-upload btn-sm mb-2" for="upload_image_background">  عکس شخص </label>
+                         <input id="personImage" name="personImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+                        <label class="btn btn-upload btn-sm mb-2" for="personImage">  عکس شخص </label>
                        <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                  </fieldset>
                 <svg style="display:none">
@@ -65,8 +64,8 @@
                             <use href="#icon-imageUpload"></use>
                         </svg>
                         <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
-                         <input id="upload_image_background" name="tazkiraImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                        <label class="btn btn-upload btn-sm mb-2" for="upload_image_background"> تذکره </label>
+                         <input id="tazkeraImage" name="tazkiraImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+                        <label class="btn btn-upload btn-sm mb-2" for="tazkeraImage"> تذکره </label>
                        <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                 </fieldset>
                 <svg style="display:none">

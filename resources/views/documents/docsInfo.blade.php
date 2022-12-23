@@ -62,14 +62,14 @@
                          <span class="item"> تاریخ مراجعه   </span> : {{$doc->referDate}}
                     </div>
                     <div class="branchItem">
-                         <span class="item"> &nbsp; عکس شخص &nbsp; &nbsp; </span> : <img src="" alt="سکن جواز" class="responsive brancheDetailsImg ">
+                         <span class="item"> &nbsp; عکس شخص &nbsp; &nbsp; </span> : <img src="{{url('/resources/assets/images/document/person/'.$doc->DocSn.'.jpg')}}" alt="سکن جواز" class="responsive brancheDetailsImg ">
                     </div>
 
                     <div class="branchItem">
-                         <span class="item"> پاسپورت   </span> : <img src="" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
+                         <span class="item"> پاسپورت   </span> : <img src="{{url('/resources/assets/images/document/passport/'.$doc->DocSn.'.jpg')}}" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
                     </div>
                     <div class="branchItem">
-                         <span class="item">  تذکره  </span> : <img src="" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
+                         <span class="item">  تذکره  </span> : <img src="{{url('/resources/assets/images/document/tazkira/'.$doc->DocSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
                     </div>
                 </div>
             </div>      

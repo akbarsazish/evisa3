@@ -68,9 +68,6 @@
                     <div class="branchItem">
                          <span class="item"> عکس فرد یا لوگوی شرکت </span> : <img src="{{url('/resources/assets/images/branches/users/'.$branch->BranchSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
                     </div>
-
-                    
-                     
                 </div>
             </div>
 

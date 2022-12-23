@@ -34,7 +34,7 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label for="email" >  شماره تماس 2 :</label>
-                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0796909063" maxlength="10"   minlength="10" required>
+                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0796909063" maxlength="10"   minlength="10">
                          </div>
                     </div>
                 

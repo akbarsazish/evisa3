@@ -4,7 +4,7 @@
 
 <div class="container mt-2">
   <div class="row">
-    <form action="{{url('/addDoc')}}" method="post" enctype="mutipart/form-data" >
+    <form action="{{url('/addDoc')}}" method="post" enctype="multipart/form-data" >
       @csrf
        <div class="col-lg-6 p-2 d-flex justify-content-start">
              <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
