@@ -35,8 +35,15 @@
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
-                                            <label for="pwd"> مقدار پول :</label>
+                                            <label for="pwd"> کار مزد شرکت:</label>
                                             <input type="number" name="money"  value={{$siteRules->money}} class="form-control form-control-sm" placeholder="500">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="pwd"> :مبلغ پول هر سند برای مرکز</label>
+                                            <input type="number" name="totalOfCenter"  value={{$siteRules->totalOfCenter}} class="form-control form-control-sm" placeholder="500">
                                         </div>
                                     </div>
                         

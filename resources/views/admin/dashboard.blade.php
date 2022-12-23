@@ -33,7 +33,7 @@
                         <span class="dislike"> <i class="fa fa-thumbs-down" aria-hidden="true" style="color:#fff" ></i> </span>
                     </div>
                     <div class="like-item">
-                        <span class="emtyaz">{{$likeOfAgency}}</span>
+                        <span class="emtyaz">{{$disLikeOfAgency}}</span>
                         <br>
                         <br>
                         <span class="etebar"> اعتبار منفی </span>
@@ -152,7 +152,7 @@
                         <div class="counter green">
                             <div class="counter-icon"> <i class="fas fa-usd"></i> </div>
                             <h3> مجموع پول </h3>
-                            <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
+                            <span class="counter-value">{{$allMoneyOfCenter}}</span>
                         </div>
                     </div>
               </div>
@@ -176,13 +176,16 @@
                         تایید نشده ها   <span class="countNo"> {{$allNotOkeOfAgency}} </span>
                     </div>
                     <div class="branchReport-item">
+                          رد شده ها   <span class="countNo"> {{$allRejectedOfAgency}} </span>
+                    </div>
+                    <div class="branchReport-item">
                         تعداد کل فورم ها   <span class="countNo"> {{$allFormsOfAgency}} </span>
                     </div>
                     <div class="branchReport-item">
-                        اعتبار مثبت    <span class="countNo"> 30 </span>
+                        اعتبار مثبت    <span class="countNo"> {{$likeOfAgency}} </span>
                     </div>
                     <div class="branchReport-item">
-                        اعتبار منفی   <span class="countNo"> 2 </span>
+                        اعتبار منفی   <span class="countNo"> {{$disLikeOfAgency}} </span>
                     </div>
                     <div class="branchReport-item">
                         مبلغ کارمزد    <span class="countNo"> {{$allMoneyOfAgency}} </span>
@@ -191,8 +194,4 @@
             </div>
             @endif
     </div>
-
-
-   
-
 @endsection
