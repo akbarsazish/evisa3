@@ -22,6 +22,85 @@ function selectTableTr(element) {
     
     };
 
+    $("#requestBranchBtn").on("click",function(){
+             swal({
+            title: "خطا!",
+            text: "آیا میخواهید درخواست کنید",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/requestToBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                branchID: $("#requestBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                window.location.reload();
+            }
+        });
+    }
+});
+    });
+
+    $("#acceptRequestBtn").on("click",function(){
+
+        swal({
+            title: "خطا!",
+            text: "آیا میخواهید قبول کنید",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/acceptRequest",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#acceptRequestBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                alert(resp);
+                window.location.reload();
+            }
+        });
+    }})
+    });
+
+    $("#cancelRequestBtn").on("click",function(){
+        swal({
+            title: "خطا!",
+            text: "آیا میخواهید کنسل کنید",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/cancelRequest",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#cancelRequestBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                window.location.reload();
+            }
+        });
+    }
+});
+    });
+
     $("#dislikeBranchBtn").on("click",function(){
         swal({
             title: "خطا!",
@@ -80,6 +159,23 @@ function selectTableTr(element) {
     }});
     });
 
+    $("#doTasviyahBranchBtn").on("click",function(){
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/doTasviyahHisab",
+            data: {
+                _token: "{{ csrf_token()}}",
+                BranchID: $("#doTasviyahBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                
+                window.location.reload();
+
+            }
+        });
+    })
+
 
 
     function selectTableTrBranch(element) {
@@ -90,6 +186,10 @@ function selectTableTr(element) {
         $("#deleteBranche").val(input.val());
         $("#likeBranchBtn").val(input.val());
         $("#dislikeBranchBtn").val(input.val());
+        $("#requestBranchBtn").val(input.val());
+        $("#cancelRequestBtn").val(input.val());
+        $("#acceptRequestBtn").val(input.val());
+        $("#doTasviyahBranchBtn").val(input.val());
 
         $("#showBranchForms").prop("disabled",false);
         $("#showDetails").prop("disabled",false);
@@ -97,12 +197,46 @@ function selectTableTr(element) {
         $("#deleteBranche").prop("disabled",false);
         $("#likeBranchBtn").prop("disabled",false);
         $("#dislikeBranchBtn").prop("disabled",false);
+        $("#requestBranchBtn").prop("disabled",false);
+        $("#doTasviyahBranchBtn").prop("disabled",false);
         if($("#selectedBranchID")){
             $("#selectedBranchID").val($(input).val());
         }
         if($("#selectedBranchIDDetail")){
             $("#selectedBranchIDDetail").val($(input).val());
         }
+            
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/getAllBranchInfo",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: input.val()
+            },
+            dataType: "json",
+            success: function(resp) {
+            if(resp==0){
+                $("#requestBranchBtn").css("display","inline");
+                $("#cancelRequestBtn").css("display","none");
+                $("#doTasviyahBranchBtn").css("display","none");
+            }
+            if(resp==1){
+                $("#cancelRequestBtn").css("display","inline");
+                $("#requestBranchBtn").css("display","none");
+                $("#doTasviyahBranchBtn").css("display","none");
+            }
+            if(resp==2){
+                $("#doTasviyahBranchBtn").css("display","inline");
+                $("#requestBranchBtn").css("display","none");
+                $("#cancelRequestBtn").css("display","none");
+            }
+        
+                
+            },
+            error:function(error){
+
+            }
+        });
           
     }
 
