@@ -14,7 +14,6 @@
                     <button type="button" class="btn btn-sm btn-danger" id="deleteAdminBtn"> حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
-
     <div class="row">
         <input type="hidden" id="selectedAdminID" />
         <div class="col-lg-12 ">

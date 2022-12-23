@@ -10,8 +10,8 @@
                     <button class="btn btn-sm btn-danger"> قبول در خواست تسویه  <i class="fa fa-bell"></i></button>
                 </div>
         </div>
-  <div class="row contentRow rounded-3">
-  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="row contentRow rounded-3">
+     <div class="col-lg-6 col-md-6 col-sm-6">
         @if(Session::get("userSession")=="branch")
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -42,19 +42,18 @@
             </div>
         </div>
     @endif
-
           <div class="row mt-2">
               <div class="col-lg-6 col-md-6 col-sm-6 px-1">
                   <div class="likeAndDislike">
-                    <div class="like-item text-start">
-                        @if(Session::get("userSession")==2 or Session::get("userSession")==1)
-                        <span class="confirmedDocs ">  تعداد ثبت نام های تایید نشده کل شرکت ها</span> 
-                        <div class="registeredForVisa mt-3"> {{$allNotOkeOfCenter}} </div>
-                        @else
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">  <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
-                            <div class="registeredForVisa mt-3"> {{$allNotOkeOfAgency}}</div>                        
-                        @endif
-                    </div>
+                      <div class="like-item text-start">
+                            @if(Session::get("userSession")==2 or Session::get("userSession")==1)
+                            <span class="confirmedDocs ">  تعداد ثبت نام های تایید نشده کل شرکت ها</span> 
+                            <div class="registeredForVisa mt-3"> {{$allNotOkeOfCenter}} </div>
+                            @else
+                            <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">  <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
+                                <div class="registeredForVisa mt-3"> {{$allNotOkeOfAgency}}</div>                        
+                            @endif
+                      </div>
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 px-1">
@@ -62,11 +61,9 @@
                    <div class="like-item">
                         @if(Session::get("userSession")==2 or Session::get("userSession")==1)
                         <span class="confirmedDocs "> تعداد ثبت نام های تایید شده  کل شرکت ها</span> 
-
                         <span class="registeredForVisa mt-3">{{$allOkeOfCenter}}</span>
                         @else
                         <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> &nbsp; &nbsp;  <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
-
                         <span class="registeredForVisa mt-3">{{$allOkeOfAgency}}</span>
                         @endif
                     </div>
@@ -81,13 +78,11 @@
                     @else
                         <span class="moneyText"> مبلغ قابل پرداخت برای شرکت ها</span>
                     @endif
-
                     @if(Session::get("userSession")==2 or Session::get("userSession")==1)
                         <span class="countMoney"> {{$allMoney_to_give}} <sub>ا</sub>ف </span>
                     @else
                         <span class="countMoney"> {{$allMoneyOfAgency}} <sub>ا</sub>ف </span>
                     @endif
-
                     @if(Session::get("userSession")=="branch")
                         <span class="moneyDescription"> مجموع مبلغ ذکر شده قابل دریافت می باشد. </span>
                     @else
