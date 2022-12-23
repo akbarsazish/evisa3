@@ -6,7 +6,7 @@
 body{
   background-image: linear-gradient(#ffffff,#d6e5f0,#b5daf5);
   font-size: 12px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bannerImage{
@@ -155,7 +155,7 @@ p.information {
     height: 30px;
     padding: 5px;
     display: flex;
-    align-self: center !important;
+    justify-content: center !important;
     background-color: #0076df;
     color: #fff;
     border-radius: 50%;
@@ -286,11 +286,11 @@ a.activeLink {
 
 .counter {
   color: #eb3b5a;
-  width: 150px;
-  height: 150px;
+  width: 116px;
+  height: 116px;
   text-align: center;
   border-radius: 100%;
-  padding: 60px 20px 30px;
+  padding: 50px 16px 24px;
   margin: 0 auto;
   margin-top:10px;
   position: relative;
@@ -327,10 +327,10 @@ a.activeLink {
 .counter .counter-icon {
   color: #fff;
   background: linear-gradient(45deg, #B81242 49%, #D74A75 50%);
-  font-size: 22px;
-  line-height: 55px;
-  width: 55px;
-  height: 55px;
+  font-size: 18px;
+  line-height: 33px;
+  width: 33px;
+  height: 33px;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -349,15 +349,14 @@ a.activeLink {
 }
 
 .counter h3 {
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0 0 3px;
+  font-size: 14px;
+  font-weight: 400;
+  
 }
 
 .counter .counter-value {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .counter.orange {
@@ -460,4 +459,50 @@ a.activeLink {
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
+}
+
+
+
+.card-box {
+  padding: 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.social-links li a {
+  border-radius: 50%;
+  color: rgba(121, 121, 121, .8);
+  display: inline-block;
+  height: 30px;
+  line-height: 27px;
+  border: 2px solid rgba(121, 121, 121, .5);
+  text-align: center;
+  width: 30px
+}
+
+.social-links li a:hover {
+  color: #797979;
+  border: 2px solid #797979
+}
+.thumb-lg {
+  height: 88px;
+  width: 88px;
+}
+.img-thumbnail {
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+  height: auto;
+}
+.text-pink {
+  color: #ff679b!important;
+}
+.btn-rounded {
+  border-radius: 2em;
+}
+.text-muted {
+  color: #98a6ad!important;
 }

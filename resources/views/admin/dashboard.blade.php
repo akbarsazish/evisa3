@@ -2,17 +2,15 @@
 @section('content')
 
 <div class="container mt-2">
-  <div class="row">
-       <div class="col-lg-6 p-2 d-flex justify-content-start">
-            <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
-       </div>
-        <div class="col-lg-6 p-2 d-flex justify-content-end">
-         
+        <div class="row">
+                <div class="col-lg-6 p-2 d-flex justify-content-start">
+                     <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
+                </div>
+                <div class="col-lg-6 p-2 d-flex justify-content-end">  </div>
         </div>
-  </div>
   <div class="row contentRow rounded-3">
-    @if(Session::get("userSession")=="branch")
-        <div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+        @if(Session::get("userSession")=="branch")
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="likeAndDislike">
@@ -44,26 +42,24 @@
     @endif
 
           <div class="row mt-2">
-              <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="col-lg-6 col-md-6 col-sm-6 px-1">
                   <div class="likeAndDislike">
                     <div class="like-item text-start">
                         @if(Session::get("userSession")==2 or Session::get("userSession")==1)
-                        <span class="confirmedDocs ">  تعداد ثبت نام های تایید نشده کل شرکت ها</span> &nbsp; &nbsp; <span class="notConfirmedIcon">   <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
-
+                        <span class="confirmedDocs ">  تعداد ثبت نام های تایید نشده کل شرکت ها</span> 
                         <div class="registeredForVisa mt-3"> {{$allNotOkeOfCenter}} </div>
                         @else
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">   <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
-
+                        <span class="confirmedDocs "> تعداد ثبت نام های تایید نشده </span> &nbsp; &nbsp; <span class="notConfirmedIcon">  <i class="fa fa-xmark" aria-hidden="true" style="color:#fff"></i> </span> 
                             <div class="registeredForVisa mt-3"> {{$allNotOkeOfAgency}}</div>                        
                         @endif
                     </div>
                   </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="col-lg-6 col-md-6 col-sm-6 px-1">
               <div class="likeAndDislike">
                    <div class="like-item">
                         @if(Session::get("userSession")==2 or Session::get("userSession")==1)
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده  کل شرکت ها</span> &nbsp; &nbsp;  <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
+                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده  کل شرکت ها</span> 
 
                         <span class="registeredForVisa mt-3">{{$allOkeOfCenter}}</span>
                         @else
@@ -109,77 +105,70 @@
                     <span class="speaker p-2"> <i class="fa fa-bullhorn fa-lg"  aria-hidden="true"></i> </span>
                 </div>
             </div>
-           <p class="information p-3">
-          {{$elan->content}}</p>
+             <p class="information p-3">  {{$elan->content}}</p>
         </div>
+        @else
+
+        <div class="col-lg-6 col-md-6 col-sm-6 anncounceMentBoard">
+             <div class="row my-3">
+                    <h3> گزارشات عمومی کل شرکت ها</h3>
+             </div>
+             <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter blue">
+                            <div class="counter-icon">  <i class="fa fa-group"></i> </div>
+                            <h3>  تعداد شرکتها   </h3>
+                            <span class="counter-value">{{$allBranches}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter green">
+                            <div class="counter-icon"> <i class="fa fa-check"></i> </div>
+                            <h3> تایید شده ها </h3>
+                            <span class="counter-value">{{$allOkeOfCenter}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter">
+                            <div class="counter-icon">  <i class="fa fa-toggle-off"></i> </div>
+                            <h3> رد شده ها </h3>
+                            <span class="counter-value">{{$allRejectedOfCenter}}</span>
+                        </div>
+                    </div>
+               </div>
+             <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter orange">
+                            <div class="counter-icon"> <i class="fa fa-dollar"></i> </div>
+                            <h3> پرداخت گردد </h3>
+                            <span class="counter-value"> {{$allMoney_to_give}} </span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter">
+                            <div class="counter-icon"> <i class="fas fa-history"></i></div>
+                            <h3> تایید نشده ها</h3>
+                            <span class="counter-value">{{$allNotOkeOfCenter}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="counter green">
+                            <div class="counter-icon"> <i class="fas fa-usd"></i> </div>
+                            <h3> مجموع پول </h3>
+                            <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+
     @endif
+
      @if(Session::get("userSession")=="branch")
-        <div class="row mt-3">
+        <div class="row mt-4">
             <h3>  گزارشات عمومی ({{Session::get("name")}})</h3>
         </div>
-     @else
-        <div class="row">
-            <h3> گزارشات عمومی کل شرکت ها</h3>
-        </div>
      @endif
-     @if(Session::get("userSession")!="branch")
-        <div class="row bg-white p-4 rounded-3">
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter">
-                        <div class="counter-icon">
-                            <i class="fa fa-group"></i>
-                        </div>
-                        <h3>  تعداد شرکتها   </h3>
-                        <span class="counter-value">{{$allBranches}}</span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter blue">
-                        <div class="counter-icon">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <h3> تایید شده ها </h3>
-                        <span class="counter-value">{{$allOkeOfCenter}}</span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter orange">
-                        <div class="counter-icon">
-                            <i class="fa fa-toggle-off"></i>
-                        </div>
-                        <h3> رد شده ها </h3>
-                        <span class="counter-value">{{$allRejectedOfCenter}}</span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter green">
-                        <div class="counter-icon">
-                            <i class="fa fa-dollar"></i>
-                        </div>
-                        <h3> پرداخت گردد </h3>
-                        <span class="counter-value"> {{$allMoney_to_give}} </span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter green">
-                        <div class="counter-icon">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <h3> تایید نشده ها</h3>
-                        <span class="counter-value">{{$allNotOkeOfCenter}}</span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="counter red">
-                        <div class="counter-icon">
-                            <i class="fas fa-usd"></i>
-                        </div>
-                        <h3> مجموع پول </h3>
-                        <span class="counter-value">{{$allOkeOfCenter*(300+200)}}</span>
-                    </div>
-                </div>
-            </div>
-        @else
+     @if(Session::get("userSession")=="branch")
 
             <div class="row my-2">
                 <div class="branchReport">

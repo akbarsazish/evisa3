@@ -35,7 +35,10 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::post('/editAdmin',[Admin::class,'editAdmin']);
         Route::post('/siteSetting',[Admin::class,'addNewMangageRuleMony']);
         Route::post('/addElan',[Admin::class,'addElan']);
+        Route::get('/editAdminProfile',[Admin::class,'editAdminProfile']);
         Route::get('/deleteAdmin',[Admin::class,'deleteAdmin']);
+
+
         Route::get('/',[Home::class,'index']);
         Route::get('/home',[Home::class,'index']);
   //   });

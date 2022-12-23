@@ -205,6 +205,14 @@ class Admin extends Controller{
        $admins=DB::table("admin")->where("deleted",0)->get();
        return Response::json($admins);
     }
+
+    public function editAdminProfile(Request $request){
+        return view("admin.userProfile");
+    }
+
+
+
+
     public function checkAdmin(Request $request)
     {
         $this->validate($request,[

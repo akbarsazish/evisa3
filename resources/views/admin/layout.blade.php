@@ -92,7 +92,7 @@
                             @endif
                             
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item logoutSetting text-dark text-start" href="#editingUser" data-bs-toggle="modal" data-bs-target="#editingUser"> پروفایل <i class="fa fa-cog" style="float:left"></i> </a></li>
+                            <li><a class="dropdown-item logoutSetting text-dark text-start" href="{{url('editAdminProfile')}}"> پروفایل <i class="fa fa-cog" style="float:left"></i> </a></li>
                             <li><a class="dropdown-item logoutSetting text-dark text-start" href="{{url('/logout')}}"> خروج <i class="fa fa-sign-out" style="float:left"></i> </a></li>
                         </ul>
                     </li>
