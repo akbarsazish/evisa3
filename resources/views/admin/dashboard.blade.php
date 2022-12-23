@@ -6,7 +6,9 @@
                 <div class="col-lg-6 p-2 d-flex justify-content-start">
                      <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                 </div>
-                <div class="col-lg-6 p-2 d-flex justify-content-end">  </div>
+                <div class="col-lg-6 p-2 d-flex justify-content-end"> 
+                    <button class="btn btn-sm btn-danger"> قبول در خواست تسویه  <i class="fa fa-bell"></i></button>
+                </div>
         </div>
   <div class="row contentRow rounded-3">
   <div class="col-lg-6 col-md-6 col-sm-6">

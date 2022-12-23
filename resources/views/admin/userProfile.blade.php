@@ -7,7 +7,7 @@
                 <div class="text-center card-box">
                     <div class="member-card pt-2 pb-2">
                         <div class="thumb-lg member-thumb mx-auto">
-                            <img class="img-responsive rounded-circle" width="66px" height="66px" src="{{url('/resources/assets/images/branches/'.Session::get('userId').'.jpg')}}" alt="logo"> 
+                            <img class="img-responsive rounded-circle" width="66px" height="66px" src="{{url('/resources/assets/images/branches/users/'.Session::get('userId').'.jpg')}}" alt="logo"> 
                         </div>
                         <div class="my-2">
                             <h6> {{ Session::get('name') }} </h6>
@@ -18,12 +18,6 @@
                                     <div class="mt-3">
                                         <p class="mb-0 text-muted"> شرکت ها </p>
                                         <h6>2563</h6>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="mt-3">
-                                        <p class="mb-0 text-muted"> کاربران </p>
-                                        <h6>6952</h6>
                                     </div>
                                 </div>
                             </div>

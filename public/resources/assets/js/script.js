@@ -558,6 +558,23 @@ $("#deleteDocumentBtn").on("click", ()=>{
     }
 
 
+$("#adminDetails").on("click", ()=>{
+   
+    $("#adminDetailsModal").modal("show");
+});
+
+
+$(".zoomPicture").on("click", ()=>{
+    $('.zoomPicture').toggle(
+        function() { $(this).animate({width: "100%"}, 500)},
+         function() { $(this).animate({width: "50px"}, 500); }
+  );
+
+});
+    
+
+
+
   $(document).ready( function () {
   
   $('.evisaDataTable').DataTable({
