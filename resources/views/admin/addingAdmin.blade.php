@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container rounded-2" style="background-color:#fff; padding:20px;margin-top:20px;">
+<div class="container rounded-2 shadow" style="background-color:#fff; padding:20px;margin-top:20px;">
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
@@ -76,7 +76,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd"> عکس:</label>
-                            <input type="file" name="picture" class="form-control form-control-sm">
+                            <input type="file" name="picture" class="form-control form-control-sm" onchange="document.getElementById('addUserPic').src = window.URL.createObjectURL(this.files[0])" required>
+                            <img id="addUserPic" alt="عکس فرد " width="222" height="100" />
                         </div>
                     </div>
                 <div class="row">

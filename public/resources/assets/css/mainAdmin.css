@@ -506,3 +506,60 @@ a.activeLink {
 .text-muted {
   color: #98a6ad!important;
 }
+
+
+.userDetails {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+}
+.userDetailsItem {
+  background-color:#dbe2e3;
+  padding: 11px;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: right;
+  margin: 10px;
+}
+
+span.item {
+  font-weight: bold;
+  font-size: 14px;
+  color:#06355a;
+}
+
+
+
+.brancheDetails {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+}
+
+@media (max-width: 991px) {
+  .brancheDetails {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+
+.branchItem {
+  background-color: #b4cddf;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin: 6px;
+  text-align: center;
+}
+
+.brancheDetailsImg {
+  width:250px;
+  height: 220px;
+  border-radius: 5px;
+}
+
+.brancheDetailsImg:hover {
+  -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5); 
+  transform: scale(2.5); 
+}

@@ -1,14 +1,15 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container bg-white mt-3 rounded-2 p-4">
+<div class="container bg-white mt-3 rounded-2 p-4 shadow">
       <div class="row mt-2">
             <div class="col-lg-3">
                 <div class="mb-3">
-                     <h4 class="title">{{Session::get("userSession")}} لیست کاربران </h4>
+                     <h4 class="title"> لیست کاربران </h4>
                 </div>
             </div>
             <div class="col-lg-9 text-end">
+                    <button type="button" class="btn btn-sm btn-info" id="adminDetails" > جزئیات کاربر <i class="fa fa-info-circle"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-warning" id="editAdminBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
                     <button type="button" class="btn btn-sm btn-danger" id="deleteAdminBtn"> حذف <i class="fa fa-trash"></i> </button>
             </div>
@@ -52,16 +53,17 @@
     </div>
  </div>
 
+ 
     
   <!--- modal for editing user list -->
-  <div class="modal" id="editingUser" data-backdrop="static" data-keyboard="false" aria-labelledby="staticBackdropLabel">
+      <div class="modal" id="editingUser" data-backdrop="static" data-keyboard="false" aria-labelledby="staticBackdropLabel">
             <div class="modal-dialog modal-dialog-scrollable modal-lg ">
                 <div class="modal-content">
-                    <div class="modal-header"> 
+                    <div class="modal-header bg-info"> 
 						<button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                         <h5 class="modal-title" id="exampleModalLabel"> ویرایش کاربر </h5>
                     </div>
-                         <div class="modal-body">
+                         <div class="modal-body ">
                          <form action="{{url('/editAdmin')}}" method="Post" enctype="multipart/form-data" >
                             @csrf
                           <input type="hidden" name="AdminID" id="AdminID"/>
@@ -126,17 +128,74 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="mb-3">
                                         <label for="pwd"> عکس:</label>
-                                        <input type="file" id="picture" name="picture" class="form-control form-control-sm">
+                                          <input type="file" id="picture"  name="picture" class="form-control form-control-sm" onchange="document.getElementById('userPic').src = window.URL.createObjectURL(this.files[0])" required>
+                                          <img id="userPic" alt="عکس فرد " width="222" height="100" />
                                     </div>
                                 </div>
 
                             <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" id="">  انصراف <i class="fa fa-xmark"></i></button>
-                                    <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
+                                    <button type="button" class="btn btn-sm btn-danger" id="">  انصراف <i class="fa fa-xmark"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-primary">ذخیره <i class="fa fa-save"></i></button>
                             </div>
                       </form>
                  </div>
             </div>
+      </div>
+      </div>
+
+
+        <!-- user Details Modal -->
+    <div class="modal fade" id="adminDetailsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="adminDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title fs-6" id="adminDetailsModalLabel"> جزئیات کاربر </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 rounded-3  shadow">
+                        <div class="text-center card-box">
+                            <div class="member-card pt-2 pb-2">
+                                    <div class="thumb-lg member-thumb mx-auto">
+                                        <img class="brancheDetailsImg rounded-circle" width="66px" height="66px" src="{{url('/resources/assets/images/branches/'.Session::get('userId').'.jpg')}}" alt="پروفایل">
+                                    </div>
+                                    <div class="my-2">
+                                        <h6> {{ Session::get('name') }} </h6>
+                                    </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12">
+                            <div class="userDetails">
+                                    <div class="userDetailsItem">
+                                           <span class="item"> نام  </span> : علی  
+                                    </div>
+                                    <div class="userDetailsItem">
+                                           <span class="item"> نام خانوادگی  </span> : احمدیان
+                                    </div>
+
+                                    <div class="userDetailsItem">
+                                           <span class="item"> نام  کاربری  </span> : aliAhmadian
+                                    </div>  
+                                    <div class="userDetailsItem">
+                                           <span class="item">   شماره تماس </span> : 0706909063
+                                    </div>
+                                    <div class="userDetailsItem">
+                                            <span class="item"> شماره تماس 2 </span> : 0706909063
+                                    </div>
+                                    <div class="userDetailsItem">
+                                            <span class="item">  نوع کاربر </span> : admin
+                                    </div> 
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"> بستن  <i class="fa fa-xmark"></i> </button>
+            </div>
+            </div>
+        </div>
         </div>
    
 @endsection
