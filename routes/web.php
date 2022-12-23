@@ -59,5 +59,10 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/dislikeBranch',[Branch::class,'dislikeBranch']);
         Route::get('/likeBranch',[Branch::class,'likeBranch']);
         Route::get('/getLikeOpps',[Branch::class,'getLikeOpps']);
+        Route::get('/addingBranchOut',[Branch::class,'addingBranchOut']);
+        Route::post('/addBranchOut',[Branch::class,'addBranchOut']);
+        Route::get('/viewSuccess',[Branch::class,'viewSuccess']);
+        Route::get('/checkBranchUserName',[Branch::class,'checkBranchUserName']);
+        Route::get('/checkAdminUserName',[Admin::class,'checkAdminUserName']);
   //   });
   // }

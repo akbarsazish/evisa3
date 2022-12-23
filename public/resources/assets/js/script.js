@@ -210,7 +210,7 @@ $("#deleteAdminBtn").on("click",()=>{
 });
 
 $("#deleteBranche").on("click",()=>{
-    
+
     swal({
         title: "خطا!",
         text: "آیا میخواهید حذف گردد",
@@ -287,6 +287,49 @@ $("#deleteBranche").on("click",()=>{
         });
         
     });
+    function checkAdminExistBefor(element) {
+        if(($(element).val()).length>2){
+
+            $.ajax({
+                type: "get",
+                url: baseUrl + "/checkAdminUserName",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    username:$(element).val()
+                },
+                dataType: "json",
+                success: function(resp) {
+                    if(resp==1){
+                        $("#adminExistError").css("display","block");
+                    }else{
+                        $("#adminExistError").css("display","none");
+                    }
+                },
+            });
+        }
+    }
+
+    function checkUserNameExistance(element){
+       if(($(element).val()).length>2){
+
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/checkBranchUserName",
+            data: {
+                _token: "{{ csrf_token() }}",
+                username:$(element).val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                if(resp==1){
+                    $("#userExistError").css("display","block");
+                }else{
+                    $("#userExistError").css("display","none");
+                }
+            },
+        });
+    }
+    }
 
 
 $("#deleteDocumentBtn").on("click", ()=>{

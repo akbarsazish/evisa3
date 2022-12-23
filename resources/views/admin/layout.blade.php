@@ -87,7 +87,7 @@
                                 </a>   
                             @else
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/branches/'.Session::get('userId').'.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
+                                    <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/branches/users/'.Session::get('userId').'.jpg')}}" alt="logo">   &nbsp; {{ Session::get('name') }}
                                 </a> 
                             @endif
                             
