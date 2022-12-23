@@ -235,7 +235,7 @@ class Branch extends Controller{
 
     public function acceptRequest(Request $request)
     {
-        $branchID=$request->get("branchID");
+        $branchID=$request->get("BranchID");
         DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["IsRequest"=>2]);
         return Response::json(2);
     }
@@ -255,5 +255,49 @@ class Branch extends Controller{
         $branchID=$request->get("BranchID");
         DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["IsRequest"=>0]);
         return Response::json(0);
+    }
+    public function doTasviyahHisab(Request $request)
+    {
+        $branchID=$request->get("BranchID");
+        $allOkeOfAgency=0;//تایید شده های شرکت
+        $allNotOkeOfAgency=0;//تایید نشده های شرکت
+        $moneyEach=self::getLikeOperators()[2];
+        $allMoneyOfAgency=0;
+        $countDocs=0;
+        $lastTimeEmpty="2022-12-10 20:49:10" ;//آخرین تاریخیکه تسویه پولی صورت گرفته است.
+        $lastTimeEmpty=DB::select("SELECT MAX(TimeStamp) as lastTime from accounthistory WHERE UserId=$branchID GROUP BY UserId");
+        if(count($lastTimeEmpty)>0){
+            $lastTimeEmpty=$lastTimeEmpty[0]->lastTime;
+        }else{
+            $lastTimeEmpty="2022-12-10 20:49:10";
+        }
+        
+        $allMoney_of_Agency=DB::select("select count(DocSn)*".$moneyEach." as allMoneyAgency,count(DocSn) as countDocs from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' and isOke!=0 group by userSn");
+        
+        if(count($allMoney_of_Agency)>0){
+            $allMoneyOfAgency=$allMoney_of_Agency[0]->allMoneyAgency;
+            $countDocs=$allMoney_of_Agency[0]->countDocs;
+        }else{
+            $allMoney_of_Agency=0;
+            $countDocs=0;
+        }
+
+        $allOkeOfAgency=DB::select("select count(DocSn) as allOkeOfAgency from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' and isOke=1 group by userSn");
+        if(count($allOkeOfAgency)>0){
+            $allOkeOfAgency=$allOkeOfAgency[0]->allOkeOfAgency;
+        }else{
+            $allOkeOfAgency=0;
+        }
+        
+        $allNotOkeOfAgency=DB::select("select count(DocSn) as allNotOkeOfAgency from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' and isOke=0 group by userSn");
+        if(count($allNotOkeOfAgency)>0){
+        $allNotOkeOfAgency=$allNotOkeOfAgency[0]->allNotOkeOfAgency;
+        }else{
+            $allNotOkeOfAgency=0;
+        }
+        DB::table("accounthistory")->insert(["UserId"=>$branchID, "Money"=>$allMoneyOfAgency, "countDocs"=>$countDocs, "isCounted"=>1, "allOke"=>$allOkeOfAgency, "allNotOke"=>$allNotOkeOfAgency]);
+        DB::table("tasviyahrequest")->where("BranchSn",$branchID)->update(["IsRequest"=>0]);
+        DB::table("document")->where("UserSn",$branchID)->where("isOke","!=",0)->update(["isCounted"=>1]);
+        return Response::json(1);
     }
 }

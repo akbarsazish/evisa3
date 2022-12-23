@@ -68,5 +68,6 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/acceptRequest',[Branch::class,'acceptRequest']);
         Route::get('/getAllBranchInfo',[Branch::class,'getAllBranchInfo']);
         Route::get('/cancelRequest',[Branch::class,'cancelRequest']);
+        Route::get('/doTasviyahHisab',[Branch::class,'doTasviyahHisab']);
   //   });
   // }

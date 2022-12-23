@@ -49,6 +49,7 @@ function selectTableTr(element) {
     });
 
     $("#acceptRequestBtn").on("click",function(){
+
         swal({
             title: "خطا!",
             text: "آیا میخواهید قبول کنید",
@@ -63,10 +64,11 @@ function selectTableTr(element) {
             url: baseUrl + "/acceptRequest",
             data: {
                 _token: "{{ csrf_token() }}",
-                branchID: $("#acceptRequestBtn").val()
+                BranchID: $("#acceptRequestBtn").val()
             },
             dataType: "json",
             success: function(resp) {
+                alert(resp);
                 window.location.reload();
             }
         });
@@ -157,6 +159,23 @@ function selectTableTr(element) {
     }});
     });
 
+    $("#doTasviyahBranchBtn").on("click",function(){
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/doTasviyahHisab",
+            data: {
+                _token: "{{ csrf_token()}}",
+                BranchID: $("#doTasviyahBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                
+                window.location.reload();
+
+            }
+        });
+    })
+
 
 
     function selectTableTrBranch(element) {
@@ -170,6 +189,7 @@ function selectTableTr(element) {
         $("#requestBranchBtn").val(input.val());
         $("#cancelRequestBtn").val(input.val());
         $("#acceptRequestBtn").val(input.val());
+        $("#doTasviyahBranchBtn").val(input.val());
 
         $("#showBranchForms").prop("disabled",false);
         $("#showDetails").prop("disabled",false);
@@ -180,6 +200,7 @@ function selectTableTr(element) {
         $("#acceptRequestBtn").prop("disabled",false);
         $("#dislikeBranchBtn").prop("disabled",false);
         $("#requestBranchBtn").prop("disabled",false);
+        $("#doTasviyahBranchBtn").prop("disabled",false);
         if($("#selectedBranchID")){
             $("#selectedBranchID").val($(input).val());
         }
@@ -196,14 +217,21 @@ function selectTableTr(element) {
             },
             dataType: "json",
             success: function(resp) {
-                if(resp==0){
+            if(resp==0){
                 $("#requestBranchBtn").css("display","inline");
                 $("#cancelRequestBtn").css("display","none");
+                $("#doTasviyahBranchBtn").css("display","none");
             }
             if(resp==1){
                 $("#cancelRequestBtn").css("display","inline");
                 $("#requestBranchBtn").css("display","none");
-        }
+                $("#doTasviyahBranchBtn").css("display","none");
+            }
+            if(resp==2){
+                $("#doTasviyahBranchBtn").css("display","inline");
+                $("#requestBranchBtn").css("display","none");
+                $("#cancelRequestBtn").css("display","none");
+            }
         
                 
             },
