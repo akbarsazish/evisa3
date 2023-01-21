@@ -88,8 +88,12 @@ class Admin extends Controller{
             $likeOfAgency=$likesOfAgency[0]->doLike;
             $disLikeOfAgency=$likesOfAgency[0]->disLike;
         }
-        $allFormsOfAgency=DB::table("document")->where("userSn",Session::get("userId"))->where("isCounted",0)->count();
-
+        $allFormsOfAgency=DB::select("select count(DocSn) as allFormOfAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 group by userSn");
+        if(count($allFormsOfAgency)>0){
+            $allFormsOfAgency=$allFormsOfAgency[0]->allFormOfAgency;
+        }else{
+            $allFormsOfAgency=0;
+        }
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
             $allMoney_to_give=DB::select("select count(DocSn)*".$moneyEach." as allMoneyToGive from document where isOke!=0  and isCounted=0 ");

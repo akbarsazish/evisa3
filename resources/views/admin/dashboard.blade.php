@@ -5,7 +5,7 @@
                 <div class="col-lg-6 p-2 d-flex justify-content-start">
                      <a href="{{url('adminDashboard')}}" class="activeLink">  <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
                 </div>
-                <div class="col-lg-6 p-2 d-flex justify-content-end"> 
+                <div class="col-lg-6 p-2 d-flex justify-content-end">
                     @if(Session::get('userSession')=="branch")
                         @if($requestState==1)
                             <button class="btn btn-sm btn-danger" id="acceptRequestBtn" value="{{Session::get('userId')}}"> قبول در خواست تسویه  <i class="fa fa-bell"></i></button>

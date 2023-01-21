@@ -68,7 +68,7 @@ function selectTableTr(element) {
             },
             dataType: "json",
             success: function(resp) {
-                alert(resp);
+               
                 window.location.reload();
             }
         });
@@ -198,6 +198,7 @@ function selectTableTr(element) {
         $("#likeBranchBtn").prop("disabled",false);
         $("#dislikeBranchBtn").prop("disabled",false);
         $("#requestBranchBtn").prop("disabled",false);
+        $("#cancelRequestBtn").prop("disabled",false);
         $("#doTasviyahBranchBtn").prop("disabled",false);
         if($("#selectedBranchID")){
             $("#selectedBranchID").val($(input).val());
@@ -467,7 +468,6 @@ $("#deleteBranche").on("click",()=>{
 
 
 $("#deleteDocumentBtn").on("click", ()=>{
-
     swal({
         title: "خطا!",
         text: "آیا میخواهید حذف گردد",
@@ -482,40 +482,15 @@ $("#deleteDocumentBtn").on("click", ()=>{
             url: baseUrl + "/deleteDocs",
             data: {
                 _token: "{{ csrf_token() }}",
-                docID: $("#selectedDocID").val()
+                docID: $("#deleteDocumentBtn").val()
             },
             dataType: "json",
             success: function(resp) {
               swal("موفقانه حذف گردید", {
                 icon: "success",
               });
-    
+    window.location.reload();
                 //
-                $("#docListBody").empty();
-                resp.forEach((element,index) => {
-                  $("#docListBody").append(`
-                  <tr class="docsTr"  onclick="selectTableTr(this)">
-                  <th>`+(index+1)+`</th>
-                  <td>`+element.Name+`</td>
-                  <td>`+element.LastName+`</td>
-                  <td>`+element.FatherName+`</td>
-                  <td>`+element.BirthDate+`</td>
-                  <td>`+element.BirthPlace+`</td>
-                  <td>`+element.PassNo+`</td>
-                  <td>`+element.PassEndDate+`</td>
-                  <td>`+element.CellPhone+`</td>
-                  <td>`+element.OtherPhone+`</td>
-                  <td>`+element.RefCode+`</td>
-                  <td>`+element.UserAddress+`</td>
-                  <td>`+element.referDate+`</td>
-                  <td>
-                      <span class="form-check">
-                          <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="`+element.DocSn+`">
-                      </span>
-                  </td>
-          </tr>`);
-
-                });
             },
             error: function(msg) {
               alert("data resp errors");
@@ -535,7 +510,7 @@ $("#deleteDocumentBtn").on("click", ()=>{
         url: baseUrl + "/getDocument",
         data: {
             _token: "{{ csrf_token() }}",
-            docID: $("#selectedDocID").val()
+            docID:$("#editDocumentBtn").val()
         },
         dataType: "json",
         success: function(respond) {
@@ -664,11 +639,6 @@ $("#deleteDocumentBtn").on("click", ()=>{
     });
     
     
-    $("#deleteDocumentBtn").on("click",function(){
-
-        alert($(this).val());
-
-    });
 
     function selectTableTrDocs(element) {
         let input = $(element).find('input:radio').prop("checked", true);

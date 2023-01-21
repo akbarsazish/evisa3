@@ -100,12 +100,11 @@ class Documents extends Controller
     }
     public function editDoc(Request $request)
     {
-       //گرفتن داده ها
-       $tazkiraImg=$request->file("tazkiraImage");
-       $personImg=$request->file("personImage");
-       $passImg=$request->file("passImage");
-
-       $docId=$request->post("docID");
+        //گرفتن داده ها
+        $tazkiraImg=$request->file("tazkiraImage");
+        $personImg=$request->file("personImage");
+        $passImg=$request->file("passImage");
+        $docId=$request->post("docID");
         $name=$request->post("name");
         $lastName=$request->post("lastName");
         $fatherName=$request->post("fatherName");
@@ -122,30 +121,27 @@ class Documents extends Controller
         
         $sex=0;
         if($gender==1){
-           $sex=1;
+            $sex=1;
         }
 
        DB::table("document")->where("DocSn",$docId)->update(["Name"=>"$name", "LastName"=>"$lastName", "FatherName"=>"$fatherName", "PassNo"=>"$passNo", "BirthDate"=>"$birthDate",
         "BirthPlace"=>"".$birthPlace."", "Gender"=>$sex, "PassEndDate"=>"$passEndDate", "CellPhone"=>"$cellPhone", "OtherPhone"=>"$otherPhone", "RefCode"=>"$refCode",
          "UserAddress"=>"$userAddress", "referDate"=>" $referDate"]);
                  //عکس تذکره
-       $lastDocSn=DB::table("document")->max("DocSn");
-       if(!$lastDocSn){
-           $lastDocSn=1;
-       }
+       
        if($tazkiraImg){
-           $fileName=$lastDocSn.'.jpg';
-           $picture->move("resources/assets/images/tazkira/",$fileName);
+           $fileName=$docId.'.jpg';
+           $tazkiraImg->move("resources/assets/images/document/tazkira/",$fileName);
        }
        //عکس فرد
        if($personImg){
-           $fileName=$lastDocSn.'.jpg';
-           $picture->move("resources/assets/images/person/",$fileName);
+           $fileName=$docId.'.jpg';
+           $personImg->move("resources/assets/images/document/person/",$fileName);
        }
        //عکس پاسپورت
        if($passImg){
-           $fileName=$lastDocSn.'.jpg';
-           $picture->move("resources/assets/images/passport/",$fileName);
+           $fileName=$docId.'.jpg';
+           $passImg->move("resources/assets/images/document/passport/",$fileName);
        }
 
        $documents=DB::table("document")->where("UserSn",1)->get();
