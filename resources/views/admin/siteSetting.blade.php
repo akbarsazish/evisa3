@@ -8,10 +8,6 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link siteSetting" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> تنظیم اعلانات</button>
         </li>
-        
-        <li class="nav-item" role="presentation">
-            <button class="nav-link siteSetting" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"> تنظیمات مالی</button>
-        </li>
     </ul>
     <div class="tab-content accordion" id="myTabContent">
            <div class="tab-pane show active fade accordion-item" id="profile-tab-pane1" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
@@ -116,21 +112,7 @@
                     </div>
                 </div>
             </div>
-
-        <div class="tab-pane fade accordion-item" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-            <h2 class="accordion-header d-lg-none" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            تنظیمات مالی 
-                    </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
-                    <div class="accordion-body">
-                        <h1>financial setting</h1>
-                    </div>
-            </div>
         </div>
     </div>
-
-</div>
 
 @endsection

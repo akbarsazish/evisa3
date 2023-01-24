@@ -27,7 +27,7 @@
                       <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="{{url('/adminDashboard')}}">
-                        <img style="width:122px; height:auto" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
+                    <img style="width:122px; height:auto" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
                 </a>
                 @if(Session::get("userSession"))
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -76,9 +76,7 @@
                             </li>
                             @endif
                     </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="Search">
-                        </form> &nbsp;
+                     
 
                         <li class="nav-item dropdown text-black">
                             @if(Session::get("userSession")==1 or Session::get("userSession")==2)
@@ -102,11 +100,10 @@
          </nav>
     </div>
     @yield('content')
+
 <script src="{{url('/resources/assets/vendor/jquery.countdown.min.js')}}"></script>
 <script defer src="{{url('/resources/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('/resources/assets/js/sweetalert.min.js')}}"></script>
-
-
 <script src="{{url('/resources/assets/vendor/persianumber.min.js')}}"></script>
 <script src="{{url('/resources/assets/js/script.js') }}"></script>
 <script src="{{url('/resources/assets/js/bootstrap.min.js') }}"></script>

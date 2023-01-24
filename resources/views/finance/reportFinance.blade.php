@@ -1,8 +1,8 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container mt-5 bg-white p-2 rounded-3">
-        <div class="row" style="background-color: #e0e7eb; padding: 13px; border-radius: 10px; margin: 5px;">
+<div class="container mt-5 bg-white pt-3 rounded-3">
+        <div class="row" style=" padding: 13px; border-radius: 10px; margin: 5px;">
                 <div class="col-lg-4">
                     <select class="form-select form-select-ms mb-3" aria-label=".form-select-lg example">
                         <option selected> انتخاب حسابات مالی  </option>
@@ -28,8 +28,7 @@
                 <div class="col-lg-2">
                     <button class="btn btn-info btn-md"> بروز رسانی  <i class="fa fa-refresh"> </i> </button>
                 </div>
-
-        </div> <hr>
+        </div>
         <div class="row">
         <table class="table table-bordered select-highlight evisaDataTable">
                 <thead class="bg-info">
