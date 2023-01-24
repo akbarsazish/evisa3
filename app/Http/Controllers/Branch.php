@@ -17,6 +17,15 @@ class Branch extends Controller{
        
         return view("branch.branchList",['branches'=>$branches]);
     }
+    public function outbranchList(Request $request){
+        $branches=DB::select("select *,countDoc from outsidebranches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =outsidebranches.BranchSn where outsidebranches.deleted=0");
+        // $countAllDocs=DB::table("Docs")->where()->where()->count();
+        // $countAllNotOkeDocs=DB::table()->where()->where()->count();
+        // $countAllOkeDocs=DB::table()->where()->where()->count();
+        // $countAllNewDocs=DB::table()->where()->where()->count();
+       
+        return view("branch.outsideBranch",['branches'=>$branches]);
+    }
 
     public function checkBranch(Request $request)
     {
@@ -89,10 +98,18 @@ class Branch extends Controller{
         }
         return redirect('/branchList');
     }
+
+    
     public function getBranch(Request $request)
     {
         $branchId=$request->get("BranchID");
         $branch=DB::table("branches")->where("BranchSn",$branchId)->get();
+        return Response::json($branch[0]);
+    }
+    public function getOutBranch(Request $request)
+    {
+        $branchId=$request->get("BranchID");
+        $branch=DB::table("outsidebranches")->where("BranchSn",$branchId)->get();
         return Response::json($branch[0]);
     }
     public function editBranch(Request $request)
@@ -124,6 +141,13 @@ class Branch extends Controller{
         $branches=DB::table("branches")->where("deleted",0)->get();
         return Response::json($branches);
     }
+    public function deleteOutBranch(Request $request)
+    {
+        $branchID=$request->get("BranchID");
+        DB::table("outsidebranches")->where("BranchSn",$branchID)->update(["deleted"=>1]);
+        $branches=DB::table("outsidebranches")->where("deleted",0)->get();
+        return Response::json($branches);
+    }
     public function showBranchDetails(Request $request)
     {
         $branchID=$request->get("branchID");
@@ -151,6 +175,16 @@ class Branch extends Controller{
         return view("branch.branchInfo",["branch"=>$branch,"countAllDocs"=>$countAllDocs,
         "allMoneyToGive"=>$allMoneyToGive,
         "countAllNotOkeDocs"=>$countAllNotOkeDocs,"countAllOkeDocs"=>$countAllOkeDocs,"countAllNewDocs"=>$countAllNewDocs]);
+
+
+        
+    }
+
+    public function showOutBranchDetails(Request $request)
+    {
+        $branchID=$request->get("branchID");
+        $branch=DB::table("outsidebranches")->where("BranchSn",$branchID)->get()[0];
+        return view("branch.outbranchInfo",["branch"=>$branch]);
         
     }
     public function likeBranch(Request $request)
@@ -185,7 +219,7 @@ class Branch extends Controller{
     }
     public function addBranchOut(Request $request)
     {
-        $username=DB::table("branches")->where("username",$request->post("username"))->get();
+        $username=DB::table("outsidebranches")->where("username",$request->post("username"))->get();
         if(count($username)>0){
             return view("branch.addingBranchOut",['error'=>"نام کاربری با این نام قبلا وجود دارد"]);
         }
@@ -201,24 +235,24 @@ class Branch extends Controller{
         $address=$request->post("Address");
         $cellPhone=$request->post("cellPhone");
         $otherPhone=$request->post("otherPhone");
-        DB::table("branches")->insert(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","username"=>"$username","password"=>"$password"
+        DB::table("outsidebranches")->insert(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","username"=>"$username","password"=>"$password"
         ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone","BossName"=>"".$bossName."","JawazNumber"=>"".$jawazNumber.""]);
 
-        $lastBranchSn=DB::table("branches")->max("BranchSn");
+        $lastBranchSn=DB::table("outsidebranches")->max("BranchSn");
 
         if($picture){
             $fileName=$lastBranchSn.'.jpg';
-            $picture->move("resources/assets/images/branches/",$fileName);
+            $picture->move("resources/assets/images/Outbranches/",$fileName);
         }
         if($pictureT){
             $fileName=$lastBranchSn.'.jpg';
-            $pictureT->move("resources/assets/images/branches/tazkira/",$fileName);
+            $pictureT->move("resources/assets/images/Outbranches/tazkira/",$fileName);
         }
         if($pictureJ){
             $fileName=$lastBranchSn.'.jpg';
-            $pictureJ->move("resources/assets/images/branches/jawaz/",$fileName);
+            $pictureJ->move("resources/assets/images/Outbranches/jawaz/",$fileName);
         }
-        $branch =DB::table("branches")->where("BranchSn",$lastBranchSn)->get()[0];
+        $branch =DB::table("outsidebranches")->where("BranchSn",$lastBranchSn)->get()[0];
         return redirect("/viewSuccess");
     }
     public function viewSuccess(Request $request)
