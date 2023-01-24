@@ -15,10 +15,7 @@
     <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <style>
-        .downloadAppimg {
-                list-style-type: none;
-                height:28px;
-            }
+       
         .contactlogin {
             text-decoration:none;
             color:#000;
@@ -34,40 +31,7 @@
 			align-self:cetner!important;
 			justify-content:center;
 		}
-        .about-img {
-                display: flex;
-                justify-content: center !important;
-                align-items: center !important;
-                align-self: center !important;
-            }
-
-            /* sweet alert style changes  */
-            .about-img img {
-                width: 80px;
-                height: 80px;
-            }
-            .trust {
-                background-color: white;
-                width: 100px;
-                height:100px;
-                margin:20px;
-                border-radius:5px;
-            }
-            @media only screen and (max-width: 940px) and (min-width:250px) {
-                .about-img img {
-                    width: 60px;
-                    height: 60px;
-                    margin-top: 3px;
-                }
-            }
-            @media only screen and (max-width: 940px) and (min-width:250px) {
-                .trust {
-                    width: 60px;
-                    height:60px;
-                    margin:3px;
-                }
-            }
-
+    
         .wrap {
             height: 100%;
             display: flex;
@@ -102,7 +66,6 @@
             min-height: calc(40px + 12px);
             border: 1px solid #1f1e24;
             box-shadow: 0 0 60px #1f1e24;
-            
             position: absolute;
             top: 50%;
             left: 50%;
@@ -134,8 +97,8 @@
             }
 
        .loginButton:hover::after,.loginButton:focus::after {
-            animation: none;
-            display: none;
+               animation: none;
+               display: none;
             }
 
             @keyframes ring {
@@ -158,17 +121,25 @@
         position: absolute;
     }         
 
+    .loginDiv {
+       background-color:#aec5e1;
+       width:28%;
+    }         
+    @media only screen and (max-width: 920px) {
+    .loginDiv {
+            width:90%;
+            }  
+      }
     </style>
 </head>
 <body style="background-color:#ebeef9">
  <div class="container p-5"> 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 loginDiv p-3" style="background: linear-gradient(#fff, #fff, #fff); -webkit-box-shadow: 0px 0px 25px 11px #0079ed; 
-box-shadow: 0px 0px 10px 1px #0079ed; border-radius:3px; padding:20px;">
+        <div class="col-lg-4 loginDiv p-3 rounded-2 shadow-lg">
                <span  style="display:flex;justify-content:center; margin-bottom:20px;">
-                    <img class="img-responsive text-center" width="88px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
-                  <h5 style="text-align:center; margin:4px">ورود به سیستم </h5>
+                    <img class="img-responsive rounded-circle" width="80px" height="80px" src="{{ url('/resources/assets/images/loginLog.jpg')}}" alt="logi"></span>
+                      <h5 style="text-align:center; margin:4px">ورود به سیستم </h5>
                     <form action="{{url('/checkBranch')}}" method="post">
                         @csrf
 

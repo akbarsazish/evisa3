@@ -45,7 +45,7 @@
             </div>
         </div>
     @endif
-          <div class="row mt-2">
+          <div class="row mt-2 p-1">
               <div class="col-lg-6 col-md-6 col-sm-6 px-1">
                   <div class="likeAndDislike">
                       <div class="like-item text-start">
@@ -66,7 +66,7 @@
                         <span class="confirmedDocs "> تعداد ثبت نام های تایید شده  کل شرکت ها</span> 
                         <span class="registeredForVisa mt-3">{{$allOkeOfCenter}}</span>
                         @else
-                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> &nbsp; &nbsp;  <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
+                        <span class="confirmedDocs "> تعداد ثبت نام های تایید شده </span> &nbsp; &nbsp; <span class="confirmedIcon">  <i class="fa fa-check" aria-hidden="true" style="color:#fff"></i> </span> 
                         <span class="registeredForVisa mt-3">{{$allOkeOfAgency}}</span>
                         @endif
                     </div>
@@ -79,17 +79,17 @@
                     @if(Session::get("userSession")=="branch")
                         <span class="moneyText"> مبلغ قابل دریافت</span>
                     @else
-                        <span class="moneyText"> مبلغ قابل پرداخت برای شرکت ها</span>
+                        <span class="moneyText" style="font-size:18px;"> مبلغ قابل پرداخت برای شرکت ها</span>
                     @endif
                     @if(Session::get("userSession")==2 or Session::get("userSession")==1)
                         <span class="countMoney"> {{$allMoney_to_give}} <sub>ا</sub>ف </span>
                     @else
-                        <span class="countMoney"> {{$allMoneyOfAgency}} <sub>ا</sub>ف </span>
+                        <span class="countMoney"> {{$allMoneyOfAgency}} <sub>ا</sub>ف </span> <br>
                     @endif
                     @if(Session::get("userSession")=="branch")
-                        <span class="moneyDescription"> مجموع مبلغ ذکر شده قابل دریافت می باشد. </span>
+                        <span class="moneyDescription" style="font-size:18px;"> مجموع مبلغ ذکر شده قابل دریافت می باشد. </span>
                     @else
-                        <span class="moneyDescription"> مجموع مبلغ ذکر شده قابل پرداخت میباشد. </span>
+                        <span class="moneyDescription" style="font-size:18px;"> مجموع مبلغ ذکر شده قابل پرداخت میباشد. </span>
                     @endif
 
               </div>
@@ -98,14 +98,11 @@
         @if(Session::get("userSession")=="branch")
         <div class="col-lg-6 col-md-6 col-sm-6 anncounceMentBoard">
             <div class="row">
-                <div class="col-lg-6 d-flex justify-content-start">
-                    <h3 class="title mt-4"> {{$elan->Title}} </h3>
-                </div>
-                <div class="col-lg-6 p-2 d-flex justify-content-end">
-                    <span class="speaker p-2"> <i class="fa fa-bullhorn fa-lg"  aria-hidden="true"></i> </span>
+                <div class="col-lg-12 p-3">
+                     <span class="title mt-4 fs-4 fw-bold"> {{$elan->Title}}  <i class="fa fa-bullhorn fa-lg "></i> </span>
                 </div>
             </div>
-             <p class="information p-3">  {{$elan->content}}</p>
+             <p class="information py-0 px-3">  {{$elan->content}}</p>
         </div>
         @else
 
@@ -164,13 +161,12 @@
     @endif
 
      @if(Session::get("userSession")=="branch")
-        <div class="row mt-4">
-            <h3>  گزارشات عمومی ({{Session::get("name")}})</h3>
-        </div>
+        <div class="row mt-2 shadow rounded p-3" style="margin:0 auto;">
+            <h4>  گزارشات عمومی ({{Session::get("name")}})</h4>
+        
      @endif
      @if(Session::get("userSession")=="branch")
 
-            <div class="row my-2">
                 <div class="branchReport">
                     <div class="branchReport-item">
                         تایید شده ها    <span class="countNo"> {{$allOkeOfAgency}} </span>

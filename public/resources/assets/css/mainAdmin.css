@@ -5,7 +5,7 @@
 
 body{
   background-image: linear-gradient(#ffffff,#d6e5f0,#b5daf5);
-  font-size: 12px;
+  font-size: 14px;
   min-height: 100vh;
 }
 
@@ -40,6 +40,7 @@ body{
 p.information {
     text-align: justify;
     text-justify: inter-word;
+    font-size: 20px;
 }
 .footer{
     background-color: #fff;
@@ -73,7 +74,7 @@ p.information {
 }
 
 .anncounceMentBoard {
-    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    box-shadow: 0px 0px 8px 1px #e3dcdc;
     border-radius:6px;
     padding:11px;
 }
@@ -93,7 +94,7 @@ p.information {
     grid-template-columns: auto auto;
     background-color: #ffffff;
     padding: 6px;
-    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    box-shadow: 0px 0px 8px 1px #e3dcdc;
     border-radius: 6px;
     min-height: 88px;
   }
@@ -164,7 +165,7 @@ p.information {
 }
 
   .financeCard {
-    box-shadow: 0px 0px 10px 1px rgb(161, 142, 142);
+    box-shadow: 0px 0px 8px 1px #e3dcdc;
     border-radius: 6px;
     padding: 10px;
     text-align: center;
@@ -173,6 +174,7 @@ p.information {
 
   .financeReport, .moneyText,.countMoney{
     display: block;
+
   }
 
 .countMoney {
@@ -425,7 +427,6 @@ a.activeLink {
     grid-template-columns: auto auto auto auto;
     background-color: #ffffff;
     padding: 5px;
-    box-shadow: 0px 0px 10px 1px rgb(161 142 142);
     border-radius: 5px;
     text-align: center;
   }
@@ -449,7 +450,7 @@ a.activeLink {
     color:#fff;
     text-align: center;
     border-radius:8px;
-    box-shadow: 0px 0px 10px -1px rgb(26, 24, 24);
+    box-shadow: 0px 0px 8px -1px rgb(51, 47, 47);
 }
 
 .countNo{
@@ -562,3 +563,4 @@ span.item {
   -webkit-transform: scale(1.5); 
   transform: scale(2.5); 
 }
+
