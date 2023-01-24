@@ -127,8 +127,23 @@ class Branch extends Controller{
     public function showBranchDetails(Request $request)
     {
         $branchID=$request->get("branchID");
+        $lastTimeEmpty="2022-12-10 20:49:10" ;//آخرین تاریخیکه تسویه پولی صورت گرفته است.
+
+        $lastTimeEmpty=DB::select("SELECT MAX(TimeStamp) as lastTime from accounthistory WHERE UserId=".$branchID." GROUP BY UserId");
+        if(count($lastTimeEmpty)>0){
+            $lastTimeEmpty=$lastTimeEmpty[0]->lastTime;
+        }else{
+            $lastTimeEmpty="2022-12-10 20:49:10" ;
+        }
+        
         $countAllDocs=DB::table("document")->where("userSn",$branchID)->count();
-        $allMoneyToGive=DB::table("document")->where("userSn",$branchID)->count()* self::getLikeOperators()[2];
+        
+        $allMoney_of_Agency=DB::select("select count(DocSn)*".self::getLikeOperators()[2]." as allMoneyAgency from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' group by userSn");
+        if(count($allMoney_of_Agency)>0){
+            $allMoneyToGive=$allMoney_of_Agency[0]->allMoneyAgency;
+        }else{
+            $allMoneyToGive=0;
+        }
         $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->count();
         $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->count();
         $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->count();

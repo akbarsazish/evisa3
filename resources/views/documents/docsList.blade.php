@@ -68,7 +68,7 @@
                             <td>{{$doc->LastName}}</td>
                             <td>{{$doc->FatherName}}</td>
                             <td>{{$doc->BirthDate}}</td>
-                            <td>{{$doc->BirthPlace}}</td>
+                            <td>{{$doc->countryName}}</td>
                             <td>{{$doc->PassNo}}</td>
                             <td>{{$doc->PassEndDate}}</td>
                             <td>{{$doc->dCellPhone}}</td>
@@ -112,7 +112,7 @@
                             <td>{{$doc->LastName}}</td>
                             <td>{{$doc->FatherName}}</td>
                             <td>{{$doc->BirthDate}}</td>
-                            <td>{{$doc->BirthPlace}}</td>
+                            <td>{{$doc->countryName}}</td>
                             <td>{{$doc->PassNo}}</td>
                             <td>{{$doc->PassEndDate}}</td>
                             <td>{{$doc->dCellPhone}}</td>

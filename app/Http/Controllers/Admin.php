@@ -40,7 +40,7 @@ class Admin extends Controller{
         $state=0;//برای نمایش درخواست تسویه
         $lastTimeEmpty="2022-12-10 20:49:10" ;//آخرین تاریخیکه تسویه پولی صورت گرفته است.
 
-        $lastTimeEmpty=DB::select("SELECT MAX(TimeStamp) as lastTime from accounthistory WHERE UserId=".Session::get("userId")." GROUP BY UserId");
+        $lastTimeEmpty=DB::select("SELECT MAX(TimeStamp) as lastTime FROM accounthistory WHERE UserId=".Session::get("userId")." GROUP BY UserId");
         if(count($lastTimeEmpty)>0){
             $lastTimeEmpty=$lastTimeEmpty[0]->lastTime;
         }else{
@@ -56,27 +56,27 @@ class Admin extends Controller{
 
 
         if(Session::get("userSession")=="branch"){
-        $allMoney_of_Agency=DB::select("select count(DocSn)*".$moneyEach." as allMoneyAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke!=0 group by userSn");
+        $allMoney_of_Agency=DB::select("SELECT count(DocSn)*".$moneyEach." as allMoneyAgency FROM document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' group by userSn");
         if(count($allMoney_of_Agency)>0){
             $allMoney_of_Agency=$allMoney_of_Agency[0]->allMoneyAgency;
         }else{
             $allMoney_of_Agency=0;
         }
-        $allRejectedOfAgency=DB::select("select count(DocSn) as allRecjectOfAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=2 group by userSn");
+        $allRejectedOfAgency=DB::select("SELECT count(DocSn) as allRecjectOfAgency FROM document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=2 group by userSn");
         if(count($allRejectedOfAgency)>0){
             $allRejectedOfAgency=$allRejectedOfAgency[0]->allRecjectOfAgency;
         }else{
             $allRejectedOfAgency=0;
         }
         
-        $allOkeOfAgency=DB::select("select count(DocSn) as allOkeOfAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=1 group by userSn");
+        $allOkeOfAgency=DB::select("SELECT count(DocSn) as allOkeOfAgency FROM document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=1 group by userSn");
         if(count($allOkeOfAgency)>0){
             $allOkeOfAgency=$allOkeOfAgency[0]->allOkeOfAgency;
         }else{
             $allOkeOfAgency=0;
         }
         
-        $allNotOkeOfAgency=DB::select("select count(DocSn) as allNotOkeOfAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=0 group by userSn");
+        $allNotOkeOfAgency=DB::select("SELECT count(DocSn) as allNotOkeOfAgency FROM document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 and isOke=0 group by userSn");
         if(count($allNotOkeOfAgency)>0){
         $allNotOkeOfAgency=$allNotOkeOfAgency[0]->allNotOkeOfAgency;
         }else{
@@ -88,7 +88,7 @@ class Admin extends Controller{
             $likeOfAgency=$likesOfAgency[0]->doLike;
             $disLikeOfAgency=$likesOfAgency[0]->disLike;
         }
-        $allFormsOfAgency=DB::select("select count(DocSn) as allFormOfAgency from document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 group by userSn");
+        $allFormsOfAgency=DB::select("SELECT count(DocSn) as allFormOfAgency FROM document where userSn=".Session::get("userId")." and TimeStamp>'$lastTimeEmpty' and isCounted=0 group by userSn");
         if(count($allFormsOfAgency)>0){
             $allFormsOfAgency=$allFormsOfAgency[0]->allFormOfAgency;
         }else{
@@ -96,34 +96,34 @@ class Admin extends Controller{
         }
         }
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
-            $allMoney_to_give=DB::select("select count(DocSn)*".$moneyEach." as allMoneyToGive from document where isOke!=0  and isCounted=0 ");
+            $allMoney_to_give=DB::select("SELECT count(DocSn)*".$moneyEach." as allMoneyToGive FROM document where isCounted=0 ");
             if(count($allMoney_to_give)>0){
                 $allMoney_to_give=$allMoney_to_give[0]->allMoneyToGive;
             }else{
                 $allMoney_to_give=0;
             }
             
-            $allOkeOfCenter=DB::select("select count(DocSn) as allOkeOfCenter from document where isOke=1   and isCounted=0");
+            $allOkeOfCenter=DB::select("SELECT count(DocSn) as allOkeOfCenter FROM document where isOke=1   and isCounted=0");
             if(count( $allOkeOfCenter)>0){
-            $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
+                $allOkeOfCenter=$allOkeOfCenter[0]->allOkeOfCenter;
             }else{
                 $allOkeOfCenter=0;
             }
 
-            $allNotOkeOfCenter=DB::select("select count(DocSn) as allNotOkeOfCenter from document where isOke=0  and isCounted=0");
+            $allNotOkeOfCenter=DB::select("SELECT count(DocSn) as allNotOkeOfCenter FROM document where isOke=0  and isCounted=0");
             if(count($allNotOkeOfCenter)>0){
                 $allNotOkeOfCenter=$allNotOkeOfCenter[0]->allNotOkeOfCenter;
             }else{
                 $allNotOkeOfCenter=0;
             }
             
-            $allBranches=DB::select("select count(BranchSn) as countBranch from branches where deleted=0 ");
+            $allBranches=DB::select("SELECT count(BranchSn) as countBranch FROM branches where deleted=0 ");
             if(count($allBranches)>0){
                 $allBranches=$allBranches[0]->countBranch;
             }else{
                 $allBranches=0;
             }
-            $allRejectedOfCenter=DB::select("select count(DocSn) as allRejectedOfCenter from document where isOke=2 and isCounted=0");
+            $allRejectedOfCenter=DB::select("SELECT count(DocSn) as allRejectedOfCenter FROM document where isOke=2 and isCounted=0");
             if(count($allRejectedOfCenter)>0){
                 $allRejectedOfCenter=$allRejectedOfCenter[0]->allRejectedOfCenter;
             }else{
@@ -132,7 +132,7 @@ class Admin extends Controller{
 
             
 
-            $allMoneyOfCenter=DB::select("select count(DocSn)*".$moneyOfCenterEach." as allMoneyOfCenter from document where isOke=1 and isCounted=0");
+            $allMoneyOfCenter=DB::select("SELECT count(DocSn)*".$moneyOfCenterEach." as allMoneyOfCenter FROM document where isOke=1 and isCounted=0");
             if(count( $allMoneyOfCenter)>0){
             $allMoneyOfCenter=$allMoneyOfCenter[0]->allMoneyOfCenter;
             }else{
@@ -159,7 +159,7 @@ class Admin extends Controller{
     }
 
     public function siteSetting(Request $request){
-        $lastSiteRules=DB::select("SELECT * FROM bonus where BonusSn=(select max(BonusSn) from bonus)");
+        $lastSiteRules=DB::select("SELECT * FROM bonus where BonusSn=(select max(BonusSn) FROM bonus)");
 
         return view("admin.siteSetting",["siteRules"=>$lastSiteRules[0]]);
     }

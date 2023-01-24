@@ -3,21 +3,17 @@
 <div class="container mt-3">
     <ul class="nav nav-tabs d-none d-lg-flex" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link siteSetting active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane1" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">  تنظیمات سایت  </button>
+            <button class="nav-link siteSetting active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane1" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"> تنظیمات مالی سایت </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link siteSetting" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> تنظیم اعلانات</button>
-        </li>
-        
-        <li class="nav-item" role="presentation">
-            <button class="nav-link siteSetting" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"> تنظیمات مالی</button>
         </li>
     </ul>
     <div class="tab-content accordion" id="myTabContent">
            <div class="tab-pane show active fade accordion-item" id="profile-tab-pane1" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                 <h2 class="accordion-header d-lg-none" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        تنظیمات سایت
+                      تنظیمات مالی سایت
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
@@ -29,13 +25,12 @@
                             <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
-                                            <label for="email"> تعداد سند :</label>
-                                            <input type="number" disabled name="docNum" value={{$siteRules->docNum}} class="form-control form-control-sm" placeholder="1">
+                                            <input type="hidden" disabled name="docNum" value={{$siteRules->docNum}} class="form-control form-control-sm" placeholder="1">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
-                                            <label for="pwd"> کار مزد شرکت:</label>
+                                            <label for="pwd"> کار مزد  هر سند برای شرکت:</label>
                                             <input type="number" name="money" required value={{$siteRules->money}} class="form-control form-control-sm" placeholder="500">
                                         </div>
                                     </div>
@@ -49,27 +44,26 @@
                         
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                          <div class="mb-3">
-                                            <label for="pwd"> تعداد درست :</label>
-                                            <input type="number" name="corrects"   disabled value={{$siteRules->Corrects}} class="form-control form-control-sm" placeholder="10">
+                                            
+                                            <input type="hidden" name="corrects"   disabled value={{$siteRules->Corrects}} class="form-control form-control-sm" placeholder="10">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div class="mb-3"> </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
-                                            <label for="email"> امتیاز :</label>
+                                        <label for="email"> امتیاز مثبت:</label>
                                             <input type="number" name="correctBonus"  required value={{$siteRules->CorrectBonus}} class="form-control form-control-sm" placeholder="20">
+                                        
+                                            <input type="hidden" name="problems"  disabled value={{$siteRules->Problems}} class="form-control form-control-sm" placeholder="5">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-6">
                                         <div class="mb-3">
-                                            <label for="email"> تعداد غلط </label>
-                                            <input type="number" name="problems"  disabled value={{$siteRules->Problems}} class="form-control form-control-sm" placeholder="5">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="pwd">  کسر امتیاز:</label>
+                                            <label for="pwd"> امتیاز منفی:</label>
                                             <input type="number" name="problemMinus" required  value={{$siteRules->ProblemMinus}} class="form-control form-control-sm" placeholder="10 - ">
                                         </div>
                                     </div>
@@ -116,19 +110,6 @@
                     </div>
                 </div>
             </div>
-
-        <div class="tab-pane fade accordion-item" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-            <h2 class="accordion-header d-lg-none" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            تنظیمات مالی 
-                    </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
-                    <div class="accordion-body">
-                        <h1>financial setting</h1>
-                    </div>
-            </div>
-        </div>
     </div>
 
 </div>
