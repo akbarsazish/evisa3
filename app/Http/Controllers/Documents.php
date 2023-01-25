@@ -17,10 +17,10 @@ class Documents extends Controller
     public function docsList(Request $request){
         $documents;
         if(Session::get("userSession")==1 or Session::get("userSession")==2){
-            $documents=DB::select("SELECT *,document.Name AS dName,branches.Name AS bName,branches.CellPhone AS bCellPhone,document.CellPhone AS dCellPhone,branches.OtherPhone AS bOtherPhone,document.OtherPhone AS dOtherPhone,branches.Name AS branchName,country.Name as countryName FROM document JOIN branches ON userSn=branchSn JOIN country ON document.BirthPlace=country.countrySn ORDER BY document.TimeStamp DESC");
+            $documents=DB::select("SELECT *,document.Name AS dName,branches.Name AS bName,branches.CellPhone AS bCellPhone,document.CellPhone AS dCellPhone,branches.OtherPhone AS bOtherPhone,document.OtherPhone AS dOtherPhone,branches.Name AS branchName,country.Name AS countryName FROM document JOIN branches ON userSn=branchSn JOIN country ON document.BirthPlace=country.countrySn ORDER BY document.TimeStamp DESC");
         }
         if(Session::get("userSession")=="branch"){
-            $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName,country.Name as countryName from document join branches on userSn=branchSn JOIN country ON document.BirthPlace=country.countrySn where userSn=".Session::get("userId")." order by document.TimeStamp desc");
+            $documents=DB::select("SELECT *,document.Name AS dName,branches.Name AS bName,branches.CellPhone AS bCellPhone,document.CellPhone AS dCellPhone,branches.OtherPhone AS bOtherPhone,document.OtherPhone AS dOtherPhone,branches.Name AS branchName,country.Name AS countryName from document JOIN branches ON userSn=branchSn JOIN country ON document.BirthPlace=country.countrySn WHERE userSn=".Session::get("userId")." ORDER BY document.TimeStamp DESC");
         }
         return view("documents.docsList",["documents"=>$documents]);
     }

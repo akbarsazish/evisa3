@@ -241,6 +241,24 @@ function selectTableTr(element) {
           
     }
 
+    function selectTableTrOutBranch(element){
+        let input = $(element).find('input:radio').prop("checked", true);
+        
+        $("#showOutDetails").val(input.val());
+        $("#editOutBranchBtn").val(input.val());
+        $("#deleteOutBranche").val(input.val());
+        $("#okeOutBranchBtn").val(input.val());
+        $("#showOutDetails").prop("disabled",false);
+        $("#editOutBranchBtn").prop("disabled",false);
+        $("#deleteOutBranche").prop("disabled",false);
+        $("#okeOutBranchBtn").prop("disabled",false);
+
+        if($("#selectedBranchIDDetail")){
+            $("#selectedBranchIDDetail").val($(input).val());
+        }
+            
+    }
+
 $("#editAdminBtn").on("click",()=>{
     $.ajax({
         type: "get",
@@ -398,6 +416,61 @@ $("#deleteBranche").on("click",()=>{
       });
 });
 
+$("#deleteOutBranche").on("click",()=>{
+
+    swal({
+        title: "خطا!",
+        text: "آیا میخواهید حذف گردد",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            type: "get",
+            url: baseUrl + "/deleteOutBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#deleteOutBranche").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+              swal("موفقانه حذف گردید", {
+                icon: "success",
+              });
+              window.location.reload();
+    
+        //         //
+        //         $("#branchListBody").empty();
+        //         resp.forEach((element,index) => {
+        //           $("#branchListBody").append(`
+        //           <tr class="docsTr"  onclick="selectTableTr(this)">
+        //           <td>`+(index+1)+`</td>
+        //           <td>`+element.Name+`</td>
+        //           <td>`+element.BranchCode+`</td>
+        //           <td>`+element.Address+`</td>
+        //           <td>
+        //               <span class="form-check">
+        //                   <input class="form-check-input " type="radio" name="branchId" id="" value="`+element.BranchSn+`">
+        //               </span>
+        //           </td>
+        //    </tr>`);
+
+        //         });
+            },
+            error: function(msg) {
+              alert("data resp errors");
+            }
+        });
+          
+        } else {
+          swal("منصرف شدید");
+        }
+      });
+});
+
+
     $("#editBranchBtn").on("click",()=>{
         $.ajax({
             type: "get",
@@ -422,6 +495,32 @@ $("#deleteBranche").on("click",()=>{
         });
         
     });
+
+    $("#editOutBranchBtn").on("click",()=>{
+        $.ajax({
+            type: "get",
+            url: baseUrl + "/getOutBranch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                BranchID: $("#editOutBranchBtn").val()
+            },
+            dataType: "json",
+            success: function(resp) {
+                $("#editBranchList").modal("show");
+                $("#BranchId").val(resp.BranchSn);
+                $("#branchName").val(resp.Name);
+                $("#username").val(resp.username);
+                $("#password").val(resp.password);
+                $("#BranchCode").val(resp.BranchCode);
+                $("#BranchAddress").val(resp.Address);
+            },
+            error:function(error){
+
+            }
+        });
+        
+    });
+
     function checkAdminExistBefor(element) {
         if(($(element).val()).length>2){
 

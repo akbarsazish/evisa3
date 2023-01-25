@@ -32,12 +32,21 @@
                 </thead>
                 <tbody id="adminListBody">
                     @foreach($admins as $admin)
+                    @php 
+                    $adminType="کارمند";
+                    if($admin->AdminType==1){
+                        $adminType="ادمین";
+                    }
+                    if($admin->AdminType==2){
+                        $adminType="کارمند";
+                    }
+                    @endphp
                         <tr class="docsTr"  onclick="selectTableTr(this)">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$admin->Name}}</td>
                             <td>{{$admin->CellPhone}}</td>
                             <td>{{$admin->OtherPhone}}</td>
-                            <td>{{$admin->AdminType}}</td>
+                            <td>{{$adminType}}</td>
                             <td>{{$admin->Address}}</td>
                             <td>
                                 <span class="form-check">
