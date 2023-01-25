@@ -86,13 +86,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="email"> نام شرکت :</label>
-                                            <input type="text" name="Name" id="branchName" class="form-control form-control-sm" placeholder="شرکت سیاحتی کاروان عشق">
+                                            <input type="text" name="Name" id="branchName" class="form-control form-control-sm">
                                         </div>          
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">کد شرکت  :</label>
-                                            <input type="text" name="BranchCode" id="BranchCode" class="form-control form-control-sm" placeholder="08">
+                                            <input type="text" name="BranchCode" id="BranchCode" class="form-control form-control-sm">
                                         </div>
                                     </div>
                              </div>
@@ -100,13 +100,13 @@
                                     <div class="col-lg-6">
                                          <div class="mb-3">
                                             <label for="email" class="required"> شماره تماس :  </label>
-                                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0706909063" maxlength="10"   minlength="10" required>
+                                            <input type="number" name="cellPhone" class="form-control form-control-sm" maxlength="10"   minlength="10" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="mb-3">
                                             <label for="email" class="required">1  شماره تماس :  </label>
-                                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0706909063" maxlength="10"   minlength="10" required>
+                                            <input type="number" name="cellPhone" class="form-control form-control-sm" maxlength="10"   minlength="10" required>
                                         </div>
                                     </div>
                              </div>
@@ -114,13 +114,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">نام کاربری:</label>
-                                            <input type="text" name="username" id="username" class="form-control form-control-sm" placeholder="aliAhmadi" disabled>
+                                            <input type="text" name="username" id="username" class="form-control form-control-sm" disabled>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">رمز کاربری:</label>
-                                            <input type="text" name="password" id="password" class="form-control form-control-sm" placeholder="08A@" required>
+                                            <input type="text" name="password" id="password" class="form-control form-control-sm"  required>
                                         </div>
                                     </div>
                              </div>
@@ -128,13 +128,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd"> نمبر جواز :</label>
-                                            <input type="number" name="JawazNumber" class="form-control form-control-sm" placeholder="25365980" maxlength="16"   minlength="5" required>
+                                            <input type="number" name="JawazNumber" class="form-control form-control-sm" maxlength="16"   minlength="5" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd"> اسم و تخلص رئیس یا معاون شرکت ثبت نام شونده :</label>
-                                            <input type="text" name="BossName" class="form-control form-control-sm" placeholder="علی زمانی" maxlength="64"   minlength="3" required>
+                                            <input type="text" name="BossName" class="form-control form-control-sm" maxlength="64"   minlength="3" required>
                                         </div>
                                     </div>
                              </div>
@@ -142,7 +142,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="pwd">  آدرس :</label>
-                                            <input type="text" name="Address" id="BranchAddress" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                                            <input type="text" name="Address" id="BranchAddress" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">

@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('content')
 
-<div class="container bg-white mt-2 rounded-2">
+<div class="container-fluid bg-white mt-2 rounded-2">
     <div class="row mt-1">
         <h4 class="title">  لیست اسناد @if(isset($flag)) ({{$branChName}} ) @endif</h4>
     </div>
@@ -42,17 +42,14 @@
               <thead>
                     <tr class="docsTr">
                         <th> ردیف </th>
-                        <th>نام </th>
-                        <th>نام خانودگی</th>
-                        <th>نام پدر </th>
+                        <th> نام و نام خانوادگی </th>
                         <th>  تاریخ تولد </th>
                         <th>  محل تولد </th>
                         <th> شماره پاسپورت  </th>
                         <th>  انقضا پاسپورت   </th>
                         <th>  شماره تماس </th>
-                        <th>  شماره تماس فامیل</th>
                         <th> کد رهگیری  </th>
-                        <th> شرکت </th>
+                        <th>  شرکت </th>
                         <th> تاریخ مراجعه  </th>
                         <th> انتخاب </th>
                     </tr>
@@ -60,19 +57,16 @@
                 <tbody id="docListBody">
                     @foreach($documents as $doc)
                     <tr class="docsTr" 
-                            @if($doc->isOke ==2) style="background-color:red!important;" @endif
-                            @if($doc->isOke ==1) style="background-color:green!important;" @endif
+                            @if($doc->isOke ==2) style="background-color:#c1c1c1!important;" @endif
+                            @if($doc->isOke ==1) style="background-color:#95bde5!important;" @endif
                        onclick="selectTableTrDocs(this)">
                             <th  >{{$loop->iteration}}</th>
-                            <td>{{$doc->dName}}</td>
-                            <td>{{$doc->LastName}}</td>
-                            <td>{{$doc->FatherName}}</td>
+                            <td>{{$doc->dName}} {{$doc->LastName}}</td>
                             <td>{{$doc->BirthDate}}</td>
                             <td>{{$doc->countryName}}</td>
                             <td>{{$doc->PassNo}}</td>
                             <td>{{$doc->PassEndDate}}</td>
                             <td>{{$doc->dCellPhone}}</td>
-                            <td>{{$doc->dOtherPhone}}</td>
                             <td>{{$doc->RefCode}}</td>
                             <td>{{$doc->branchName}}</td>
                             <td>{{$doc->referDate}}</td>

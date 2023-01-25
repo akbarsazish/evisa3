@@ -17,13 +17,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="email"> نام و نام خانوادگی :</label>
-                            <input type="text" name="name" class="form-control form-control-sm" placeholder="علی احمدی" required minlength="3"> 
+                            <input type="text" name="name" class="form-control form-control-sm"  required minlength="3"> 
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd"> نام کابری :</label>
-                            <input type="text" name="username" onkeyup="checkAdminExistBefor(this)" class="form-control form-control-sm" placeholder="aliAhmadi" required minlength="3">
+                            <input type="text" name="username" onkeyup="checkAdminExistBefor(this)" class="form-control form-control-sm" required minlength="3">
                             <span style="color:red;display:none" id="adminExistError">این نام کاربری قبلا گرفته شده است</span>
                         </div>
                     </div>
@@ -32,13 +32,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="email"> رمز عبور:</label>
-                            <input type="password" name="password" class="form-control form-control-sm" placeholder="abc@123" required minlength="3" >
+                            <input type="password" name="password" class="form-control form-control-sm"  required minlength="3" >
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd">  آدرس :</label>
-                            <input type="text" name="address"  class="form-control form-control-sm" placeholder="کابل دشت برچی " required  minlength="3">
+                            <input type="text" name="address"  class="form-control form-control-sm" required  minlength="3">
                             
                         </div>
                     </div>
@@ -47,13 +47,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="email"> شماره تماس  </label>
-                            <input type="number" name="cellPhone" class="form-control form-control-sm" placeholder="0093706909063" required  minlength="10">
+                            <input type="number" name="cellPhone" class="form-control form-control-sm" required  minlength="10">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="pwd"> 2 شماره تماس :</label>
-                            <input type="number" name="otherPhone" class="form-control form-control-sm" placeholder="0093706909063" minlength="10">
+                            <input type="number" name="otherPhone" class="form-control form-control-sm" minlength="10">
                         </div>
                     </div>
                 </div>

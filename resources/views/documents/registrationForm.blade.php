@@ -160,7 +160,7 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                            <input type="number" class="form-control form-control-sm" name="refCode" id="" placeholder="P01918533">
+                            <input type="number" class="form-control form-control-sm" name="refCode" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">

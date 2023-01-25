@@ -45,13 +45,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email"> نام و نام خانوادگی :</label>
-                                            <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="علی احمدی">
+                                            <input type="text" name="name" id="name" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="pwd"> نام کابری :</label>
-                                            <input type="text" name="username" id="username" class="form-control form-control-sm" placeholder="aliAhmadi">
+                                            <input type="text" name="username" id="username" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                 </div>
@@ -59,13 +59,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email"> رمز عبور:</label>
-                                            <input type="password" name="password" id="password" class="form-control form-control-sm" placeholder="abc@123">
+                                            <input type="password" name="password" id="password" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="pwd">  آدرس :</label>
-                                            <input type="text" name="address" id="address" class="form-control form-control-sm" placeholder="کابل دشت برچی ">
+                                            <input type="text" name="address" id="address" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                 </div>
@@ -73,13 +73,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email"> شماره تماس  </label>
-                                            <input type="number" name="cellPhone" id="cellPhone" class="form-control form-control-sm" placeholder="0093706909063">
+                                            <input type="number" name="cellPhone" id="cellPhone" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="pwd"> 2 شماره تماس :</label>
-                                            <input type="number" name="otherPhone" id="otherPhone" class="form-control form-control-sm" placeholder="0093706909063">
+                                            <input type="number" name="otherPhone" id="otherPhone" class="form-control form-control-sm">
                                         </div>
                                     </div>
                                 </div>

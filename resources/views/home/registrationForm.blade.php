@@ -10,7 +10,7 @@
              <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
        </div>
   </div>
-  <div class="container registrationForm">
+  <div class="container registrationForm rounded">
      <div class="row p-3">
          <div class="form-check form-switch fs-5">
                 <input class="form-check-input float-start" type="checkbox" name="isAutomat" id="" checked>
@@ -19,14 +19,14 @@
      </div>
      <div class="row mt-3"> 
          <div class="col-lg-3 col-md-3 col-sm-6">
-                 <fieldset class="upload_dropZone text-center mb-3 p-4">
+                 <fieldset class="upload_dropZone text-center">
                     <legend class="visually-hidden"> پاسپورت </legend>
-                        <svg class="upload_svg" width="60" height="100" aria-hidden="true">
+                        <svg class="upload_svg mt-3" width="40" height="40" aria-hidden="true">
                             <use href="#icon-imageUpload"></use>
                         </svg>
-                        <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
+                        <p class="small">Drag &amp; Drop <br><i>or click</i></p>
                          <input id="upload_image_background" name="passImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                        <label class="btn btn-upload mb-3" for="upload_image_background">  پاسپورت </label>
+                        <label class="btn btn-sm  btn-upload mb-3" for="upload_image_background">  پاسپورت </label>
                        <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                 </fieldset>
                 <svg style="display:none">
@@ -42,12 +42,12 @@
              <div class="row">
                  <fieldset class="upload_dropZone text-center mb-1 p-2">
                     <legend class="visually-hidden">آپلود فایل </legend>
-                        <svg class="upload_svg" width="30" height="30" aria-hidden="true">
+                        <svg class="upload_svg mt-3" width="30" height="30" aria-hidden="true">
                             <use href="#icon-imageUpload"></use>
                         </svg>
-                        <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
+                        <p class="small my-2">Drag &amp; Drop <br><i>or click</i></p>
                          <input id="persionImage" name="personImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                        <label class="btn btn-upload btn-sm mb-2" for="persionImage">  عکس شخص </label>
+                        <label class="btn btn-upload btn-sm mb-3" for="persionImage">  عکس شخص </label>
                        <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                  </fieldset>
                 <svg style="display:none">
@@ -61,12 +61,12 @@
              <div class="row">
                 <fieldset class="upload_dropZone text-center mb-1 p-2">
                     <legend class="visually-hidden">آپلود فایل </legend>
-                        <svg class="upload_svg" width="30" height="30" aria-hidden="true">
+                        <svg class="upload_svg mt-3" width="30" height="30" aria-hidden="true">
                             <use href="#icon-imageUpload"></use>
                         </svg>
-                        <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
+                        <p class="small my-2">Drag &amp; Drop <br><i>or click</i></p>
                          <input id="tazkeraImage" name="tazkiraImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                        <label class="btn btn-upload btn-sm mb-2" for="tazkeraImage"> تذکره </label>
+                        <label class="btn btn-upload btn-sm mb-3" for="tazkeraImage"> تذکره </label>
                        <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                 </fieldset>
                 <svg style="display:none">
@@ -84,19 +84,19 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
-                            <input type="text" class="form-control form-control-sm" name="passNo" id="" placeholder="P01918533">
+                            <input type="text" class="form-control form-control-sm" name="passNo" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام </label>
-                            <input type="text" class="form-control form-control-sm" name="name" id="" placeholder="احمد">
+                            <input type="text" class="form-control form-control-sm" name="name" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
-                            <input type="text" class="form-control form-control-sm" name="lastName" id="" placeholder="احمدی">
+                            <input type="text" class="form-control form-control-sm" name="lastName" id="">
                     </div>
                 </div>
             </div>
@@ -105,13 +105,13 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
-                            <input type="text" class="form-control form-control-sm" name="fatherName" id="" placeholder="احمد">
+                            <input type="text" class="form-control form-control-sm" name="fatherName" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                            <input type="date" class="form-control form-control-sm" name="birthDate" id="" placeholder="">
+                            <input type="date" class="form-control form-control-sm" name="birthDate" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -139,13 +139,13 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" placeholder="P01918533">
+                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
-                            <input type="tell" class="form-control form-control-sm" name="cellPhone" id="" placeholder="0705884754">
+                            <input type="tell" class="form-control form-control-sm" name="cellPhone" id="">
                     </div>
                 </div>
             </div>
@@ -154,14 +154,14 @@
                      <div class="mb-3">
                          <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
-                            <input type="tell" class="form-control form-control-sm" name="otherPhone" id="" placeholder="07045512548">
+                            <input type="tell" class="form-control form-control-sm" name="otherPhone" id="">
                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                            <input type="text" class="form-control form-control-sm" name="refCode" id="" placeholder="IVEGCC0CQWD24552I5">
+                            <input type="text" class="form-control form-control-sm" name="refCode" id="refCode"  onkeyup="toEnglishNumber(this.value);">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -175,7 +175,7 @@
               <div class="col-lg-12">
                 <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                        <input type="text" class="form-control form-control-sm" name="userAddress" id="" placeholder="آدرس">
+                        <input type="text" class="form-control form-control-sm" name="userAddress" id="">
                 </div>
               </div>
             </div>
@@ -334,6 +334,8 @@ console.clear();
   }
 
 })();
+
+
 
 </script>
 @endsection
