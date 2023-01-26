@@ -349,4 +349,14 @@ class Branch extends Controller{
         DB::table("document")->where("UserSn",$branchID)->where("isOke","!=",0)->update(["isCounted"=>1]);
         return Response::json(1);
     }
+    public function moveToBranch(Request $request)
+    {
+        $branchId=$request->get("branchID");
+        $outBranch=DB::table("outsidebranches")->where("BranchSn",$branchId)->get()[0];
+        DB::table("branches")->insert(["Name"=>"".$outBranch->Name."", "Address"=>"".$outBranch->Address."", "BranchCode"=>"".$outBranch->BranchCode."","username"=>"$outBranch->username","password"=>"$outBranch->password"
+        ,"CellPhone"=>"$outBranch->CellPhone","OtherPhone"=>"$outBranch->OtherPhone","BossName"=>"".$outBranch->BossName."","JawazNumber"=>"".$outBranch->JawazNumber.""]);
+        DB::table("outsidebranches")->where("BranchSn",$branchId)->delete();
+        $outBranch=DB::table("outsidebranches")->get()[0];
+        return Response::json($outBranch);
+    }
 }

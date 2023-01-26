@@ -258,6 +258,21 @@ function selectTableTr(element) {
         }
             
     }
+    $("#okeOutBranchBtn").on("click",()=>{
+        $.ajax({
+            method:'get',
+            url:baseUrl+'/moveToBranch',
+            data:{_token:"{{@csrf}}",
+            branchID:$("#okeOutBranchBtn").val()},
+            async:true,
+            success:function(response){
+                window.location.reload();
+            },
+            error:function(error){
+
+            }
+        });
+    });
 
 $("#editAdminBtn").on("click",()=>{
     $.ajax({
