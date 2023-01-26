@@ -18,7 +18,7 @@ function selectTableTr(element) {
     }
 
     $('.select-highlight tr').removeClass('tableTrSelected');
-    $(element).addClass('tableTrSelected');
+       $(element).addClass('tableTrSelected');
     
     };
 
@@ -349,7 +349,7 @@ $("#deleteAdminBtn").on("click",()=>{
                 $("#adminListBody").empty();
                 resp.forEach((element,index) => {
                   $("#adminListBody").append(`
-                  <tr class="docsTr"  onclick="selectTableTr(this)">
+                  <tr class="docsTr" onclick="selectTableTr(this)">
                   <td>`+(index+1)+`</td>
                   <td>`+element.Name+`</td>
                   <td>`+element.CellPhone+`</td>
@@ -754,41 +754,32 @@ $("#deleteDocumentBtn").on("click", ()=>{
     
     
 
-    function selectTableTrDocs(element) {
-        let input = $(element).find('input:radio').prop("checked", true);
+function selectTableTrDocs(element) {
+    let input = $(element).find('input:radio').prop("checked", true);
         $("#printDocumentBtn").val(input.val());
-        
         $("#okeDocumentBtn").val(input.val());
-        
         $("#rejectDocumentBtn").val(input.val());
-        
         $("#editDocumentBtn").val(input.val());
-        
         $("#deleteDocumentBtn").val(input.val());
         $("#docDetailsBtn").val(input.val());
         $("#docDetailsInp").val(input.val());
-        
-    }
+    
+}
 
 
-$("#adminDetails").on("click", ()=>{
-   
+$("#adminDetails").on("click", ()=>{ 
     $("#adminDetailsModal").modal("show");
 });
-
-   
-
 
 
   $(document).ready( function () {
   
   $('.evisaDataTable').DataTable({
           "order": [],
-          "columnDefs": [ {
-          "targets"  : 0,
-          "orderable": false,
-          },
-          { className: "dt[-head|-body]-center", targets: "_all" },
+          "columnDefs": [
+            { "targets"  : 0, "orderable": false},
+            { targets: -1, orderable: false },
+            { className: "dt[-head|-body]-center", targets: "_all" },
       ],
 
       searchable: true,
