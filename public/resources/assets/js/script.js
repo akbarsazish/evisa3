@@ -673,7 +673,6 @@ $("#deleteDocumentBtn").on("click", ()=>{
       });
     });
 
-  
         
     $("#okeDocumentBtn").on("click",function(){
         swal({

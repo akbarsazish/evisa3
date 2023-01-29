@@ -24,7 +24,7 @@
 
                 @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                     <!-- <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp; -->
-                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn1" data-bs-toggle="modal" data-bs-target="#addmingMoneyModal"> تایید <i class="fa fa-check"></i> </button> &nbsp;
 
                     <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
                 @endif
@@ -39,14 +39,13 @@
 
                     @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                     <table class="table table-bordered select-highlight evisaDataTable">
-              <thead>
+              <thead style="text-align:center">
                     <tr class="docsTr">
                         <th> ردیف </th>
                         <th> نام و نام خانوادگی </th>
                         <th>  تاریخ تولد </th>
-                        <th>  محل تولد </th>
+                        <th> نوع ویزا </th>
                         <th> شماره پاسپورت  </th>
-                        <th>  انقضا پاسپورت   </th>
                         <th>  شماره تماس </th>
                         <th> کد رهگیری  </th>
                         <th>  شرکت </th>
@@ -63,9 +62,8 @@
                             <th  >{{$loop->iteration}}</th>
                             <td>{{$doc->dName}} {{$doc->LastName}}</td>
                             <td>{{$doc->BirthDate}}</td>
-                            <td>{{$doc->countryName}}</td>
+                            <td> ورود </td>
                             <td>{{$doc->PassNo}}</td>
-                            <td>{{$doc->PassEndDate}}</td>
                             <td>{{$doc->dCellPhone}}</td>
                             <td>{{$doc->RefCode}}</td>
                             <td>{{$doc->branchName}}</td>
@@ -314,7 +312,34 @@
                 </div>
             </div>
         </div>
-        <script>
+
+
+
+
+<!-- Modal -->
+        <div class="modal fade" id="addmingMoneyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addmingMoneyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+            <div class="modal-header py-1 bg-info">
+                <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close">  </button>
+                <h1 class="modal-title fs-5" id="addmingMoneyModalLabel"> دریافت پول نظر به نوع ویزا </h1>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"> وارد کردن مقدار پول  </label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" required min="0">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal"> بستن <i class="fa fa-xmark"></i> </button>
+                <button type="button" class="btn btn-sm btn-primary">ذخیره <i class="fa fa-save"></i> </button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+<script>
 
 console.clear();
 ('use strict');
