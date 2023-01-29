@@ -7,7 +7,7 @@
     <form action="{{url('/addDoc')}}" method="post" enctype="multipart/form-data" >
       @csrf
        <div class="col-lg-6 p-2 d-flex justify-content-start">
-             <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i>   فورم ثبت نام  </a>
+             <a href="{{url('registrationForm')}}" class="activeLink">  <i class="fa fa-list fa-lg"></i> بیرون  فورم ثبت نام  </a>
        </div>
   </div>
   <div class="container registrationForm rounded">
@@ -110,8 +110,8 @@
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                            <input type="date" class="form-control form-control-sm" name="birthDate" id="" required>
+                          <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
+                          <input type="date" class="form-control form-control-sm" name="birthDate" id="" required>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -129,17 +129,45 @@
             <div class="row">
                   <div class="col-lg-4">
                      <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
-                            <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required >
-                                <option selected value="1"> مرد </option>
-                                <option value="0"> زن </option>
-                           </select>
+                          <label for="exampleFormControlInput1" class="form-label"> ولایت   </label>
+                          <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required >
+                              <option selected value="1"> هرات </option>
+                              <option value="0"> کابل </option>
+                          </select>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                  <div class="col-lg-4">
                      <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
+                          <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
+                          <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required >
+                              <option selected value="1"> مرد </option>
+                              <option value="0"> زن </option>
+                          </select>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                     <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
+                          <input type="text" class="form-control form-control-sm" name="refCode" id="refCode"  minlength="10"  required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-4">
+                     <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label"> نوع ویزا </label>
+                            <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm " required >
+                                <option selected value="1"> ورود  </option>
+                                <option value="0"> جهانگردی </option>
+                                <option value="0"> زیارتی </option>
+                                <option value="0"> زیارت اربعین </option>
+                                <option value="0"> خانواده  </option>
+                                <option value="0"> بازدید بستگان </option>
+                                <option value="0"> تجارتی </option>
+                                <option value="0"> خدمت  </option>
+                                <option value="0"> سیاسی  </option>
+                                <option value="0"> جهانگردی فوری  </option>
+                           </select>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -148,8 +176,6 @@
                             <input type="tell" class="form-control form-control-sm" name="cellPhone" id="" required  minlength="10">
                     </div>
                 </div>
-            </div>
-            <div class="row">
                   <div class="col-lg-4">
                      <div class="mb-3">
                          <div class="mb-3">
@@ -158,13 +184,21 @@
                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-4">
                      <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                            <input type="text" class="form-control form-control-sm" name="refCode" id="refCode"  minlength="10"  required>
+                            <label for="exampleFormControlInput1" class="form-label">  تاریخ صدور پاسپورت </label>
+                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
                     </div>
                 </div>
                 <div class="col-lg-4">
+                     <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
+                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
+                    </div>
+                </div>
+              <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
                             <input type="date" class="form-control form-control-sm" name="referDate" id="" required>
@@ -172,14 +206,12 @@
                 </div>
             </div>
             <div class="row">
-              <div class="col-lg-12">
-                <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                        <input type="text" class="form-control form-control-sm" name="userAddress" id="" required> 
-                         
-                </div>
+               <div class="col-lg-12">
+                  <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
+                      <input type="text" class="form-control form-control-sm" name="userAddress" id="" required> 
+                  </div>
               </div>
-              
             </div>
              
          </div>
