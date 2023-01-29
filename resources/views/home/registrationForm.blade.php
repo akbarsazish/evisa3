@@ -130,7 +130,7 @@
             <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> ولایت </label>
-                            <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example" required>
+                            <select class="form-select form-select-sm" name="province" aria-label=".form-select-sm example" required>
                               <option value="بدخشان">بدخشان</option>
                               <option value="بادغیس">بادغیس</option>
                               <option value="بغلان">بغلان</option>
@@ -188,7 +188,7 @@
                  <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نوع ویزا </label>
-                            <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm " required >
+                            <select class="form-select form-select-sm" name="visaType" aria-label=".form-select-sm " required >
                                 <option selected value="ورود"> ورود  </option>
                                 <option value="جهانگردی"> جهانگردی </option>
                                 <option value="زیارتی"> زیارتی </option>
