@@ -365,20 +365,5 @@ console.clear();
 
 
 
-$(function(){
-    $('#refCode').on('blur', function() {
-          var persianDigits = $('#refCode').val();
-            var persianMap = persianDigits.split("");
-            function convertToEnglishNumber(input){
-                return input.replace(/[\u06F0-\u06F90]/g, function(m){
-                    return persianDigits.indexOf(m);
-                });
-            }
-           $('#refCode').val(persianDigits);
-           console.log(convertToEnglishNumber(persianDigits))
-   });
- 
-});
-
 </script>
 @endsection
