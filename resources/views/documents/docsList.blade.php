@@ -23,7 +23,7 @@
                 </form>
 
                 @if(Session::get("userSession")==1 or Session::get("userSession")==2)
-                    <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp;
+                    <!-- <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp; -->
                     <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
 
                     <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;

@@ -84,19 +84,19 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
-                            <input type="text" class="form-control form-control-sm" name="passNo" id="">
+                            <input type="text" class="form-control form-control-sm" name="passNo" id="" required  minlength="10">
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام </label>
-                            <input type="text" class="form-control form-control-sm" name="name" id="">
+                            <input type="text" class="form-control form-control-sm" name="name" id="" required  minlength="3"> 
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
-                            <input type="text" class="form-control form-control-sm" name="lastName" id="">
+                            <input type="text" class="form-control form-control-sm" name="lastName" id="" required  minlength="3">
                     </div>
                 </div>
             </div>
@@ -105,19 +105,19 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
-                            <input type="text" class="form-control form-control-sm" name="fatherName" id="">
+                            <input type="text" class="form-control form-control-sm" name="fatherName" id="" required  minlength="3"> 
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
-                            <input type="date" class="form-control form-control-sm" name="birthDate" id="">
+                            <input type="date" class="form-control form-control-sm" name="birthDate" id="" required>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> محل تولد  </label>
-                            <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example">
+                            <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example" required>
                               @foreach($countries as $country)
                                 <option selected value="{{$country->countrySn}}">{{$country->Name}}</option>
                                 @endforeach
@@ -130,7 +130,7 @@
                   <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
-                            <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example">
+                            <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required >
                                 <option selected value="1"> مرد </option>
                                 <option value="0"> زن </option>
                            </select>
@@ -139,13 +139,13 @@
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
-                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="">
+                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
-                            <input type="tell" class="form-control form-control-sm" name="cellPhone" id="">
+                            <input type="tell" class="form-control form-control-sm" name="cellPhone" id="" required  minlength="10">
                     </div>
                 </div>
             </div>
@@ -154,20 +154,20 @@
                      <div class="mb-3">
                          <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
-                            <input type="tell" class="form-control form-control-sm" name="otherPhone" id="">
+                            <input type="tell" class="form-control form-control-sm" name="otherPhone" id=""  minlength="10">
                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                            <input type="text" class="form-control form-control-sm" name="refCode" id="refCode"  onkeyup="toEnglishNumber(this.value);">
+                            <input type="text" class="form-control form-control-sm" name="refCode" id="refCode"  minlength="10"  required>
                     </div>
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
-                            <input type="date" class="form-control form-control-sm" name="referDate" id="">
+                            <input type="date" class="form-control form-control-sm" name="referDate" id="" required>
                     </div>
                 </div>
             </div>
@@ -175,10 +175,13 @@
               <div class="col-lg-12">
                 <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label"> آدرس   </label>
-                        <input type="text" class="form-control form-control-sm" name="userAddress" id="">
+                        <input type="text" class="form-control form-control-sm" name="userAddress" id="" required> 
+                         
                 </div>
               </div>
+              
             </div>
+             
          </div>
          <div class="col-lg-12 p-3">
          <button type="submit" class="btn btn-primary" > ارسال <i class="fa fa-send "></i></button>
@@ -336,6 +339,22 @@ console.clear();
 })();
 
 
+
+
+$(function(){
+    $('#refCode').on('blur', function() {
+          var persianDigits = $('#refCode').val();
+            var persianMap = persianDigits.split("");
+            function convertToEnglishNumber(input){
+                return input.replace(/[\u06F0-\u06F90]/g, function(m){
+                    return persianDigits.indexOf(m);
+                });
+            }
+           $('#refCode').val(persianDigits);
+           console.log(convertToEnglishNumber(persianDigits))
+   });
+ 
+});
 
 </script>
 @endsection

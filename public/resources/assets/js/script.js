@@ -673,11 +673,7 @@ $("#deleteDocumentBtn").on("click", ()=>{
       });
     });
 
-    $("#printDocumentBtn").on("click",function(){
-
-        alert($(this).val());
-
-    });
+  
         
     $("#okeDocumentBtn").on("click",function(){
         swal({
