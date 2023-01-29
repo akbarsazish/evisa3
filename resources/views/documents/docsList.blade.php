@@ -62,7 +62,7 @@
                             <th  >{{$loop->iteration}}</th>
                             <td>{{$doc->dName}} {{$doc->LastName}}</td>
                             <td>{{$doc->BirthDate}}</td>
-                            <td> ورود </td>
+                            <td>{{$doc->visaType}}</td>
                             <td>{{$doc->PassNo}}</td>
                             <td>{{$doc->dCellPhone}}</td>
                             <td>{{$doc->RefCode}}</td>
@@ -247,6 +247,47 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label"> ولایت </label>
+                                                <select class="form-select form-select-sm" name="province" aria-label=".form-select-sm example" required>
+                                                <option value="بدخشان">بدخشان</option>
+                                                <option value="بادغیس">بادغیس</option>
+                                                <option value="بغلان">بغلان</option>
+                                                <option value="بلخ">بلخ</option>
+                                                <option value="بامیان">بامیان</option>
+                                                <option value="دایکندی">دایکندی</option>
+                                                <option value="فراه">فراه</option>
+                                                <option value="فاریاب">فاریاب</option>
+                                                <option value="غزنی">غزنی</option>
+                                                <option value="غور">غور</option>
+                                                <option value="هلمند">هلمند</option>
+                                                <option value="هرات">هرات</option>
+                                                <option value="جوزجان">جوزجان</option>
+                                                <option value="کابل">کابل</option>
+                                                <option value="کندهار">کندهار</option>
+                                                <option value="کاپیسا">کاپیسا</option>
+                                                <option value="خوست">خوست</option>
+                                                <option value="کنر">کنر</option>
+                                                <option value="کندز">کندز</option>
+                                                <option value="لغمان">لغمان</option>
+                                                <option value="لوگر">لوگر</option>
+                                                <option value="ننگرهار">ننگرهار</option>
+                                                <option value="نیمروز">نیمروز</option>
+                                                <option value="نورستان">نورستان</option>
+                                                <option value="ارزگان">ارزگان</option>
+                                                <option value="پکتیا">پکتیا</option>
+                                                <option value="پکتیکا">پکتیکا</option>
+                                                <option value="پنجشیر">پنجشیر</option>
+                                                <option value="پروان">پروان</option>
+                                                <option value="سمنگان">سمنگان</option>
+                                                <option value="سرپل">سرپل</option>
+                                                <option value="تخار">تخار</option>
+                                                <option value="وردک">وردک</option>
+                                                <option value="زابل">زابل</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -282,7 +323,7 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                                                <input type="number" class="form-control form-control-sm" name="refCode" id="RefCode" placeholder="P01918533">
+                                                <input type="number" class="form-control form-control-sm" name="refCode"  style="font-family:arial" id="RefCode" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -291,6 +332,23 @@
                                                 <input type="date" class="form-control form-control-sm" name="referDate" id="ReferDate" placeholder="+93 706909063">
                                         </div>
                                     </div>
+                                    <div class="col-lg-4">
+                                            <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label"> نوع ویزا </label>
+                                                    <select class="form-select form-select-sm" name="visaType" aria-label=".form-select-sm " required >
+                                                        <option selected value="ورود"> ورود  </option>
+                                                        <option value="جهانگردی"> جهانگردی </option>
+                                                        <option value="زیارتی"> زیارتی </option>
+                                                        <option value="زیارت اربعین"> زیارت اربعین </option>
+                                                        <option value="خانواده"> خانواده  </option>
+                                                        <option value="بازدید بستگان "> بازدید بستگان </option>
+                                                        <option value="تجارتی"> تجارتی </option>
+                                                        <option value="خدمت"> خدمت  </option>
+                                                        <option value="سیاسی"> سیاسی  </option>
+                                                        <option value="جهانگردی فوری"> جهانگردی فوری  </option>
+                                                </select>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">

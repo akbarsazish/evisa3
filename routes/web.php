@@ -40,9 +40,8 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/deleteAdmin',[Admin::class,'deleteAdmin'])->middleware('checkAdmin');
         Route::get('/',[Home::class,'index']);
         Route::get('/home',[Home::class,'index']);
-
         
-        Route::get('/docsList', [Documents::class, 'docsList'])->middleware('checUser');
+        Route::get('/docsList', [Documents::class, 'docsList']);
         Route::post('/addDoc',[Documents::class,'addDoc']);
         Route::post('/editDoc',[Documents::class,'editDoc']);
         Route::get('/getDocument',[Documents::class,'getDocument']);
