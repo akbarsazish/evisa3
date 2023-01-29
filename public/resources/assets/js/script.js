@@ -666,6 +666,179 @@ $("#deleteDocumentBtn").on("click", ()=>{
           $("#ReferDate").val(resp.referDate);
           $("#PersonAddress").val(resp.UserAddress);
           $("#DocId").val(resp.DocSn);
+          switch (resp.province) {
+            case "بدخشان":
+                $("#v1").prop("selected",true);
+                
+                break;
+                case "بادغیس":
+                $("#v2").prop("selected",true);
+                
+                break;
+            case "بغلان":
+                $("#v3").prop("selected",true);
+                
+                break;
+            case "بلخ":
+                $("#v4").prop("selected",true);
+                
+                break;
+            case "بامیان":
+                $("#v5").prop("selected",true);
+                
+                break;
+            case "دایکندی":
+                $("#v6").prop("selected",true);
+                
+                break;
+            case "فراه":
+                $("#v7").prop("selected",true);
+                
+                break;
+            case "فاریاب":
+                $("#v8").prop("selected",true);
+                
+                break;
+            case "غزنی":
+                $("#v9").prop("selected",true);
+                
+                break;
+            case "غور":
+                $("#v10").prop("selected",true);
+                
+                break;
+            case "هلمند":
+                $("#v11").prop("selected",true);
+                
+                break;
+            case "هرات":
+                $("#v12").prop("selected",true);
+                
+                break;
+            case "جوزجان":
+                $("#v13").prop("selected",true);
+                
+                break;
+            case "کابل":
+                $("#v14").prop("selected",true);
+                
+                break;
+            case "کندهار":
+                $("#v15").prop("selected",true);
+                
+                break;
+            case "کاپیسا":
+                $("#v16").prop("selected",true);
+                
+                break;
+            case "خوست":
+                $("#v17").prop("selected",true);
+                
+                break;
+            case "کنر":
+                $("#v18").prop("selected",true);
+                
+                break;
+            case "کندز":
+                $("#v19").prop("selected",true);
+                
+                break;
+            case "لغمان":
+                $("#v20").prop("selected",true);
+                
+                break;
+            case "لوگر":
+                $("#v21").prop("selected",true);
+                
+                break;
+            case "ننگرهار":
+                $("#v22").prop("selected",true);
+                
+                break;
+            case "نیمروز":
+                $("#v23").prop("selected",true);
+                
+                break;
+            case "نورستان":
+                $("#v24").prop("selected",true);
+                
+                break;
+            case "ارزگان":
+                $("#v25").prop("selected",true);
+                
+                break;
+            case "پکتیا":
+                $("#v26").prop("selected",true);
+                
+                break;
+            case "پکتیکا":
+                $("#v27").prop("selected",true);
+                
+                break;
+            case "پنجشیر":
+                $("#v28").prop("selected",true);
+                
+                break;
+            case "دایکندی":
+                $("#v29").prop("selected",true);
+                
+                break;
+            case "پروان":
+                $("#v30").prop("selected",true);
+                
+                break;
+            case "سمنگان":
+                $("#v31").prop("selected",true);
+                
+                break;
+            case "سرپل":
+                $("#v32").prop("selected",true);
+                
+                break;
+            case "تخار":
+                $("#v33").prop("selected",true);
+                break;
+            case "وردک":
+                $("#v34").prop("selected",true);
+                break;
+    
+            case "زابل":
+                $("#v35").prop("selected",true);
+                break;
+                  
+            default:
+                break;
+          }
+          if(resp.visaType=='ورود'){
+            $("#vrood").prop("selected",true);
+          }
+          if(resp.visaType=='جهانگردی'){
+            $("#jahangardi").prop("selected",true);
+          }
+          if(resp.visaType=='جهانگردی فوری'){
+            $("#fastJahangardi").prop("selected",true);
+          }
+          if(resp.visaType=='خدمت'){
+            $("#khidmat").prop("selected",true);
+          }
+          if(resp.visaType=='سیاسی'){
+            $("#politic").prop("selected",true);
+          }
+          if(resp.visaType=='خانوده'){
+            $("#family").prop("selected",true);
+          }
+          if(resp.visaType=='زیارتی'){
+            $("#ziyarati").prop("selected",true);
+          }
+          if(resp.visaType=='زیارت اربعین'){
+            $("#arbaeen").prop("selected",true);
+          }
+          if(resp.visaType=='بازدید بستگان'){
+            $("#bazdid").prop("selected",true);
+          }
+          if(resp.visaType=='تجارت'){
+            $("#commercial").prop("selected",true);
+          }
         },
         error:function(error){
 
@@ -684,31 +857,48 @@ $("#deleteDocumentBtn").on("click", ()=>{
           })
           .then((willDelete) => {
             if (willDelete) {
-        $.ajax({
-            type: "get",
-            url: baseUrl + "/okeDocument",
-            data: {
-                _token: "{{ csrf_token() }}",
-                DocSn: $("#okeDocumentBtn").val()
-            },
-            dataType: "json",
-            success: function(respond) {
-                swal({
-                    title: "تایید!",
-                    text: "موفقانه تایید شد",
-                    icon: "success",
-                    buttons: true,
-                    dangerMode: true,
-                  });
-                  window.location.reload();
-            },
-            error:function(error){
-                alert("server data response error");
-            }
-        });
-    }});
+                $("#confirmableDocId").val($("#okeDocumentBtn").val());
+                $("#addmingMoneyModal").modal("show");
+                }
+            });
 
     });
+
+    $("#addDocMoneyForm").on("submit",function(e){
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr("action"),
+            data: $(this).serialize(),
+            success: function (data) {
+                window.location.reload();
+            },
+            error:function(data){
+
+            }
+        });
+    })
+            // $.ajax({
+        //     type: "get",
+        //     url: baseUrl + "/okeDocument",
+        //     data: {
+        //         _token: "{{ csrf_token() }}",
+        //         DocSn: $("#okeDocumentBtn").val()
+        //     },
+        //     dataType: "json",
+        //     success: function(respond) {
+        //         swal({
+        //             title: "تایید!",
+        //             text: "موفقانه تایید شد",
+        //             icon: "success",
+        //             buttons: true,
+        //             dangerMode: true,
+        //           });
+        //           window.location.reload();
+        //     },
+        //     error:function(error){
+        //         alert("server data response error");
+        //     }
+        // });
     
     $("#rejectDocumentBtn").on("click",function(){
         swal({

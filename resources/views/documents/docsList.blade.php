@@ -7,7 +7,7 @@
     </div>
       <div class="row mt-2">
             <div class="col-lg-3">
-                    <div class="mb-3">
+                    <div class="mb-2">
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                         <option selected> فلتر اسناد </option>
                         <option value="1"> تایید شده </option>
@@ -24,7 +24,7 @@
 
                 @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                     <!-- <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp; -->
-                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn1" data-bs-toggle="modal" data-bs-target="#addmingMoneyModal"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
 
                     <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
                 @endif
@@ -140,14 +140,14 @@
                             @csrf
                           <div class="row mt-3"> 
                           <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <fieldset class="upload_dropZone text-center mb-3 p-4">
+                                    <fieldset class="upload_dropZone text-center mb-2 p-4">
                                         <legend class="visually-hidden"> پاسپورت </legend>
                                             <svg class="upload_svg" width="60" height="100" aria-hidden="true">
                                                 <use href="#icon-imageUpload"></use>
                                             </svg>
                                             <p class="small my-2">Drag &amp; Drop background passport inside dashed region<br><i>or click</i></p>
                                             <input id="upload_image_background" name="passImage" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-                                            <label class="btn btn-upload mb-3" for="upload_image_background">  پاسپورت </label>
+                                            <label class="btn btn-upload mb-2" for="upload_image_background">  پاسپورت </label>
                                         <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
                                     </fieldset>
                                     <svg style="display:none">
@@ -203,20 +203,20 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <input type="hidden" name="docID" id="DocId">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره پاسپورت </label>
                                                 <input type="text" class="form-control form-control-sm" name="passNo" id="PassNo" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام </label>
                                                 <input type="text" class="form-control form-control-sm" name="name" id="Name" placeholder="احمد">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> نام خانواده گی </label>
                                                 <input type="text" class="form-control form-control-sm" name="lastName" id="LastName" placeholder="احمدی">
                                         </div>
@@ -225,19 +225,19 @@
 
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label">  نام پدر </label>
                                                 <input type="text" class="form-control form-control-sm" name="fatherName" id="FatherName" placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ تولد </label>
                                                 <input type="date" class="form-control form-control-sm" name="birthDate" id="BirthDate" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> محل تولد  </label>
                                                 <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example" id="BirthPlace">
                                                     <option selected> افغانستان</option>
@@ -248,111 +248,114 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> ولایت </label>
                                                 <select class="form-select form-select-sm" name="province" aria-label=".form-select-sm example" required>
-                                                <option value="بدخشان">بدخشان</option>
-                                                <option value="بادغیس">بادغیس</option>
-                                                <option value="بغلان">بغلان</option>
-                                                <option value="بلخ">بلخ</option>
-                                                <option value="بامیان">بامیان</option>
-                                                <option value="دایکندی">دایکندی</option>
-                                                <option value="فراه">فراه</option>
-                                                <option value="فاریاب">فاریاب</option>
-                                                <option value="غزنی">غزنی</option>
-                                                <option value="غور">غور</option>
-                                                <option value="هلمند">هلمند</option>
-                                                <option value="هرات">هرات</option>
-                                                <option value="جوزجان">جوزجان</option>
-                                                <option value="کابل">کابل</option>
-                                                <option value="کندهار">کندهار</option>
-                                                <option value="کاپیسا">کاپیسا</option>
-                                                <option value="خوست">خوست</option>
-                                                <option value="کنر">کنر</option>
-                                                <option value="کندز">کندز</option>
-                                                <option value="لغمان">لغمان</option>
-                                                <option value="لوگر">لوگر</option>
-                                                <option value="ننگرهار">ننگرهار</option>
-                                                <option value="نیمروز">نیمروز</option>
-                                                <option value="نورستان">نورستان</option>
-                                                <option value="ارزگان">ارزگان</option>
-                                                <option value="پکتیا">پکتیا</option>
-                                                <option value="پکتیکا">پکتیکا</option>
-                                                <option value="پنجشیر">پنجشیر</option>
-                                                <option value="پروان">پروان</option>
-                                                <option value="سمنگان">سمنگان</option>
-                                                <option value="سرپل">سرپل</option>
-                                                <option value="تخار">تخار</option>
-                                                <option value="وردک">وردک</option>
-                                                <option value="زابل">زابل</option>
+                                                <option id="v1" value="بدخشان">بدخشان</option>
+                                                <option id="v2" value="بادغیس">بادغیس</option>
+                                                <option id="v3" value="بغلان">بغلان</option>
+                                                <option id="v4" value="بلخ">بلخ</option>
+                                                <option id="v5" value="بامیان">بامیان</option>
+                                                <option id="v6" value="دایکندی">دایکندی</option>
+                                                <option id="v7" value="فراه">فراه</option>
+                                                <option id="v8" value="فاریاب">فاریاب</option>
+                                                <option id="v9" value="غزنی">غزنی</option>
+                                                <option id="v10" value="غور">غور</option>
+                                                <option id="v11" value="هلمند">هلمند</option>
+                                                <option id="v12" value="هرات">هرات</option>
+                                                <option id="v13" value="جوزجان">جوزجان</option>
+                                                <option id="v14" value="کابل">کابل</option>
+                                                <option id="v15" value="کندهار">کندهار</option>
+                                                <option id="v16" value="کاپیسا">کاپیسا</option>
+                                                <option id="v17" value="خوست">خوست</option>
+                                                <option id="v18" value="کنر">کنر</option>
+                                                <option id="v19" value="کندز">کندز</option>
+                                                <option id="v20" value="لغمان">لغمان</option>
+                                                <option id="v21" value="لوگر">لوگر</option>
+                                                <option id="v22" value="ننگرهار">ننگرهار</option>
+                                                <option id="v23" value="نیمروز">نیمروز</option>
+                                                <option id="v24" value="نورستان">نورستان</option>
+                                                <option id="v25" value="ارزگان">ارزگان</option>
+                                                <option id="v26" value="پکتیا">پکتیا</option>
+                                                <option id="v27" value="پکتیکا">پکتیکا</option>
+                                                <option id="v28" value="پنجشیر">پنجشیر</option>
+                                                <option id="v29" value="پروان">پروان</option>
+                                                <option id="v30" value="سمنگان">سمنگان</option>
+                                                <option id="v31" value="سرپل">سرپل</option>
+                                                <option id="v32" value="تخار">تخار</option>
+                                                <option id="v33" value="وردک">وردک</option>
+                                                <option id="v34" value="زابل">زابل</option>
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> جنسیت </label>
                                                 <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" id="sex">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                            <div class="mb-2">
+                                                    <label for="exampleFormControlInput1" class="form-label"> نوع ویزا </label>
+                                                    <select class="form-select form-select-sm" name="visaType" id="visaType" aria-label=".form-select-sm " required >
+                                                        <option value="ورود" id="vrood"> ورود  </option>
+                                                        <option value="جهانگردی" id="jahangardi"> جهانگردی </option>
+                                                        <option value="زیارتی" id="ziyarati"> زیارتی </option>
+                                                        <option value="زیارت اربعین" id="arbaeen"> زیارت اربعین </option>
+                                                        <option value="خانواده" id="family"> خانواده  </option>
+                                                        <option value="بازدید بستگان" id="bazdid"> بازدید بستگان </option>
+                                                        <option value="تجارتی" id="commercial"> تجارتی </option>
+                                                        <option value="خدمت" id="khidmat"> خدمت  </option>
+                                                        <option value="سیاسی" id="politic"> سیاسی  </option>
+                                                        <option value="جهانگردی فوری" id="fastJahangardi"> جهانگردی فوری  </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <div class="row">
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
                                                 <input type="date" class="form-control form-control-sm" name="passEndDate" id="PassEndDate"  placeholder="P01918533">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (همراه) </label>
                                                 <input type="number" class="form-control form-control-sm" name="cellPhone" id="CellPhone" placeholder="+93 706909063">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-lg-4">
-                                        <div class="mb-3">
-                                            <div class="mb-3">
+                                        <div class="mb-2">
+                                            <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> شماره تماس (بستگان) </label>
                                                 <input type="number" class="form-control form-control-sm" name="otherPhone" id="OtherPhone" placeholder="+93 706909063">
                                         </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-lg-6">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label">  کد رهگیری   </label>
-                                                <input type="number" class="form-control form-control-sm" name="refCode"  style="font-family:arial" id="RefCode" placeholder="P01918533">
+                                                <input type="text" class="form-control form-control-sm" name="refCode"  style="font-family:arial" id="RefCode" placeholder="P01918533">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="mb-3">
+                                    <div class="col-lg-6">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label"> تاریخ مراجعه </label>
                                                 <input type="date" class="form-control form-control-sm" name="referDate" id="ReferDate" placeholder="+93 706909063">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                            <div class="mb-3">
-                                                    <label for="exampleFormControlInput1" class="form-label"> نوع ویزا </label>
-                                                    <select class="form-select form-select-sm" name="visaType" aria-label=".form-select-sm " required >
-                                                        <option selected value="ورود"> ورود  </option>
-                                                        <option value="جهانگردی"> جهانگردی </option>
-                                                        <option value="زیارتی"> زیارتی </option>
-                                                        <option value="زیارت اربعین"> زیارت اربعین </option>
-                                                        <option value="خانواده"> خانواده  </option>
-                                                        <option value="بازدید بستگان "> بازدید بستگان </option>
-                                                        <option value="تجارتی"> تجارتی </option>
-                                                        <option value="خدمت"> خدمت  </option>
-                                                        <option value="سیاسی"> سیاسی  </option>
-                                                        <option value="جهانگردی فوری"> جهانگردی فوری  </option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label">آدرس</label>
                                                 <input type="text" class="form-control form-control-sm" name="userAddress" id="PersonAddress" placeholder="آدرس">
                                         </div>
@@ -363,7 +366,7 @@
                         
                         </div>
                         <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-danger" id="">انصراف<i class="fa fa-xmark"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger" id=""> انصراف <i class="fa fa-xmark"></i></button>
                                 <button type="submit" class="btn btn-sm btn-primary">ذخیره <i class="fa fa-save"></i></button>
                         </div>
                     </form>
@@ -382,16 +385,19 @@
                 <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close">  </button>
                 <h1 class="modal-title fs-5" id="addmingMoneyModalLabel"> دریافت پول نظر به نوع ویزا </h1>
             </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label"> وارد کردن مقدار پول  </label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" required min="0">
+            <form action="{{url('/okeDocument')}}" method="get" id="addDocMoneyForm">
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label for="exampleFormControlInput1" class="form-label"> وارد کردن مقدار پول  </label>
+                        <input type="number" class="form-control" name="docMoney" placeholder="" required min="0">
+                        <input type="text" name="DocSn" id="confirmableDocId">
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal"> بستن <i class="fa fa-xmark"></i> </button>
-                <button type="button" class="btn btn-sm btn-primary">ذخیره <i class="fa fa-save"></i> </button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal"> بستن <i class="fa fa-xmark"></i> </button>
+                    <button type="submit" class="btn btn-sm btn-primary">ذخیره <i class="fa fa-save"></i> </button>
+                </div>
+            </form>
             </div>
         </div>
         </div>
