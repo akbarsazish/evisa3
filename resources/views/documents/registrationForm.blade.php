@@ -181,12 +181,6 @@
                 </div>
                 <div class="col-lg-4">
                      <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">  تاریخ صدور پاسپورت </label>
-                            <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                     <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">  تاریخ ختم پاسپورت   </label>
                             <input type="date" class="form-control form-control-sm" name="passEndDate" id="" required>
                     </div>
