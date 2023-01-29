@@ -16,7 +16,7 @@ class ChecUser
      */
     public function handle(Request $request, Closure $next)
     {   
-        if(Session::get('userSession')=="branch"){
+        if(Session::get('userSession')){
             return $next($request);
         
         }else{

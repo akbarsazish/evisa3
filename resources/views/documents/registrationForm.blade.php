@@ -124,6 +124,49 @@
                            </select>
                     </div>
                 </div>
+                <div class="col-lg-4">
+                     <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label"> ولایت </label>
+                            <select class="form-select form-select-sm" name="birthPlace" aria-label=".form-select-sm example" required>
+                              <option value="بدخشان">بدخشان</option>
+                              <option value="بادغیس">بادغیس</option>
+                              <option value="بغلان">بغلان</option>
+                              <option value="بلخ">بلخ</option>
+                              <option value="بامیان">بامیان</option>
+                              <option value="دایکندی">دایکندی</option>
+                              <option value="فراه">فراه</option>
+                              <option value="فاریاب">فاریاب</option>
+                              <option value="غزنی">غزنی</option>
+                              <option value="غور">غور</option>
+                              <option value="هلمند">هلمند</option>
+                              <option value="هرات">هرات</option>
+                              <option value="جوزجان">جوزجان</option>
+                              <option value="کابل">کابل</option>
+                              <option value="کندهار">کندهار</option>
+                              <option value="کاپیسا">کاپیسا</option>
+                              <option value="خوست">خوست</option>
+                              <option value="کنر">کنر</option>
+                              <option value="کندز">کندز</option>
+                              <option value="لغمان">لغمان</option>
+                              <option value="لوگر">لوگر</option>
+                              <option value="ننگرهار">ننگرهار</option>
+                              <option value="نیمروز">نیمروز</option>
+                              <option value="نورستان">نورستان</option>
+                              <option value="ارزگان">ارزگان</option>
+                              <option value="پکتیا">پکتیا</option>
+                              <option value="پکتیکا">پکتیکا</option>
+                              <option value="پنجشیر">پنجشیر</option>
+                              <option value="پروان">پروان</option>
+                              <option value="سمنگان">سمنگان</option>
+                              <option value="سرپل">سرپل</option>
+                              <option value="تخار">تخار</option>
+                              <option value="وردک">وردک</option>
+                              <option value="زابل">زابل</option>
+                           </select>
+                    </div>
+                </div>
+
+
             </div>
 
             <div class="row">

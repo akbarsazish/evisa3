@@ -106,6 +106,8 @@ class Documents extends Controller
         $passImg=$request->file("passImage");
         $docId=$request->post("docID");
         $name=$request->post("name");
+        $province=$request->post("province");
+        $visaType=$request->post("visaType");
         $lastName=$request->post("lastName");
         $fatherName=$request->post("fatherName");
         $passNo=$request->post("passNo");
@@ -126,7 +128,7 @@ class Documents extends Controller
 
        DB::table("document")->where("DocSn",$docId)->update(["Name"=>"$name", "LastName"=>"$lastName", "FatherName"=>"$fatherName", "PassNo"=>"$passNo", "BirthDate"=>"$birthDate",
         "BirthPlace"=>"".$birthPlace."", "Gender"=>$sex, "PassEndDate"=>"$passEndDate", "CellPhone"=>"$cellPhone", "OtherPhone"=>"$otherPhone", "RefCode"=>"$refCode",
-         "UserAddress"=>"$userAddress", "referDate"=>" $referDate"]);
+         "UserAddress"=>"$userAddress", "referDate"=>" $referDate",'visaType'=>"$visaType",'province'=>"$province"]);
                  //عکس تذکره
        
        if($tazkiraImg){

@@ -55,6 +55,13 @@
           $docName = $doc->dName;
           $lastName = $doc->LastName;
           $dateOfBrith = $doc->BirthDate;
+          $province = $doc->province;
+          if($doc->Gender==0){
+               $sex="آقای";
+          }else{
+               $sex="خانم";
+          }
+          
           $ldate = date('Y-m-d   H:i:s');
      
      ?>
@@ -62,7 +69,7 @@
           <div class="col-lg-10 col-md-10 col-sm-10">
            <h4 class="title text-center" style="margin-bottom:50px;"> رسید تحویل پاسپورت </h4>
                <p class="reminder">
-                 بدینوسیله گواهی میشود. پاسپورت شماره  {{$passNo}} متعلق به  {{$docName }} {{$lastName}} متولد {{$dateOfBrith}} ولایت هرات به منظور ارائه به کنسولگری جهت صدور ویزا در اجرای طرح کاهش مراجعین سر کنسولگری جمهوری اسلام ایران - هرات از نامبرده دریافت گردید.  <br>
+                 بدینوسیله گواهی میشود. پاسپورت شماره  {{$passNo}} متعلق به  {{$sex}} {{$docName }} {{$lastName}} متولد {{$dateOfBrith}} ولایت {{$province }} به منظور ارائه به کنسولگری جهت صدور ویزا در اجرای طرح کاهش مراجعین سر کنسولگری جمهوری اسلام ایران - کابل از نامبرده دریافت گردید.  <br>
               </p>
                <img class="barcodeImage" src="{{url('/resources/assets/images/barcode.gif')}}" alt="بارکد">
         </div>

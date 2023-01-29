@@ -9,46 +9,39 @@ use App\Http\Controllers\Branch;
 Route::post('/checkAdmin',[Admin::class,'checkAdmin']);
 Route::post('/checkBranch',[Branch::class,'checkBranch']);
 Route::get('/loginAdmin',[Admin::class,'loginAdmin']);
-
 Route::get('/login',[Home::class,'login']);
 Route::get('/loginAdmin',[Admin::class,'login']);
-
 Route::get('/logout',[Admin::class,'logout']);
 
-// if(Session::get("uerSession")==1 or Session::get("uerSession")==2){
-//     Route::group(['middleware' => 'checkAdmin'], function () {
-        Route::get('/adminDashboard',[Admin::class,'adminDashboard']);
-        Route::get('/docsList', [Documents::class, 'docsList']);
-        Route::get('/siteSetting',[Admin::class,'siteSetting']);
+
+
+        Route::get('/adminDashboard',[Admin::class,'adminDashboard'])->middleware('checkAdmin');
+        Route::get('/docsList', [Documents::class, 'docsList'])->middleware('checkAdmin');
+        Route::get('/siteSetting',[Admin::class,'siteSetting'])->middleware('checkAdmin');
         Route::get('/deleteDocs',[Documents::class,'deleteDocs']);
-        Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance']);
-        Route::get('/branchList',[Branch::class,'branchList']);
-        Route::get('/outbranchList',[Branch::class,'outbranchList']);
-        Route::get('/addingBranch',[Branch::class,'addingBranch']);
-        Route::get('/getBranch',[Branch::class,'getBranch']);
-        Route::get('/getOutBranch',[Branch::class,'getOutBranch']);
-        Route::get('/deleteBranch',[Branch::class,'deleteBranch']);
-        Route::get('/deleteOutBranch',[Branch::class,'deleteOutBranch']);
-        Route::post('/addBranch',[Branch::class,'addBranch']);
-        Route::post('/editBranch',[Branch::class,'editBranch']);
-        Route::get('/addingAdmin',[Admin::class,'addingAdmin']);
-        Route::get('/adminList',[Admin::class,'adminList']);
-        Route::post('/addAdmin',[Admin::class,'addAdmin']);
-        Route::get('/getAdmin',[Admin::class,'getAdmin']);
-        Route::post('/editAdmin',[Admin::class,'editAdmin']);
-        Route::post('/siteSetting',[Admin::class,'addNewMangageRuleMony']);
-        Route::post('/addElan',[Admin::class,'addElan']);
-        Route::get('/editAdminProfile',[Admin::class,'editAdminProfile']);
-        Route::get('/deleteAdmin',[Admin::class,'deleteAdmin']);
-
-
+        Route::get('/adminDashboardFinance',[Finance::class,'adminDashboardFinance'])->middleware('checkAdmin');
+        Route::get('/branchList',[Branch::class,'branchList'])->middleware('checkAdmin');
+        Route::get('/outbranchList',[Branch::class,'outbranchList'])->middleware('checkAdmin');
+        Route::get('/addingBranch',[Branch::class,'addingBranch'])->middleware('checkAdmin');
+        Route::get('/getBranch',[Branch::class,'getBranch'])->middleware('checkAdmin');
+        Route::get('/getOutBranch',[Branch::class,'getOutBranch'])->middleware('checkAdmin');
+        Route::get('/deleteBranch',[Branch::class,'deleteBranch'])->middleware('checkAdmin');
+        Route::get('/deleteOutBranch',[Branch::class,'deleteOutBranch'])->middleware('checkAdmin');
+        Route::post('/addBranch',[Branch::class,'addBranch'])->middleware('checkAdmin');
+        Route::post('/editBranch',[Branch::class,'editBranch'])->middleware('checkAdmin');
+        Route::get('/addingAdmin',[Admin::class,'addingAdmin'])->middleware('checkAdmin');
+        Route::get('/adminList',[Admin::class,'adminList'])->middleware('checkAdmin');
+        Route::post('/addAdmin',[Admin::class,'addAdmin'])->middleware('checkAdmin');
+        Route::get('/getAdmin',[Admin::class,'getAdmin'])->middleware('checkAdmin');
+        Route::post('/editAdmin',[Admin::class,'editAdmin'])->middleware('checkAdmin');
+        Route::post('/siteSetting',[Admin::class,'addNewMangageRuleMony'])->middleware('checkAdmin');
+        Route::post('/addElan',[Admin::class,'addElan'])->middleware('checkAdmin');
+        Route::get('/editAdminProfile',[Admin::class,'editAdminProfile'])->middleware('checkAdmin');
+        Route::get('/deleteAdmin',[Admin::class,'deleteAdmin'])->middleware('checkAdmin');
         Route::get('/',[Home::class,'index']);
         Route::get('/home',[Home::class,'index']);
-  //   });
-  // }else{
-        // Route::group(['middleware' => 'checkUser'], function () {
+        
         Route::get('/docsList', [Documents::class, 'docsList']);
-      //  Route::get('/adminDashboard',[Admin::class,'adminDashboard']);
         Route::post('/addDoc',[Documents::class,'addDoc']);
         Route::post('/editDoc',[Documents::class,'editDoc']);
         Route::get('/getDocument',[Documents::class,'getDocument']);
@@ -74,5 +67,4 @@ Route::get('/logout',[Admin::class,'logout']);
         Route::get('/cancelRequest',[Branch::class,'cancelRequest']);
         Route::get('/doTasviyahHisab',[Branch::class,'doTasviyahHisab']);
         Route::get('/moveToBranch',[Branch::class,'moveToBranch']);
-  //   });
-  // }
+  

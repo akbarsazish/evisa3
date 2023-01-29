@@ -72,7 +72,10 @@
                             @endif
                             @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                             <li class="nav-item" id="adminList">
-                                <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربر   </a>
+                                <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربران  </a>
+                            </li>
+                            <li class="nav-item" id="outBranchList">
+                                <a class="nav-link px-1" href="{{url('outbranchList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i> شرکت های تایید نشده </a>
                             </li>
                             @endif
                     </ul>
