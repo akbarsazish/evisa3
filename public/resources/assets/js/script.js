@@ -19,8 +19,18 @@ function selectTableTr(element) {
 
     $('.select-highlight tr').removeClass('tableTrSelected');
        $(element).addClass('tableTrSelected');
+
+       if($("#adminDetails")){
+        $("#adminDetails").prop("disabled",false);
+    }
+    if($("#editAdminBtn")){
+        $("#editAdminBtn").prop("disabled",false);
+    }
+    if($("#deleteAdminBtn")){
+        $("#deleteAdminBtn").prop("disabled",false);
+    }
     
-    };
+    }
 
     $("#requestBranchBtn").on("click",function(){
              swal({
@@ -528,6 +538,11 @@ $("#deleteOutBranche").on("click",()=>{
                 $("#password").val(resp.password);
                 $("#BranchCode").val(resp.BranchCode);
                 $("#BranchAddress").val(resp.Address);
+                $("#cellPhone1").val(resp.CellPhone);
+                $("#cellPhone2").val(resp.OtherPhone);
+                $("#JawazNumber").val(resp.JawazNumber);
+                $("#BossName").val(resp.BossName);
+
             },
             error:function(error){
 
@@ -559,8 +574,7 @@ $("#deleteOutBranche").on("click",()=>{
     }
 
     function checkUserNameExistance(element){
-       if(($(element).val()).length>2){
-
+       if($(element).val().length>2){
         $.ajax({
             type: "get",
             url: baseUrl + "/checkBranchUserName",
@@ -570,12 +584,18 @@ $("#deleteOutBranche").on("click",()=>{
             },
             dataType: "json",
             success: function(resp) {
+                console.log(resp)
                 if(resp==1){
                     $("#userExistError").css("display","block");
+                    $("#SaveSubmitOut").prop("disabled",true);
                 }else{
+                    $("#SaveSubmitOut").prop("disabled",false);
                     $("#userExistError").css("display","none");
                 }
             },
+            error:function(error){
+                console.log(error)
+            }
         });
     }
     }
@@ -848,6 +868,7 @@ $("#deleteDocumentBtn").on("click", ()=>{
 
         
     $("#okeDocumentBtn").on("click",function(){
+
         swal({
             title: "اخطار!",
             text: "آیا میخواهید تایید گردد",
@@ -948,6 +969,39 @@ function selectTableTrDocs(element) {
         $("#deleteDocumentBtn").val(input.val());
         $("#docDetailsBtn").val(input.val());
         $("#docDetailsInp").val(input.val());
+        
+
+        $("#printDocumentBtn").prop('disabled',false);
+
+        
+        
+        $("#deleteDocumentBtn").prop('disabled',false);
+        $("#docDetailsBtn").prop('disabled',false);
+        $("#docDetailsInp").prop('disabled',false);
+
+      $.ajax({
+        type: "get",
+        url: baseUrl + "/getDocument",
+        data: {
+            _token: "{{ csrf_token() }}",
+            docID:input.val()
+        },
+        dataType: "json",
+        success: function(respond) {
+            if(respond[0].isOke==0){
+                $("#okeDocumentBtn").prop('disabled',false);
+                $("#rejectDocumentBtn").prop('disabled',false);
+                $("#editDocumentBtn").prop('disabled',false);
+            }else{
+                $("#okeDocumentBtn").prop('disabled',true);
+                $("#rejectDocumentBtn").prop('disabled',true);
+                $("#editDocumentBtn").prop('disabled',true);
+            }
+},
+error:function(){
+
+}});
+        
     
 }
 
@@ -955,6 +1009,32 @@ function selectTableTrDocs(element) {
 $("#adminDetails").on("click", ()=>{ 
     $("#adminDetailsModal").modal("show");
 });
+
+$("#tasviyahToEmbossyBtn").on("click",function(){
+    swal({
+        title: "خطا!",
+        text: "آیا از تسویه مطمیین هستید؟",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method:"get",
+                url:baseUrl+'/tasviyahWithEmbossy',
+                data:{_token:"{{@csrf}}"},
+                async:true,
+                success:function(respond){
+                    window.location.reload();
+                },
+                error:function(error){
+
+                }
+            })
+        }
+      });
+})
 
 
   $(document).ready( function () {

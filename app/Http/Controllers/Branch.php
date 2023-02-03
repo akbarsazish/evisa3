@@ -5,6 +5,7 @@ use DB;
 use Response;
 use Session;
 use Notification;
+use File;
 use App\Notifications\AlertNotification;
 
 class Branch extends Controller{
@@ -133,6 +134,37 @@ class Branch extends Controller{
             $picture->move("resources/assets/images/branches/",$fileName);
         }
         return redirect('/branchList');
+    }
+    public function editOutBranch(Request $request)
+    {
+        $branchID=$request->post("BranchId");
+        $name=$request->post("Name");
+        $code=$request->post("BranchCode");
+        $picture=$request->file("picture");
+        $pictureT=$request->file("tazkiraPicture");
+        $pictureJ=$request->file("jawazPicture");
+        $address=$request->post("Address");
+        $password=$request->post("password");
+        $cellPhone=$request->post("cellPhone");
+        $otherPhone=$request->post("otherPhone");
+        DB::table("outsidebranches")->where("BranchSn",$branchID)->update(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","password"=>"$password"
+        ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone"]);
+
+        $lastBranchSn=DB::table("outsidebranches")->max("BranchSn");
+
+        if($picture){
+            $fileName=$lastBranchSn.'.jpg';
+            $picture->move("resources/assets/images/Outbranches/",$fileName);
+        }
+        if($pictureT){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureT->move("resources/assets/images/Outbranches/tazkira/",$fileName);
+        }
+        if($pictureJ){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureJ->move("resources/assets/images/Outbranches/jawaz/",$fileName);
+        }
+        return redirect('/outbranchList');
     }
     public function deleteBranch(Request $request)
     {
@@ -263,6 +295,11 @@ class Branch extends Controller{
     public function checkBranchUserName(Request $request)
     {
         $countExist=DB::table("branches")->where("username",$request->get("username"))->count();
+        
+        if($countExist>0){
+            return Response::json(1);
+        }
+        $countExist=DB::table("outsidebranches")->where("username",$request->get("username"))->count();
         if($countExist>0){
             return Response::json(1);
         }else{
@@ -356,7 +393,19 @@ class Branch extends Controller{
         DB::table("branches")->insert(["Name"=>"".$outBranch->Name."", "Address"=>"".$outBranch->Address."", "BranchCode"=>"".$outBranch->BranchCode."","username"=>"$outBranch->username","password"=>"$outBranch->password"
         ,"CellPhone"=>"$outBranch->CellPhone","OtherPhone"=>"$outBranch->OtherPhone","BossName"=>"".$outBranch->BossName."","JawazNumber"=>"".$outBranch->JawazNumber.""]);
         DB::table("outsidebranches")->where("BranchSn",$branchId)->delete();
-        $outBranch=DB::table("outsidebranches")->get()[0];
-        return Response::json($outBranch);
+        $lastBranchSn=DB::table("branches")->max('BranchSn');
+        File::move(public_path('resources/assets/images/Outbranches/jawaz/'.$branchId.'.jpg'),public_path('resources/assets/images/branches/jawaz/'.$lastBranchSn.'.jpg'));
+        File::move(public_path('resources/assets/images/Outbranches/tazkira/'.$branchId.'.jpg'), public_path('resources/assets/images/branches/tazkira/'.$lastBranchSn.'.jpg'));
+        File::move(public_path('resources/assets/images/Outbranches/'.$branchId.'.jpg'),public_path('resources/assets/images/branches/users/'.$lastBranchSn.'.jpg'));
+        return Response::json(1);
+    }
+
+    public function moveToTest(Request $request){
+        
+        $lastBranchSn=DB::table("branches")->max('BranchSn');
+        return $lastBranchSn;
+        $lastId=10;
+        File::move(public_path('resources/assets/images/Outbranches/jawaz/'.$lastId.'.jpg'), public_path('resources/assets/images/branches/jawaz/'.$lastId.'.jpg'));
+        return 'good';
     }
 }

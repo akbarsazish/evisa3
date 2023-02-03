@@ -38,7 +38,6 @@
                         <th> تعداد فورمها</th>
                         <th>تعداد فورمهای تایید نشده </th>
                         <th> بدهکار </th>
-                        <th>تسویه شده</th>
                     </tr>
                 </thead>
                 <tbody id="financeListBody">
@@ -49,7 +48,6 @@
                             <td>{{$report->countDocument}}</td>
                             <td>{{$report->countNotOkeDocument}}</td>
                             <td>{{$report->debets}}</td>
-                            <td>درست نشده است</td>
                         </tr>
                     @endforeach
                 </tbody>

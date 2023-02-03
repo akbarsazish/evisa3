@@ -164,12 +164,13 @@ class Documents extends Controller
     public function okeDocument(Request $request)
     {
         $docSn=$request->get("DocSn");
+        $currency=$request->get("currency");
         $moneyAmount=$request->get("docMoney");
         DB::table("document")->where("DocSn",$docSn)->where("isOke",0)->update(["isOke"=>1]);
       //  $uesr=DB::select("select userSn from document where userSn=".$docSn);
        // $Money = DB::select("SELECT Money FROM bonus WHERE TimeStamp=(SELECT max(TimeStamp) FROM Bonus");
        // DB::table("accountHistory")->insert(["UserId"=>$uesr[0]->userSn, "Money"=>$Money[0]->Money, "countDocs"=>1, "isCounted"=>0]);
-       DB::table("centerdocmoney")->insert(["moneyAmount"=>$moneyAmount,"DocSn"=>$docSn]);
+       DB::table("centerdocmoney")->insert(["moneyAmount"=>$moneyAmount,"DocSn"=>$docSn,'currency'=>"$currency"]);
         $documents=DB::select("select *,document.Name as dName,branches.Name as bName,branches.CellPhone as bCellPhone,document.CellPhone as dCellPhone,branches.OtherPhone as bOtherPhone,document.OtherPhone as dOtherPhone,branches.Name as branchName from document join branches on userSn=branchSn order by document.TimeStamp desc");
         return Response::json($documents);
     }

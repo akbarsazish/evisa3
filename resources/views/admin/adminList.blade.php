@@ -9,9 +9,9 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
-                    <button type="button" class="btn btn-sm btn-info" id="adminDetails" > جزئیات کاربر <i class="fa fa-info-circle"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-warning" id="editAdminBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-danger" id="deleteAdminBtn"> حذف <i class="fa fa-trash"></i> </button>
+                    <button type="button" disabled class="btn btn-sm btn-info" id="adminDetails" > جزئیات کاربر <i class="fa fa-info-circle"></i> </button> &nbsp;
+                    <button type="button" disabled class="btn btn-sm btn-warning" id="editAdminBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                    <button type="button" disabled class="btn btn-sm btn-danger" id="deleteAdminBtn" > حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
     <div class="row">

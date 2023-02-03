@@ -152,7 +152,10 @@
                         <div class="counter green">
                             <div class="counter-icon"> <i class="fas fa-usd"></i> </div>
                             <h3> مجموع پول </h3>
-                            <span class="counter-value">{{$allMoneyOfCenter}}</span>
+                            <span class="counter-value">@if($allMoneyOfCenter) @foreach($allMoneyOfCenter as $allMoney)
+                                {{$allMoney->currency.' '.$allMoney->allMoneyOfCenter}} <br/>
+                                @endforeach @else 0 @endif
+                            </span>
                         </div>
                     </div>
               </div>

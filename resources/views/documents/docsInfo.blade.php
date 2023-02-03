@@ -56,7 +56,7 @@
           $lastName = $doc->LastName;
           $dateOfBrith = $doc->BirthDate;
           $province = $doc->province;
-          if($doc->Gender==0){
+          if($doc->Gender==1){
                $sex="آقای";
           }else{
                $sex="خانم";

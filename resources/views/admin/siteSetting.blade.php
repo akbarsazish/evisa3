@@ -8,6 +8,9 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link siteSetting" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> تنظیم اعلانات</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link siteSetting" id="finance-operation" data-bs-toggle="tab" data-bs-target="#financeop-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"> عملیات مالی</button>
+        </li>
     </ul>
     <div class="tab-content accordion" id="myTabContent">
            <div class="tab-pane show active fade accordion-item" id="profile-tab-pane1" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
@@ -107,6 +110,25 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade show accordion-item" id="financeop-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <h2 class="accordion-header d-lg-none" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">  عملیات مالی </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
+                    <div class="accordion-body">
+                        
+                            <div class="row">
+                                    <div class="mb-3">
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-lg-12 mt-3">
+                                <button type="button" class="btn btn-primary" id="tasviyahToEmbossyBtn">تسویه با سفارت<i class="fa fa-money"></i></button>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

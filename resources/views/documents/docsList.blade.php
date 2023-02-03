@@ -19,17 +19,17 @@
             <div class="col-lg-9 text-end">
                 <form action="{{url('/docsDetails')}}" method="get" style="display:inline;">
                     <input type="hidden" id="docDetailsInp" name="docID">
-                <button type="submit" class="btn btn-sm btn-success" id="docDetailsBtn">جزءیات سند<i class="fa fa-check"></i> </button> &nbsp;
+                <button type="submit" class="btn btn-sm btn-success" id="docDetailsBtn" disabled>جزءیات سند<i class="fa fa-check"></i> </button> &nbsp;
                 </form>
 
                 @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                     <!-- <button type="button" class="btn btn-sm btn-info" id="printDocumentBtn"> چاپ <i class="fa fa-print"></i> </button> &nbsp; -->
-                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn"> تایید <i class="fa fa-check"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-success" id="okeDocumentBtn" disabled> تایید <i class="fa fa-check"></i> </button> &nbsp;
 
-                    <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn"> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-dark" id="rejectDocumentBtn" disabled> ردکردن <i class="fa fa-xmark"></i> </button> &nbsp;
                 @endif
-                    <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn"> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                    <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn"> حذف <i class="fa fa-trash"></i> </button>
+                    <button type="button" class="btn btn-sm btn-warning" id="editDocumentBtn" disabled> ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                    <button type="button" class="btn btn-sm btn-danger" id="deleteDocumentBtn" disabled> حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
 
@@ -389,8 +389,13 @@
                 <div class="modal-body">
                     <div class="mb-2">
                         <label for="exampleFormControlInput1" class="form-label"> وارد کردن مقدار پول  </label>
-                        <input type="number" class="form-control" name="docMoney" placeholder="" required min="0">
-                        <input type="text" name="DocSn" id="confirmableDocId">
+                        <input type="number" class="form-control mb-3" name="docMoney" placeholder="" required min="0">
+                        <select name="currency" class="form-select" id="">
+                        <option value="AF">واحد پول</option>
+                        <option value="AF">افغانی</option>
+                        <option value="EURO">یورو</option>
+                        </select>
+                        <input type="hidden" name="DocSn" id="confirmableDocId">
                     </div>
                 </div>
                 <div class="modal-footer">
