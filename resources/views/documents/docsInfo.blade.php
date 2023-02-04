@@ -46,6 +46,10 @@
 #pritnArea{
      display:none;
 }
+.logoImage {
+     display:none;
+}
+
 
 </style>
 
@@ -56,6 +60,8 @@
           $lastName = $doc->LastName;
           $dateOfBrith = $doc->BirthDate;
           $province = $doc->province;
+          $rhgeriCode = $doc->RefCode;
+
           if($doc->Gender==0){
                $sex="آقای";
           }else{
@@ -71,7 +77,15 @@
                <p class="reminder">
                  بدینوسیله گواهی میشود. پاسپورت شماره  {{$passNo}} متعلق به  {{$sex}} {{$docName }} {{$lastName}} متولد {{$dateOfBrith}} ولایت {{$province }} به منظور ارائه به کنسولگری جهت صدور ویزا در اجرای طرح کاهش مراجعین سر کنسولگری جمهوری اسلام ایران - کابل از نامبرده دریافت گردید.  <br>
               </p>
-               <img class="barcodeImage" src="{{url('/resources/assets/images/barcode.gif')}}" alt="بارکد">
+                <?php
+                     echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($rhgeriCode, 'C39+',1,44, array(1,1,1), true) . '" alt="barcode"   />';
+                  
+               ?> 
+
+             <!-- <?php
+               // echo DNS1D::getBarcodeHTML("$docName", 'C39+');
+              ?> -->
+      
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-2 px-0">
@@ -103,10 +117,15 @@
 </div>
 
 
+
+
 <div class="container bg-white mt-2 rounded-2 noPrint">
     <div class="row mt-1">
         <h4 class="title "> جزءیات سند</h4>
     </div>
+    
+
+
       <div class="row mt-2">
             <div class="col-lg-3 ">
                <div class="mb-3">
@@ -164,14 +183,14 @@
                          <span class="item"> تاریخ مراجعه   </span> : {{$doc->referDate}}
                     </div>
                     <div class="branchItem">
-                         <span class="item"> &nbsp; عکس شخص &nbsp; &nbsp; </span> : <img src="{{url('/resources/assets/images/document/person/'.$doc->DocSn.'.jpg')}}" alt=" عکس شخص" class="responsive brancheDetailsImg ">
+                         <span class="item d-block"> &nbsp; عکس شخص &nbsp; &nbsp; </span> : <img src="{{url('/resources/assets/images/document/person/'.$doc->DocSn.'.jpg')}}" alt=" عکس شخص" class="responsive brancheDetailsImg ">
                     </div>
 
                     <div class="branchItem">
-                         <span class="item"> پاسپورت   </span> : <img src="{{url('/resources/assets/images/document/passport/'.$doc->DocSn.'.jpg')}}" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
+                         <span class="item d-block"> پاسپورت   </span> : <img src="{{url('/resources/assets/images/document/passport/'.$doc->DocSn.'.jpg')}}" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
                     </div>
                     <div class="branchItem">
-                         <span class="item">  تذکره  </span> : <img src="{{url('/resources/assets/images/document/tazkira/'.$doc->DocSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
+                         <span class="item d-block">  تذکره  </span> : <img src="{{url('/resources/assets/images/document/tazkira/'.$doc->DocSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
                     </div>
                 </div>
             </div>      

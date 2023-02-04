@@ -27,7 +27,7 @@
                       <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="{{url('/adminDashboard')}}">
-                    <img style="width:122px; height:auto" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive">
+                    <img style="width:122px; height:auto" src="{{url('resources/assets/images/logo.png')}}" alt="logo" class="responsive logoImage">
                 </a>
                 @if(Session::get("userSession"))
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">

@@ -14,9 +14,10 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "milon/barcode": "^9.0",
         "morilog/jalali": "3.*",
-        "pusher/pusher-php-server": "^7.0",
-		"omalizadeh/laravel-multi-payment": "^2.5"
+        "omalizadeh/laravel-multi-payment": "^2.5",
+        "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

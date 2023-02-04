@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         hisorange\BrowserDetect\ServiceProvider::class,
         Ladumor\LaravelPwa\PWAServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -194,6 +195,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'BrowserDetect' => hisorange\BrowserDetect\Facade::class,
         'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         // ...
      ])->toArray(),
     
