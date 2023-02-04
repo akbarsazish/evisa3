@@ -10,7 +10,7 @@ use App\Notifications\AlertNotification;
 
 class Branch extends Controller{
     public function branchList(Request $request){
-        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =branches.BranchSn where branches.deleted=0");
+        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document where isCounted=0  GROUP BY userSn) a on a.userSn =branches.BranchSn where branches.deleted=0");
         // $countAllDocs=DB::table("Docs")->where()->where()->count();
         // $countAllNotOkeDocs=DB::table()->where()->where()->count();
         // $countAllOkeDocs=DB::table()->where()->where()->count();
@@ -192,17 +192,17 @@ class Branch extends Controller{
             $lastTimeEmpty="2022-12-10 20:49:10" ;
         }
         
-        $countAllDocs=DB::table("document")->where("userSn",$branchID)->count();
+        $countAllDocs=DB::table("document")->where("userSn",$branchID)->where("isCounted",0)->count();
         
-        $allMoney_of_Agency=DB::select("select count(DocSn)*".self::getLikeOperators()[2]." as allMoneyAgency from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' group by userSn");
+        $allMoney_of_Agency=DB::select("select count(DocSn)*".self::getLikeOperators()[2]." as allMoneyAgency from document where userSn=".$branchID." and isCounted=0 and TimeStamp>'$lastTimeEmpty' group by userSn");
         if(count($allMoney_of_Agency)>0){
             $allMoneyToGive=$allMoney_of_Agency[0]->allMoneyAgency;
         }else{
             $allMoneyToGive=0;
         }
-        $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->count();
-        $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->count();
-        $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->count();
+        $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->where("isCounted",0)->count();
+        $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->where("isCounted",0)->count();
+        $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->where("isCounted",0)->count();
         $branch=DB::table("branches")->where("BranchSn",$branchID)->get()[0];
         return view("branch.branchInfo",["branch"=>$branch,"countAllDocs"=>$countAllDocs,
         "allMoneyToGive"=>$allMoneyToGive,

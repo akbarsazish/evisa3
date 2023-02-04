@@ -45,9 +45,9 @@
                         <tr class="docsTr">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$report->Name}}</td>
-                            <td>{{$report->countDocument}}</td>
-                            <td>{{$report->countNotOkeDocument}}</td>
-                            <td>{{$report->debets}}</td>
+                            <td>@if($report->countDocument) {{$report->countDocument}} @else 0 @endif</td>
+                            <td>@if($report->countNotOkeDocument) {{$report->countNotOkeDocument}} @else 0 @endif</td>
+                            <td>@if($report->debets) {{$report->debets}} @else 0 @endif اف</td>
                         </tr>
                     @endforeach
                 </tbody>
