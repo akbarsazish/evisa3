@@ -38,7 +38,6 @@
                         <th> تعداد فورمها</th>
                         <th>تعداد فورمهای تایید نشده </th>
                         <th> بدهکار </th>
-                        <th>تسویه شده</th>
                     </tr>
                 </thead>
                 <tbody id="financeListBody">
@@ -46,10 +45,9 @@
                         <tr class="docsTr">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$report->Name}}</td>
-                            <td>{{$report->countDocument}}</td>
-                            <td>{{$report->countNotOkeDocument}}</td>
-                            <td>{{$report->debets}}</td>
-                            <td>درست نشده است</td>
+                            <td>@if($report->countDocument) {{$report->countDocument}} @else 0 @endif</td>
+                            <td>@if($report->countNotOkeDocument) {{$report->countNotOkeDocument}} @else 0 @endif</td>
+                            <td>@if($report->debets) {{$report->debets}} @else 0 @endif اف</td>
                         </tr>
                     @endforeach
                 </tbody>

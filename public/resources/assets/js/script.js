@@ -20,7 +20,18 @@ function selectTableTr(element) {
     $('.select-highlight tr').removeClass('tableTrSelected');
     $(element).addClass('tableTrSelected');
 
-};
+    if ($("#adminDetails")) {
+        $("#adminDetails").prop("disabled", false);
+    }
+    if ($("#editAdminBtn")) {
+        $("#editAdminBtn").prop("disabled", false);
+    }
+    if ($("#deleteAdminBtn")) {
+        $("#deleteAdminBtn").prop("disabled", false);
+    }
+
+}
+
 
 $("#requestBranchBtn").on("click", function () {
     swal({
@@ -581,6 +592,9 @@ function checkUserNameExistance(element) {
                     $("#userExistError").css("display", "none");
                 }
             },
+            error: function (error) {
+                console.log(error)
+            }
         });
     }
 }
@@ -959,6 +973,32 @@ function selectTableTrDocs(element) {
 $("#adminDetails").on("click", () => {
     $("#adminDetailsModal").modal("show");
 });
+
+$("#tasviyahToEmbossyBtn").on("click", function () {
+    swal({
+        title: "خطا!",
+        text: "آیا از تسویه مطمیین هستید؟",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    method: "get",
+                    url: baseUrl + '/tasviyahWithEmbossy',
+                    data: { _token: "{{@csrf}}" },
+                    async: true,
+                    success: function (respond) {
+                        window.location.reload();
+                    },
+                    error: function (error) {
+
+                    }
+                })
+            }
+        });
+})
 
 
 $(document).ready(function () {

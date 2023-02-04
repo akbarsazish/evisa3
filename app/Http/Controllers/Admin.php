@@ -132,12 +132,8 @@ class Admin extends Controller{
 
             
 
-            $allMoneyOfCenter=DB::select("SELECT count(DocSn)*".$moneyOfCenterEach." as allMoneyOfCenter FROM document where isOke=1 and isCounted=0");
-            if(count( $allMoneyOfCenter)>0){
-            $allMoneyOfCenter=$allMoneyOfCenter[0]->allMoneyOfCenter;
-            }else{
-                $allMoneyOfCenter=0;
-            }
+            $allMoneyOfCenter=DB::select("SELECT sum(moneyAmount) as allMoneyOfCenter,currency FROM centerdocmoney where isCounted=0 group by currency");
+
         
         }
         return view("admin.dashboard",['elan'=>$elanat[0],
@@ -279,6 +275,7 @@ class Admin extends Controller{
 
     $adminExist=DB::table("admin")->where("UserName",$request->post("username"))->where("Password",$request->post("password"))->where("deleted",0)->count();
     if($adminExist>0){
+        
         $admin=DB::table("admin")->where("UserName",$request->post("username"))->get();
         if($admin[0]->AdminType==1){
             Session::put("userSession",1);
@@ -337,6 +334,11 @@ class Admin extends Controller{
         }else{
             return Response::json(0);
         }
+    }
+    public function tasviyahWithEmbossy(Request $request)
+    {
+        DB::table("centerdocmoney")->where("isCounted",0)->update(["isCounted"=>1]);
+        return Response::json(1);
     }
 
 }

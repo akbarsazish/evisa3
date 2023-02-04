@@ -38,14 +38,14 @@
                         </span>
                     </div>
                     <div class="branchItem">
-                         <span class="item"> &nbsp; سکن جواز  &nbsp; &nbsp; </span> : <img src="{{url('/resources/assets/images/branches/jawaz/'.$branch->BranchSn.'.jpg')}}" alt="سکن جواز" class="responsive brancheDetailsImg ">
+                         <span class="item"> &nbsp; سکن جواز  &nbsp; &nbsp; </span> : <img src="{{url('/resources/assets/images/Outbranches/jawaz/'.$branch->BranchSn.'.jpg')}}" alt="سکن جواز" class="responsive brancheDetailsImg ">
                     </div>
 
                     <div class="branchItem">
-                         <span class="item"> پاسپورت یا تذکره شخص ثبت نام کننده </span> : <img src="{{url('/resources/assets/images/branches/tazkira/'.$branch->BranchSn.'.jpg')}}" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
+                         <span class="item"> پاسپورت یا تذکره شخص ثبت نام کننده </span> : <img src="{{url('/resources/assets/images/Outbranches/tazkira/'.$branch->BranchSn.'.jpg')}}" alt=" پاسپورت یا تذکره" class="responsive brancheDetailsImg ">
                     </div>
                     <div class="branchItem">
-                         <span class="item"> عکس فرد یا لوگوی شرکت </span> : <img src="{{url('/resources/assets/images/branches/users/'.$branch->BranchSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
+                         <span class="item"> عکس فرد یا لوگوی شرکت </span> : <img src="{{url('/resources/assets/images/Outbranches/'.$branch->BranchSn.'.jpg')}}" alt=" عکس یا لوگو " class="responsive brancheDetailsImg ">
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ class Finance extends Controller
     $moneyEach=(new Branch)->getLikeOperators()[2];
     $report=DB::select("SELECT *,countDocument*$moneyEach as debets from(
       SELECT * from(
-            SELECT UserSn,count(DocSn) as countDocument FROM document GROUP BY UserSn)a
+            SELECT UserSn,count(DocSn) as countDocument FROM document where isCounted=0 GROUP BY UserSn)a
             RIGHT join branches on a.UserSn=branches.BranchSn)b
              left join (
       SELECT UserSn,count(DocSn) as countNotOkeDocument FROM document where  isOke=0 GROUP BY UserSn)c 

@@ -5,7 +5,7 @@ use Session;
 use Closure;
 use Illuminate\Http\Request;
 
-class ChecUser
+class CheckUserAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class ChecUser
      */
     public function handle(Request $request, Closure $next)
     {   
-        if(Session::get('userSession')){
+        if(Session::get('userSession')==1 or Session::get('userSession')==2 or Session::get('userSession')=="branch"){
             return $next($request);
         
         }else{

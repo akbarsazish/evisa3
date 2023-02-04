@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">ذخیره <i class="fa fa-save"></i></button>
+                <button type="submit" class="btn btn-primary" id="SaveSubmitOut">ذخیره <i class="fa fa-save"></i></button>
             </form>
         </div>
     </div>

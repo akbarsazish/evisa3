@@ -55,7 +55,7 @@
                                 <td>{{$branch->BranchCode}}</td>
                                 <td>{{$branch->doLike}}</td>
                                 <td>{{$branch->disLike}}</td>
-                                <td>{{$branch->countDoc}}</td>
+                                <td>@if($branch->countDoc){{$branch->countDoc}} @else 0 @endif</td>
                                 <td>
                                     <span class="form-check">
                                         <input class="form-check-input " type="radio" name="branchId" id="" value="{{$branch->BranchSn}}">

@@ -63,11 +63,12 @@
           $rhgeriCode = $doc->RefCode;
 
           if($doc->Gender==0){
+          if($doc->Gender==1){
                $sex="آقای";
           }else{
                $sex="خانم";
           }
-          
+     }
           $ldate = date('Y-m-d   H:i:s');
      
      ?>

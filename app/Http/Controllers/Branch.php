@@ -5,11 +5,12 @@ use DB;
 use Response;
 use Session;
 use Notification;
+use File;
 use App\Notifications\AlertNotification;
 
 class Branch extends Controller{
     public function branchList(Request $request){
-        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document GROUP BY userSn) a on a.userSn =branches.BranchSn where branches.deleted=0");
+        $branches=DB::select("select *,countDoc from branches left join (select count(document.DocSn) as countDoc,userSn from document where isCounted=0  GROUP BY userSn) a on a.userSn =branches.BranchSn where branches.deleted=0");
         // $countAllDocs=DB::table("Docs")->where()->where()->count();
         // $countAllNotOkeDocs=DB::table()->where()->where()->count();
         // $countAllOkeDocs=DB::table()->where()->where()->count();
@@ -134,6 +135,37 @@ class Branch extends Controller{
         }
         return redirect('/branchList');
     }
+    public function editOutBranch(Request $request)
+    {
+        $branchID=$request->post("BranchId");
+        $name=$request->post("Name");
+        $code=$request->post("BranchCode");
+        $picture=$request->file("picture");
+        $pictureT=$request->file("tazkiraPicture");
+        $pictureJ=$request->file("jawazPicture");
+        $address=$request->post("Address");
+        $password=$request->post("password");
+        $cellPhone=$request->post("cellPhone");
+        $otherPhone=$request->post("otherPhone");
+        DB::table("outsidebranches")->where("BranchSn",$branchID)->update(["Name"=>"".$name."", "Address"=>"".$address."", "BranchCode"=>"".$code."","password"=>"$password"
+        ,"CellPhone"=>"$cellPhone","OtherPhone"=>"$otherPhone"]);
+
+        $lastBranchSn=DB::table("outsidebranches")->max("BranchSn");
+
+        if($picture){
+            $fileName=$lastBranchSn.'.jpg';
+            $picture->move("resources/assets/images/Outbranches/",$fileName);
+        }
+        if($pictureT){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureT->move("resources/assets/images/Outbranches/tazkira/",$fileName);
+        }
+        if($pictureJ){
+            $fileName=$lastBranchSn.'.jpg';
+            $pictureJ->move("resources/assets/images/Outbranches/jawaz/",$fileName);
+        }
+        return redirect('/outbranchList');
+    }
     public function deleteBranch(Request $request)
     {
         $branchID=$request->get("BranchID");
@@ -160,17 +192,17 @@ class Branch extends Controller{
             $lastTimeEmpty="2022-12-10 20:49:10" ;
         }
         
-        $countAllDocs=DB::table("document")->where("userSn",$branchID)->count();
+        $countAllDocs=DB::table("document")->where("userSn",$branchID)->where("isCounted",0)->count();
         
-        $allMoney_of_Agency=DB::select("select count(DocSn)*".self::getLikeOperators()[2]." as allMoneyAgency from document where userSn=".$branchID." and TimeStamp>'$lastTimeEmpty' group by userSn");
+        $allMoney_of_Agency=DB::select("select count(DocSn)*".self::getLikeOperators()[2]." as allMoneyAgency from document where userSn=".$branchID." and isCounted=0 and TimeStamp>'$lastTimeEmpty' group by userSn");
         if(count($allMoney_of_Agency)>0){
             $allMoneyToGive=$allMoney_of_Agency[0]->allMoneyAgency;
         }else{
             $allMoneyToGive=0;
         }
-        $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->count();
-        $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->count();
-        $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->count();
+        $countAllNotOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",2)->where("isCounted",0)->count();
+        $countAllOkeDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",1)->where("isCounted",0)->count();
+        $countAllNewDocs=DB::table("document")->where("userSn",$branchID)->where("isOke",0)->where("isCounted",0)->count();
         $branch=DB::table("branches")->where("BranchSn",$branchID)->get()[0];
         return view("branch.branchInfo",["branch"=>$branch,"countAllDocs"=>$countAllDocs,
         "allMoneyToGive"=>$allMoneyToGive,
@@ -263,6 +295,11 @@ class Branch extends Controller{
     public function checkBranchUserName(Request $request)
     {
         $countExist=DB::table("branches")->where("username",$request->get("username"))->count();
+        
+        if($countExist>0){
+            return Response::json(1);
+        }
+        $countExist=DB::table("outsidebranches")->where("username",$request->get("username"))->count();
         if($countExist>0){
             return Response::json(1);
         }else{
@@ -356,7 +393,19 @@ class Branch extends Controller{
         DB::table("branches")->insert(["Name"=>"".$outBranch->Name."", "Address"=>"".$outBranch->Address."", "BranchCode"=>"".$outBranch->BranchCode."","username"=>"$outBranch->username","password"=>"$outBranch->password"
         ,"CellPhone"=>"$outBranch->CellPhone","OtherPhone"=>"$outBranch->OtherPhone","BossName"=>"".$outBranch->BossName."","JawazNumber"=>"".$outBranch->JawazNumber.""]);
         DB::table("outsidebranches")->where("BranchSn",$branchId)->delete();
-        $outBranch=DB::table("outsidebranches")->get()[0];
-        return Response::json($outBranch);
+        $lastBranchSn=DB::table("branches")->max('BranchSn');
+        File::move(public_path('resources/assets/images/Outbranches/jawaz/'.$branchId.'.jpg'),public_path('resources/assets/images/branches/jawaz/'.$lastBranchSn.'.jpg'));
+        File::move(public_path('resources/assets/images/Outbranches/tazkira/'.$branchId.'.jpg'), public_path('resources/assets/images/branches/tazkira/'.$lastBranchSn.'.jpg'));
+        File::move(public_path('resources/assets/images/Outbranches/'.$branchId.'.jpg'),public_path('resources/assets/images/branches/users/'.$lastBranchSn.'.jpg'));
+        return Response::json(1);
+    }
+
+    public function moveToTest(Request $request){
+        
+        $lastBranchSn=DB::table("branches")->max('BranchSn');
+        return $lastBranchSn;
+        $lastId=10;
+        File::move(public_path('resources/assets/images/Outbranches/jawaz/'.$lastId.'.jpg'), public_path('resources/assets/images/branches/jawaz/'.$lastId.'.jpg'));
+        return 'good';
     }
 }
