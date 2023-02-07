@@ -33,7 +33,7 @@
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
                             <li class="nav-item" id="adminDashboardHome">
-                                <a class="nav-link px-1" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه نخست  </a>
+                                <a class="nav-link px-1" aria-current="page" href="{{url('adminDashboard')}}"> <i class="fa fa-home fa-lg"></i> صفحه اصلی   </a>
                             </li>
                             @if(Session::get("userSession")=="branch")
                             <li class="nav-item" id="adminDashboardForm">
@@ -62,7 +62,7 @@
                             @endif
                             @if(Session::get("userSession")==1 or Session::get("userSession")==2)
                             <li class="nav-item" id="branchList">
-                                <a class="nav-link px-1" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شرکت ها </a>
+                                <a class="nav-link px-1" href="{{url('branchList')}}" > <i class="fa fa-list-ol fa-lg" aria-hidden="true"></i> لیست شرکتها </a>
                             </li>
                             @endif
                             @if(Session::get("userSession")==1 or Session::get("userSession")==2)
@@ -75,7 +75,7 @@
                                 <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربران  </a>
                             </li>
                             <li class="nav-item" id="outbranchList">
-                                <a class="nav-link px-1" href="{{url('outbranchList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i> شرکت های تایید نشده </a>
+                                <a class="nav-link px-1" href="{{url('outbranchList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i> شرکتهای تایید نشده </a>
                             </li>
                             @endif
                     </ul>
