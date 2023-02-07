@@ -5,6 +5,8 @@ var myVar;
 function selectTableTr(element) {
     let input = $(element).find('input:radio').prop("checked", true);
 
+    var adminDetailsId = $("#adminDetails").val(input.val());
+
     if ($("#selectedDocID")) {
         $("#selectedDocID").val($(input).val());
     }
@@ -291,6 +293,7 @@ $("#okeOutBranchBtn").on("click", () => {
 });
 
 $("#editAdminBtn").on("click", () => {
+
     $.ajax({
         type: "get",
         url: baseUrl + "/getAdmin",
@@ -971,8 +974,33 @@ function selectTableTrDocs(element) {
 
 
 $("#adminDetails").on("click", () => {
-    $("#adminDetailsModal").modal("show");
+    $.ajax({
+        type: "get",
+        url: baseUrl + "/karbarDetails",
+        data: {
+            _token: "{{ @csrf }}",
+            karbarId: $("#adminDetails").val()
+        },
+        async: true,
+        success: function (resp) {
+            console.log(resp)
+            $("#name").text(resp[0].Name);
+            $("#userName").text(resp[0].UserName);
+            $("#contactNo").text(resp[0].CellPhone);
+            $("#contactNo2").text(resp[0].OtherPhone);
+            $("#userType").text(resp[0].adminType);
+            $("#address").text(resp[0].Address);
+            $("#adminDetailsModal").modal("show");
+        },
+        error: function (error) {
+            alert("somethings went to wrong")
+        }
+    });
+
+
+
 });
+
 
 $("#tasviyahToEmbossyBtn").on("click", function () {
     swal({

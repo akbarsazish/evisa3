@@ -177,6 +177,14 @@ class Admin extends Controller{
         $admins=DB::table("admin")->where("deleted",0)->get();
         return view("admin.adminList",["admins"=>$admins]);
     }
+
+    public function karbarDetails(Request $request){
+        $karbarId=$request->get("karbarId");
+        $adminsDetails=DB::table("admin")->where("AdminSn",$karbarId)->get();
+        return Response::json($adminsDetails);
+    }
+
+
     public function addAdmin(Request $request)
     {
         $adminExist=DB::table("admin")->where("UserName",$request->post("username"))->count();

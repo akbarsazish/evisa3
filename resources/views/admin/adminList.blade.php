@@ -9,9 +9,9 @@
                 </div>
             </div>
             <div class="col-lg-9 text-end">
-                    <button type="button" disabled class="btn btn-sm btn-info" id="adminDetails" > جزئیات کاربر <i class="fa fa-info-circle"></i> </button> &nbsp;
-                    <button type="button" disabled class="btn btn-sm btn-warning" id="editAdminBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
-                    <button type="button" disabled class="btn btn-sm btn-danger" id="deleteAdminBtn" > حذف <i class="fa fa-trash"></i> </button>
+                <button type="button" disabled class="btn btn-sm btn-info" id="adminDetails" > جزئیات کاربر <i class="fa fa-info-circle"></i> </button> &nbsp;
+                <button type="button" disabled class="btn btn-sm btn-warning" id="editAdminBtn" > ویرایش <i class="fa fa-edit"></i> </button> &nbsp;
+                <button type="button" disabled class="btn btn-sm btn-danger" id="deleteAdminBtn" > حذف <i class="fa fa-trash"></i> </button>
             </div>
         </div>
     <div class="row">
@@ -49,9 +49,9 @@
                             <td>{{$adminType}}</td>
                             <td>{{$admin->Address}}</td>
                             <td>
-                                <span class="form-check">
-                                    <input class="form-check-input " type="radio" name="adminId" id="" value="{{$admin->AdminSn}}">
-                                </span>
+                            <span class="form-check">
+                                <input class="form-check-input" type="radio" name="adminId" id="" value="{{$admin->AdminSn}}">
+                            </span>
                             </td>
                         </tr>
                     @endforeach
@@ -60,6 +60,7 @@
         </div>
     </div>
  </div>
+ 
 
  
     
@@ -166,10 +167,10 @@
                         <div class="text-center card-box">
                             <div class="member-card pt-2 pb-2">
                                     <div class="thumb-lg member-thumb mx-auto">
-                                        <img class="brancheDetailsImg rounded-circle" width="66px" height="66px" src="{{url('/resources/assets/images/branches/'.Session::get('userId').'.jpg')}}" alt="پروفایل">
+                                        <img class="img-responsive rounded-circle" width="44px" height="44px" src="{{url('/resources/assets/images/admins/'.Session::get('userId').'.jpg')}}" alt="پروفایل"> 
                                     </div>
                                     <div class="my-2">
-                                        <h6> {{ Session::get('name') }} </h6>
+                                        <h6 id="name">  </h6>
                                     </div>
                               </div>
                         </div>
@@ -177,23 +178,26 @@
                     <div class="col-lg-9 col-md-9 col-sm-12">
                             <div class="userDetails">
                                     <div class="userDetailsItem">
-                                           <span class="item"> نام  </span> : علی  
+                                        <span class="item"> نام  </span> : <span id="name"> </span>   
                                     </div>
                                     <div class="userDetailsItem">
-                                           <span class="item"> نام خانوادگی  </span> : احمدیان
+                                           <span class="item"> نام خانوادگی  </span> : <span id="family"> </span>
                                     </div>
 
                                     <div class="userDetailsItem">
-                                           <span class="item"> نام  کاربری  </span> : aliAhmadian
+                                           <span class="item"> نام  کاربری  </span> : <span id="userName"> </span>
                                     </div>  
                                     <div class="userDetailsItem">
-                                           <span class="item">   شماره تماس </span> : 0706909063
+                                           <span class="item">   شماره تماس </span> : <span id="contactNo"> </span>
                                     </div>
                                     <div class="userDetailsItem">
-                                            <span class="item"> شماره تماس 2 </span> : 0706909063
+                                            <span class="item"> شماره تماس 2 </span> : <span id="contactNo2"> </span>
                                     </div>
                                     <div class="userDetailsItem">
-                                            <span class="item">  نوع کاربر </span> : admin
+                                            <span class="item">  نوع کاربر </span> : <span id="userType"> </span>
+                                    </div> 
+                                    <div class="userDetailsItem">
+                                            <span class="item">  آدرس </span> : <span id="address"> </span>
                                     </div> 
                             </div>
                     </div>

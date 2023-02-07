@@ -59,7 +59,7 @@
                             @if($doc->isOke ==2) style="background-color:#c1c1c1!important;" @endif
                             @if($doc->isOke ==1) style="background-color:#95bde5!important;" @endif
                        onclick="selectTableTrDocs(this)">
-                            <th  >{{$loop->iteration}}</th>
+                            <th >{{$loop->iteration}}</th>
                             <td>{{$doc->dName}} {{$doc->LastName}}</td>
                             <td>{{$doc->BirthDate}}</td>
                             <td>{{$doc->visaType}}</td>

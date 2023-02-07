@@ -74,7 +74,7 @@
                             <li class="nav-item" id="adminList">
                                 <a class="nav-link px-1" href="{{url('adminList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i>  لیست کاربران  </a>
                             </li>
-                            <li class="nav-item" id="outBranchList">
+                            <li class="nav-item" id="outbranchList">
                                 <a class="nav-link px-1" href="{{url('outbranchList')}}" > <i class="fa fa-list fa-lg" aria-hidden="true"></i> شرکت های تایید نشده </a>
                             </li>
                             @endif
@@ -127,6 +127,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/registrationForm') {
 		$("#adminDashboardForm").addClass("activeLinks");
@@ -138,6 +139,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/adminDashboardFinance') {
 		$("#adminDashboardFinace").addClass("activeLinks");
@@ -149,6 +151,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/siteSetting') {
 		$("#siteSetting").addClass("activeLinks");
@@ -160,6 +163,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/addingBranch') {
 		$("#addingBranch").addClass("activeLinks");
@@ -171,6 +175,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/branchList') {
 		$("#branchList").addClass("activeLinks");
@@ -182,6 +187,7 @@
         $("#addingAdmin").removeClass("activeLinks");
         $("#adminList").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/addingAdmin') {
 		$("#addingAdmin").addClass("activeLinks");
@@ -192,6 +198,7 @@
         $("#adminDashboardHome").removeClass("activeLinks");
         $("#siteSetting").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/adminList') {
 		$("#adminList").addClass("activeLinks");
@@ -203,9 +210,22 @@
         $("#siteSetting").removeClass("activeLinks");
         $("#addingAdmin").removeClass("activeLinks");
         $("#docsList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
 	}
     if (currentUrl == '\/docsList') {
 		$("#docsList").addClass("activeLinks");
+		$("#branchList").removeClass("activeLinks");
+		$("#addingBranch").removeClass("activeLinks");
+		$("#adminDashboardFinace").removeClass("activeLinks");
+        $("#adminDashboardForm").removeClass("activeLinks");
+        $("#adminDashboardHome").removeClass("activeLinks");
+        $("#siteSetting").removeClass("activeLinks");
+        $("#addingAdmin").removeClass("activeLinks");
+        $("#adminList").removeClass("activeLinks");
+        $("#outbranchList").removeClass("activeLinks");
+	}
+    if (currentUrl == '\/outbranchList') {
+		$("#outbranchList").addClass("activeLinks");
 		$("#branchList").removeClass("activeLinks");
 		$("#addingBranch").removeClass("activeLinks");
 		$("#adminDashboardFinace").removeClass("activeLinks");

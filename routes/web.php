@@ -47,6 +47,9 @@ Route::get('/logout',[Admin::class,'logout']);
 
         Route::get('/adminList',[Admin::class,'adminList'])->middleware('checkAdmin');
 
+        Route::get('/karbarDetails',[Admin::class,'karbarDetails']);
+
+
         Route::post('/addAdmin',[Admin::class,'addAdmin'])->middleware('checkAdmin');
 
         Route::get('/getAdmin',[Admin::class,'getAdmin'])->middleware('checkAdmin');
